@@ -8,9 +8,20 @@ import { H1, H2, Body } from '@/src/components/Typography';
 import Card from '@/src/components/Card';
 import { ButtonLink } from '@/src/components/ButtonLink';
 import { pickUnifiPlaceholder } from '@/src/content/unifiAssets';
+import { submitLeadForm } from '@/src/lib/leadForms';
 
 export default function EnergySurveyPage() {
   const heroImage = pickUnifiPlaceholder('hero', 'energy-survey');
+  const initialForm = {
+    name: '',
+    email: '',
+    phone: '',
+    organisation: '',
+    postcode: '',
+    buildings: '',
+    message: '',
+    website: '',
+  };
   const [form, setForm] = React.useState({
     name: '',
     email: '',
@@ -19,8 +30,25 @@ export default function EnergySurveyPage() {
     postcode: '',
     buildings: '',
     message: '',
-    company: '', // honeypot
+    website: '',
   });
+  const [submissionStatus, setSubmissionStatus] = React.useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = React.useState('');
+
+  async function handleSurveySubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setSubmissionStatus('loading');
+    setErrorMessage('');
+
+    try {
+      await submitLeadForm('energy_survey', form);
+      setForm(initialForm);
+      setSubmissionStatus('success');
+    } catch (error) {
+      setErrorMessage(error instanceof Error ? error.message : 'Unable to submit the form right now.');
+      setSubmissionStatus('error');
+    }
+  }
 
   return (
     <main className="min-h-screen">
@@ -62,42 +90,23 @@ export default function EnergySurveyPage() {
 
               <form
                 className="mt-6 grid md:grid-cols-2 gap-4"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  if (form.company.trim()) return;
-
-                  const subject = 'Energy Survey Request';
-                  const body =
-                    `Name: ${form.name}\n` +
-                    `Email: ${form.email}\n` +
-                    `Phone: ${form.phone}\n` +
-                    `Organisation: ${form.organisation}\n` +
-                    `Postcode: ${form.postcode}\n` +
-                    `Number of buildings: ${form.buildings}\n\n` +
-                    `Message:\n${form.message}`;
-
-                  window.location.href =
-                    'mailto:info@unifi.id?subject=' +
-                    encodeURIComponent(subject) +
-                    '&body=' +
-                    encodeURIComponent(body);
-                }}
+                onSubmit={handleSurveySubmit}
               >
                 {/* Honeypot */}
                 <div className="hidden" aria-hidden="true">
-                  <label className="block text-sm font-medium text-gray-700">Company</label>
+                  <label className="block text-sm font-medium text-gray-700">Website</label>
                   <input
                     type="text"
                     tabIndex={-1}
                     autoComplete="off"
-                    value={form.company}
-                    onChange={(e) => setForm((p) => ({ ...p, company: e.target.value }))}
+                    value={form.website}
+                    onChange={(e) => setForm((p) => ({ ...p, website: e.target.value }))}
                     className="mt-1 w-full rounded-lg border border-gray-200 px-4 py-3"
                   />
                 </div>
 
-                <Field label="Your name" value={form.name} onChange={(v) => setForm((p) => ({ ...p, name: v }))} />
-                <Field label="Your email" type="email" value={form.email} onChange={(v) => setForm((p) => ({ ...p, email: v }))} />
+                <Field label="Your name" required value={form.name} onChange={(v) => setForm((p) => ({ ...p, name: v }))} />
+                <Field label="Your email" required type="email" value={form.email} onChange={(v) => setForm((p) => ({ ...p, email: v }))} />
                 <Field label="Phone" value={form.phone} onChange={(v) => setForm((p) => ({ ...p, phone: v }))} />
                 <Field label="Organisation" value={form.organisation} onChange={(v) => setForm((p) => ({ ...p, organisation: v }))} />
                 <Field label="Postcode" value={form.postcode} onChange={(v) => setForm((p) => ({ ...p, postcode: v }))} />
@@ -114,12 +123,25 @@ export default function EnergySurveyPage() {
                   />
                 </div>
 
+                {submissionStatus === 'success' ? (
+                  <div className="md:col-span-2 rounded-md border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-900">
+                    Thanks, your survey request has been sent.
+                  </div>
+                ) : null}
+
+                {submissionStatus === 'error' ? (
+                  <div className="md:col-span-2 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-900">
+                    {errorMessage}
+                  </div>
+                ) : null}
+
                 <div className="md:col-span-2 flex flex-wrap gap-3 pt-2">
                   <button
                     type="submit"
+                    disabled={submissionStatus === 'loading'}
                     className="px-8 py-3 rounded-full bg-unifi-dark text-white font-semibold hover:bg-black transition-colors"
                   >
-                    Submit survey request
+                    {submissionStatus === 'loading' ? 'Submitting...' : 'Submit survey request'}
                   </button>
                   <ButtonLink href="/energy/contact" variant="secondary">
                     Back to Energy
@@ -149,17 +171,20 @@ function Field({
   value,
   onChange,
   type = 'text',
+  required = false,
 }: {
   label: string;
   value: string;
   onChange: (v: string) => void;
   type?: string;
+  required?: boolean;
 }) {
   return (
     <div>
       <label className="block text-sm font-medium text-gray-700">{label}</label>
       <input
         type={type}
+        required={required}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className="mt-1 w-full rounded-lg border border-gray-200 px-4 py-3"

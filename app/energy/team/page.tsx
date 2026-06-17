@@ -8,16 +8,41 @@ import { H1, H2, Body } from '@/src/components/Typography';
 import Card from '@/src/components/Card';
 import { ButtonLink } from '@/src/components/ButtonLink';
 import { pickUnifiPlaceholder } from '@/src/content/unifiAssets';
+import { submitLeadForm } from '@/src/lib/leadForms';
 
 export default function EnergyTeamContactPage() {
   const heroImage = pickUnifiPlaceholder('hero', 'energy-team');
+  const initialForm = {
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+    website: '',
+  };
   const [form, setForm] = React.useState({
     name: '',
     email: '',
     subject: '',
     message: '',
-    company: '', // honeypot
+    website: '',
   });
+  const [submissionStatus, setSubmissionStatus] = React.useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = React.useState('');
+
+  async function handleEnergyContactSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setSubmissionStatus('loading');
+    setErrorMessage('');
+
+    try {
+      await submitLeadForm('energy_contact', form);
+      setForm(initialForm);
+      setSubmissionStatus('success');
+    } catch (error) {
+      setErrorMessage(error instanceof Error ? error.message : 'Unable to submit the form right now.');
+      setSubmissionStatus('error');
+    }
+  }
 
   return (
     <main className="min-h-screen">
@@ -57,40 +82,29 @@ export default function EnergyTeamContactPage() {
 
               <form
                 className="mt-6 grid md:grid-cols-2 gap-4"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  if (form.company.trim()) return;
-
-                  const subject = form.subject || 'Energy team enquiry';
-                  const body = `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`;
-
-                  window.location.href =
-                    'mailto:info@unifi.id?subject=' +
-                    encodeURIComponent('[Energy] ' + subject) +
-                    '&body=' +
-                    encodeURIComponent(body);
-                }}
+                onSubmit={handleEnergyContactSubmit}
               >
                 {/* Honeypot */}
                 <div className="hidden" aria-hidden="true">
-                  <label className="block text-sm font-medium text-gray-700">Company</label>
+                  <label className="block text-sm font-medium text-gray-700">Website</label>
                   <input
                     type="text"
                     tabIndex={-1}
                     autoComplete="off"
-                    value={form.company}
-                    onChange={(e) => setForm((p) => ({ ...p, company: e.target.value }))}
+                    value={form.website}
+                    onChange={(e) => setForm((p) => ({ ...p, website: e.target.value }))}
                     className="mt-1 w-full rounded-lg border border-gray-200 px-4 py-3"
                   />
                 </div>
 
-                <Field label="Your name" value={form.name} onChange={(v) => setForm((p) => ({ ...p, name: v }))} />
-                <Field label="Your email" type="email" value={form.email} onChange={(v) => setForm((p) => ({ ...p, email: v }))} />
+                <Field label="Your name" required value={form.name} onChange={(v) => setForm((p) => ({ ...p, name: v }))} />
+                <Field label="Your email" required type="email" value={form.email} onChange={(v) => setForm((p) => ({ ...p, email: v }))} />
                 <Field label="Subject" value={form.subject} onChange={(v) => setForm((p) => ({ ...p, subject: v }))} />
 
                 <div className="md:col-span-2">
                   <label className="block text-sm font-medium text-gray-700">Message</label>
                   <textarea
+                    required
                     value={form.message}
                     onChange={(e) => setForm((p) => ({ ...p, message: e.target.value }))}
                     rows={6}
@@ -98,12 +112,25 @@ export default function EnergyTeamContactPage() {
                   />
                 </div>
 
+                {submissionStatus === 'success' ? (
+                  <div className="md:col-span-2 rounded-md border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-900">
+                    Thanks, your message has been sent to the energy team.
+                  </div>
+                ) : null}
+
+                {submissionStatus === 'error' ? (
+                  <div className="md:col-span-2 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-900">
+                    {errorMessage}
+                  </div>
+                ) : null}
+
                 <div className="md:col-span-2 flex flex-wrap gap-3 pt-2">
                   <button
                     type="submit"
+                    disabled={submissionStatus === 'loading'}
                     className="px-8 py-3 rounded-full bg-unifi-dark text-white font-semibold hover:bg-black transition-colors"
                   >
-                    Send message
+                    {submissionStatus === 'loading' ? 'Submitting...' : 'Send message'}
                   </button>
                   <ButtonLink href="/energy/contact" variant="secondary">
                     Back to Energy
@@ -133,17 +160,20 @@ function Field({
   value,
   onChange,
   type = 'text',
+  required = false,
 }: {
   label: string;
   value: string;
   onChange: (v: string) => void;
   type?: string;
+  required?: boolean;
 }) {
   return (
     <div>
       <label className="block text-sm font-medium text-gray-700">{label}</label>
       <input
         type={type}
+        required={required}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className="mt-1 w-full rounded-lg border border-gray-200 px-4 py-3"

@@ -1,15 +1,39 @@
 'use client';
 
-import { useState } from 'react';
+import { type FormEvent, useState } from 'react';
 import { H1, H2 } from "@/src/components/Typography";
 import { Section } from "@/src/components/Section";
 import { ButtonLink } from "@/src/components/ButtonLink";
 import { SEO } from '@/src/components/SEO';
 import Image from 'next/image';
 import { pickUnifiPlaceholder } from '@/src/content/unifiAssets';
+import { submitLeadForm } from '@/src/lib/leadForms';
 
 export default function BookDemoPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setErrorMessage('');
+
+    const form = e.currentTarget;
+    const data = Object.fromEntries(
+      Array.from(new FormData(form).entries()).map(([key, value]) => [key, String(value)]),
+    );
+
+    try {
+      await submitLeadForm('demo', data);
+      form.reset();
+      setSubmitted(true);
+    } catch (error) {
+      setErrorMessage(error instanceof Error ? error.message : 'Unable to submit the form right now.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
 
   return (
     <main className="min-h-screen">
@@ -57,11 +81,13 @@ export default function BookDemoPage() {
             ) : (
               <form
                 className="space-y-5"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  setSubmitted(true);
-                }}
+                onSubmit={handleSubmit}
               >
+                <div className="hidden" aria-hidden="true">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Website</label>
+                  <input name="website" type="text" tabIndex={-1} autoComplete="off" />
+                </div>
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Full name</label>
                   <input
@@ -114,12 +140,19 @@ export default function BookDemoPage() {
                   />
                 </div>
 
+                {errorMessage ? (
+                  <div className="rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-900">
+                    {errorMessage}
+                  </div>
+                ) : null}
+
                 <div className="flex flex-col sm:flex-row gap-3">
                   <button
                     type="submit"
-                    className="inline-flex justify-center rounded-md bg-primary px-6 py-3 text-white font-semibold hover:opacity-90 transition"
+                    disabled={isSubmitting}
+                    className="inline-flex items-center justify-center rounded-sm bg-unifi-dark px-8 py-4 text-center text-lg font-medium text-white transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:bg-black hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 disabled:hover:shadow-none"
                   >
-                    Submit request
+                    {isSubmitting ? 'Submitting...' : 'Submit request'}
                   </button>
 
                   <ButtonLink href="/contact" variant="secondary" className="justify-center">

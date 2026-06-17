@@ -4,6 +4,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
+    "dev:web": "next dev",
+    "dev:leads": "node server/index.js",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -17,6 +19,7 @@
     "@types/node": "^25.0.10",
     "@types/react": "^19.2.9",
     "@types/react-dom": "^19.2.3",
+    "express": "^5.2.1",
     "framer-motion": "^12.29.2",
     "lucide-react": "^0.563.0",
     "next": "^16.1.4",

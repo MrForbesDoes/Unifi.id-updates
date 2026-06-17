@@ -27,7 +27,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script type="text/javascript" src="https://secure.leadforensics.com/js/52873.js"></script>
+      </head>
       <body className={`${ubuntu.variable} ${montserrat.variable} font-sans flex flex-col min-h-screen`}>
+        <noscript>
+          <img alt="" src="https://secure.leadforensics.com/52873.png" style={{ display: 'none' }} />
+        </noscript>
         <MotionProvider>
           <Header />
           <main className="flex-1">{children}</main>

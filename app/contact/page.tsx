@@ -8,9 +8,27 @@ import { CheckCircle2, Users, TrendingUp, PlugZap } from "lucide-react";
 import { SEO } from '@/src/components/SEO';
 import Image from 'next/image';
 import { pickUnifiPlaceholder } from '@/src/content/unifiAssets';
+import { submitLeadForm } from '@/src/lib/leadForms';
 
 export default function ContactPage() {
-  const [form, setForm] = React.useState({ name: '', email: '', subject: '', message: '', company: '' });
+  const [form, setForm] = React.useState({ name: '', email: '', subject: '', message: '', website: '' });
+  const [submissionStatus, setSubmissionStatus] = React.useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = React.useState('');
+
+  async function handleContactSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setSubmissionStatus('loading');
+    setErrorMessage('');
+
+    try {
+      await submitLeadForm('contact', form);
+      setForm({ name: '', email: '', subject: '', message: '', website: '' });
+      setSubmissionStatus('success');
+    } catch (error) {
+      setErrorMessage(error instanceof Error ? error.message : 'Unable to submit the form right now.');
+      setSubmissionStatus('error');
+    }
+  }
 
   return (
     <main className="min-h-screen">
@@ -140,33 +158,17 @@ export default function ContactPage() {
 
               <form
                 className="space-y-4"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  // Honeypot (basic bot deterrent)
-                  if (form.company.trim()) return;
-
-                  const subject = form.subject || 'Website enquiry';
-                  const body =
-                    'Name: ' + form.name + '\n' +
-                    'Email: ' + form.email + '\n\n' +
-                    form.message;
-
-                  window.location.href =
-                    'mailto:info@unifi.id?subject=' +
-                    encodeURIComponent(subject) +
-                    '&body=' +
-                    encodeURIComponent(body);
-                }}
+                onSubmit={handleContactSubmit}
               >
                 {/* Honeypot */}
                 <div className="hidden" aria-hidden="true">
-                  <label className="block text-sm font-medium text-gray-700">Company</label>
+                  <label className="block text-sm font-medium text-gray-700">Website</label>
                   <input
                     type="text"
                     tabIndex={-1}
                     autoComplete="off"
-                    value={form.company}
-                    onChange={(e) => setForm((p) => ({ ...p, company: e.target.value }))}
+                    value={form.website}
+                    onChange={(e) => setForm((p) => ({ ...p, website: e.target.value }))}
                     className="mt-1 w-full rounded-lg border border-gray-200 px-4 py-3"
                   />
                 </div>
@@ -205,8 +207,9 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">Your message</label>
+                  <label className="block text-sm font-medium text-gray-700">Your message (required)</label>
                   <textarea
+                    required
                     rows={5}
                     value={form.message}
                     onChange={(e) => setForm((p) => ({ ...p, message: e.target.value }))}
@@ -215,12 +218,25 @@ export default function ContactPage() {
                   />
                 </div>
 
+                {submissionStatus === 'success' ? (
+                  <div className="rounded-md border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-900">
+                    Thanks, your message has been sent.
+                  </div>
+                ) : null}
+
+                {submissionStatus === 'error' ? (
+                  <div className="rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-900">
+                    {errorMessage}
+                  </div>
+                ) : null}
+
                 <div className="flex items-center justify-end">
                   <button
                     type="submit"
+                    disabled={submissionStatus === 'loading'}
                     className="px-8 py-3 rounded-full bg-unifi-light border border-black/5 font-semibold hover:bg-gray-800 transition-colors"
                   >
-                    Submit
+                    {submissionStatus === 'loading' ? 'Submitting...' : 'Submit'}
                   </button>
                 </div>
               </form>
