@@ -30,9 +30,18 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Remove local-only admin route
+        # /admin/leads shells out to the AWS CLI at request time (force-dynamic) to
+        # show live DynamoDB data. That has no server to run against in a static
+        # export, so it can't be part of the public GitHub Pages build. It's a
+        # local diagnostic tool only — safe to drop here.
+        run: rm -rf app/admin
+
       - name: Build (static export)
-        # For custom domain at the root (e.g. https://testwebsite.unifi.id), do NOT set a base path.
-        # If you ever deploy as a GitHub project page (org.github.io/repo), set NEXT_PUBLIC_BASE_PATH to "/repo".
+        # This deploys as a GitHub project page (mrforbesdoes.github.io/Unifi.id-updates),
+        # so the base path must match the repo name.
+        env:
+          NEXT_PUBLIC_BASE_PATH: /Unifi.id-updates
         run: npm run build
 
       - name: Upload artifact
