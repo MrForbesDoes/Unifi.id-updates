@@ -10,13 +10,14 @@ import { pickUnifiPlaceholder } from '@/src/content/unifiAssets';
 import { submitLeadForm } from '@/src/lib/leadForms';
 
 export default function BookDemoPage() {
-  const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionStatus, setSubmissionStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmissionStatus('loading');
     setErrorMessage('');
 
     const form = e.currentTarget;
@@ -27,9 +28,10 @@ export default function BookDemoPage() {
     try {
       await submitLeadForm('demo', data);
       form.reset();
-      setSubmitted(true);
+      setSubmissionStatus('success');
     } catch (error) {
       setErrorMessage(error instanceof Error ? error.message : 'Unable to submit the form right now.');
+      setSubmissionStatus('error');
     } finally {
       setIsSubmitting(false);
     }
@@ -68,21 +70,10 @@ export default function BookDemoPage() {
           <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-8">
             <H2 className="text-2xl font-bold text-gray-900 mb-6">Demo request form</H2>
 
-            {submitted ? (
-              <div className="rounded-lg border border-green-200 bg-green-50 p-5">
-                <p className="font-semibold text-green-900 mb-1">Request received.</p>
-                <p className="text-green-900/80">
-                  Thanks — we’ll be in touch shortly to schedule your demo.
-                </p>
-                <div className="mt-4">
-                  <ButtonLink href="/" variant="secondary">Back to home</ButtonLink>
-                </div>
-              </div>
-            ) : (
-              <form
-                className="space-y-5"
-                onSubmit={handleSubmit}
-              >
+            <form
+              className="space-y-5"
+              onSubmit={handleSubmit}
+            >
                 <div className="hidden" aria-hidden="true">
                   <label className="block text-sm font-medium text-gray-700 mb-2">Website</label>
                   <input name="website" type="text" tabIndex={-1} autoComplete="off" />
@@ -140,6 +131,12 @@ export default function BookDemoPage() {
                   />
                 </div>
 
+                {submissionStatus === 'success' ? (
+                  <div className="rounded-md border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-900">
+                    Submission received. Thanks, we’ll be in touch shortly to schedule your demo.
+                  </div>
+                ) : null}
+
                 {errorMessage ? (
                   <div className="rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-900">
                     {errorMessage}
@@ -159,8 +156,7 @@ export default function BookDemoPage() {
                     Back to contact
                   </ButtonLink>
                 </div>
-</form>
-            )}
+            </form>
           </div>
         </div>
       </Section>

@@ -1,4 +1,4 @@
-export type LeadFormType = 'demo' | 'contact' | 'energy_survey' | 'energy_contact';
+export type LeadFormType = 'demo' | 'contact' | 'energy_survey' | 'energy_contact' | 'carbon_reporting_contact';
 
 export type LeadFormData = Record<string, string | number | boolean | null | undefined>;
 
@@ -13,6 +13,7 @@ const leadFormDestinations: Record<LeadFormType, { email: string; label: string 
   contact: { email: 'info@unifi.id', label: 'Website enquiry' },
   energy_survey: { email: 'energy@unifi.id', label: 'Energy survey request' },
   energy_contact: { email: 'energy@unifi.id', label: 'Energy team enquiry' },
+  carbon_reporting_contact: { email: 'energy@unifi.id', label: 'Carbon reporting enquiry' },
 };
 
 export async function submitLeadForm(

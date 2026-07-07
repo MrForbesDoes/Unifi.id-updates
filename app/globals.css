@@ -96,6 +96,23 @@ main > section.section-auto:not(:first-of-type):nth-of-type(even) {
   }
 }
 
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.marquee-right {
+  animation: marquee-right 32s linear infinite;
+}
+
+.marquee-right:hover {
+  animation-play-state: paused;
+}
+
 /* Immediately make all hidden content visible - animations can enhance but shouldn't block */
 main section [style*="opacity:0"] {
   animation: force-visible 0.3s ease-out 0.5s forwards;
@@ -110,6 +127,10 @@ main section [style*="opacity:0"] {
     transform: none !important;
     animation: none !important;
   }
+
+  .marquee-right {
+    animation: none;
+  }
 }
 
 /* Critical: Ensure all direct children of sections are visible */
@@ -118,4 +139,3 @@ main section > div[style*="opacity:0"] {
   transform: translateY(0) !important;
   animation: force-visible 0.2s ease-out 0.3s forwards;
 }
-

@@ -154,6 +154,7 @@ export default function Header() {
       children: [
         { href: '/energy/hub', label: 'Energy Hub' },
         { href: '/energy/technology', label: 'Our Technology' },
+        { href: '/energy/carbon-reporting', label: 'Carbon Reporting' },
         { href: '/energy/funding-options', label: 'Funding Options' },
         { href: '/energy/monitoring', label: 'Energy Monitoring' },
         { href: '/energy/the-energy-trap', label: 'The Energy Trap' },

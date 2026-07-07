@@ -19,6 +19,11 @@ const leadForms = {
     destinationEmail: 'energy@unifi.id',
     requiredFields: ['name', 'email', 'message'],
   },
+  carbon_reporting_contact: {
+    label: 'Carbon reporting enquiry',
+    destinationEmail: 'energy@unifi.id',
+    requiredFields: ['name', 'email', 'message'],
+  },
 };
 
 module.exports = { leadForms };

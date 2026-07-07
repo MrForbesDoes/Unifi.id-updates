@@ -1,8 +1,13 @@
 const crypto = require('crypto');
+const fs = require('fs');
+const path = require('path');
 const express = require('express');
 const { FakeEmailProvider } = require('./email/fakeEmailProvider');
 const { leadForms } = require('./leadConfig');
 const { JsonLeadStore } = require('./storage/jsonLeadStore');
+const { TextLeadStore } = require('./storage/textLeadStore');
+
+loadLocalEnv();
 
 const app = express();
 const port = Number(process.env.LEAD_API_PORT || 8787);
@@ -12,6 +17,7 @@ const allowedOrigins = (process.env.LEAD_ALLOWED_ORIGINS || 'http://localhost:30
   .filter(Boolean);
 
 const store = new JsonLeadStore();
+const textStore = new TextLeadStore();
 const emailProvider = new FakeEmailProvider();
 const rateLimitWindowMs = 60 * 1000;
 const rateLimitMax = 20;
@@ -101,6 +107,7 @@ app.post('/api/leads', async (req, res) => {
   };
 
   await store.create(lead);
+  await textStore.append(lead);
 
   try {
     const emailResult = await emailProvider.send({
@@ -159,4 +166,35 @@ function sanitizeLeadData(data) {
 function buildSubject(label, data) {
   const subject = String(data.subject || label).trim();
   return `[Unifi.id] ${subject}`;
+}
+
+function loadLocalEnv() {
+  const envPath = path.join(__dirname, '..', '.env.local');
+
+  if (!fs.existsSync(envPath)) {
+    return;
+  }
+
+  const envFile = fs.readFileSync(envPath, 'utf8');
+
+  for (const line of envFile.split(/\r?\n/)) {
+    const trimmed = line.trim();
+
+    if (!trimmed || trimmed.startsWith('#')) {
+      continue;
+    }
+
+    const separatorIndex = trimmed.indexOf('=');
+
+    if (separatorIndex === -1) {
+      continue;
+    }
+
+    const key = trimmed.slice(0, separatorIndex).trim();
+    const value = trimmed.slice(separatorIndex + 1).trim();
+
+    if (key && process.env[key] === undefined) {
+      process.env[key] = value;
+    }
+  }
 }
