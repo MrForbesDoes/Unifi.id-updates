@@ -13,8 +13,8 @@ export default function EnergyClub() {
   return (
     <>
       <SEO
-        title="Unifi.id Energy Club | Smarter Procurement. Lower Risk."
-        description="Launching 2025: Unifi.id Energy - our procurement club delivering aggregated buying power, supplier transparency, and real client savings."
+        title="Unifi.id Energy Club | Carbon Reporting and Smarter Buying"
+        description="Join the free Energy Club for simpler buying, clearer carbon reporting, and practical support for your carbon action plan."
       />
       <Section className="relative overflow-hidden min-h-[60vh] flex items-center">
         <div className="absolute inset-0 z-0">
@@ -26,10 +26,13 @@ export default function EnergyClub() {
         <div className="relative z-10 w-full">
           <div className="max-w-7xl mx-auto px-6 w-full text-left">
             <H1 className="text-4xl md:text-5xl font-semibold text-white mb-6 leading-tight animate-fade-in-up">
-              Energy Procurement. Smarter. Lower Risk. Fully Aligned.
+              The free energy club built for businesses like yours.
             </H1>
+            <div className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white mb-5 animate-fade-in-up">
+              Free to join for all non-domestic customers
+            </div>
             <Body className="text-lg md:text-xl text-white/85 max-w-3xl animate-fade-in-up">
-              Launching 2025: Unifi.id Energy - our procurement club delivering aggregated buying power, supplier transparency, and real client savings.
+              This Year: the Unifi.id Energy Club brings together simpler energy buying, clearer carbon reporting, and practical support without the usual complexity. It is open to all non-domestic customers, completely free to join, and designed to help you save money with no commitment and no upfront cost.
             </Body>
           </div>
         </div>
@@ -37,14 +40,14 @@ export default function EnergyClub() {
 
       <Section backgroundColor="gray">
         <div className="max-w-7xl mx-auto px-6">
-          <H2 className="text-3xl font-bold text-gray-900 mb-8 text-left">What Makes Unifi.id Energy Different</H2>
+          <H2 className="text-3xl font-bold text-gray-900 mb-8 text-left">What members get</H2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: "Collective Buying Power", desc: "Collective corporate buying power without full aggregation lock-in." },
-              { title: "Transparent Pricing", desc: "Fully transparent market pricing - no broker conflicts." },
-              { title: "Direct Supplier Contracts", desc: "Suppliers contract directly with clients - no intermediary mark-ups." },
-              { title: "Risk-Adjusted Structures", desc: "Risk-adjusted contract structures designed for long-term energy stability." },
-              { title: "Exclusive Client Access", desc: "Access initially available for Unifi.id commercial clients." }
+              { title: "Lower energy costs", desc: "Benefit from stronger buying power and clearer routes to long-term savings." },
+              { title: "Clearer carbon reporting", desc: "Use better energy data to strengthen carbon reporting and support your carbon action plan." },
+              { title: "Straightforward pricing", desc: "See transparent pricing and supplier options without hidden broker conflicts." },
+              { title: "Flexible support", desc: "Choose the level of guidance you need, from a simple switch review to wider planning support." },
+              { title: "No fee to join", desc: "Membership is completely free, with no commitment, no threshold, and no upfront cost." }
             ].map((item, i) => (
               <div key={i} className="bg-white p-6 rounded-xl border border-gray-100 flex gap-4 animate-fade-in-up">
                 <CheckCircle className="w-6 h-6 text-unifi-green flex-shrink-0 mt-1" />
@@ -62,13 +65,13 @@ export default function EnergyClub() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <H2 className="text-2xl font-bold text-gray-900 mb-6">Immediate Corporate Focus</H2>
+              <H2 className="text-2xl font-bold text-gray-900 mb-6">Open to every non-domestic customer</H2>
               <ul className="space-y-4">
                 {[
-                  { icon: Building2, label: "Multi-site commercial estates" },
-                  { icon: Factory, label: "Manufacturing & Industrial clients" },
-                  { icon: Users, label: "Facilities management groups" },
-                  { icon: School, label: "Schools" }
+                  { icon: Building2, label: "Single-site businesses and growing teams" },
+                  { icon: Factory, label: "Industrial and operational sites" },
+                  { icon: Users, label: "Multi-site operators and managed estates" },
+                  { icon: School, label: "Schools, charities, and public-facing organisations" }
                 ].map((item, i) => {
                   const Icon = item.icon;
                   return (
@@ -79,23 +82,23 @@ export default function EnergyClub() {
                   );
                 })}
               </ul>
-              <Body className="mt-4 text-gray-600 italic">Expand into education and public sector phases following corporate rollout.</Body>
+              <Body className="mt-4 text-gray-600 italic">If you are a non-domestic customer, you can join. No minimum size, no sector restriction, and no spend threshold.</Body>
             </div>
             <div>
-              <H2 className="text-2xl font-bold text-gray-900 mb-6">Next Phase</H2>
+              <H2 className="text-2xl font-bold text-gray-900 mb-6">Support for carbon reporting and action</H2>
               <div className="space-y-4">
                 <div className="flex gap-3 items-start">
                   <Leaf className="w-6 h-6 text-unifi-green flex-shrink-0 mt-1" />
                   <div>
-                    <H3 className="font-bold text-gray-900 mb-1">ESG-aligned purchasing</H3>
-                    <Body className="text-gray-600 text-sm">ESG-aligned purchasing options and flexible renewable content blocks.</Body>
+                    <H3 className="font-bold text-gray-900 mb-1">Clearer carbon reporting</H3>
+                    <Body className="text-gray-600 text-sm">Use better consumption insight and supply choices to make carbon reporting easier to manage and explain.</Body>
                   </div>
                 </div>
                 <div className="flex gap-3 items-start">
                   <Shield className="w-6 h-6 text-unifi-green flex-shrink-0 mt-1" />
                   <div>
-                    <H3 className="font-bold text-gray-900 mb-1">Contract portability</H3>
-                    <Body className="text-gray-600 text-sm">Full contract portability for large occupiers.</Body>
+                    <H3 className="font-bold text-gray-900 mb-1">A simpler path to action</H3>
+                    <Body className="text-gray-600 text-sm">Get practical support when you are ready to turn reporting into a carbon action plan and lower-cost delivery.</Body>
                   </div>
                 </div>
               </div>
@@ -106,12 +109,15 @@ export default function EnergyClub() {
 
       <Section backgroundColor="gray">
         <div className="max-w-3xl mx-auto px-6 text-left">
-          <H2 className="text-2xl font-bold text-gray-900 mb-4">Register Your Interest</H2>
+          <H2 className="text-2xl font-bold text-gray-900 mb-4">Join the Energy Club</H2>
           <Body className="mb-8 text-gray-600">
-            Be the first to know when the Unifi.id Energy Club launches for corporate clients. Contact our energy team to learn more.
+            Joining is completely free for all non-domestic customers. There is no commitment, no joining fee, and no pressure to switch until you are ready.
+          </Body>
+          <Body className="mb-8 text-gray-600">
+            If you want a simpler way to buy energy, strengthen carbon reporting, or start shaping a carbon action plan, this is a low-friction place to begin.
           </Body>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <ButtonLink href="/energy/contact">Register Interest</ButtonLink>
+            <ButtonLink href="/energy/contact">Join Free</ButtonLink>
             <ButtonLink href="/energy/hub" variant="secondary">Back to Energy Hub</ButtonLink>
           </div>
         </div>

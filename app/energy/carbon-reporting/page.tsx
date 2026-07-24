@@ -251,7 +251,7 @@ export default function CarbonReportingPage() {
     setErrorMessage('');
 
     try {
-      await submitLeadForm('carbon_reporting_contact', form);
+      await submitLeadForm('energy_contact', form);
       setForm(initialForm);
       setSubmissionStatus('success');
     } catch (error) {
@@ -662,7 +662,7 @@ export default function CarbonReportingPage() {
 
                 {submissionStatus === 'success' ? (
                   <div className="md:col-span-2 rounded-md border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-900">
-                    Submission received. Thanks, your message has been sent to the Unifi.id energy team.
+                    Thanks, your message has been sent to the Unifi.id energy team.
                   </div>
                 ) : null}
 

@@ -18,8 +18,8 @@ export default function EnergyTechnology() {
   return (
     <>
       <SEO
-        title="Decarbonisation Technology"
-        description="True decarbonisation isn't achieved through a single technology — it's the result of multiple systems working intelligently together."
+        title="Decarbonisation Technology for Carbon Reporting | Unifi.id"
+        description="Explore funded energy technologies that cut waste, improve carbon reporting, and turn your carbon action plan into delivery."
       />
 
       {/* Hero */}
@@ -41,7 +41,7 @@ export default function EnergyTechnology() {
 
               <div className="space-y-4 animate-fade-in-up">
                 <Body className="text-white/85 text-lg">
-                  True decarbonisation isn't achieved through a single technology — it's the result of multiple systems working intelligently together. From LED lighting and advanced heating systems to solar generation and smart energy controls, every upgrade plays a role in reducing waste and improving operational efficiency.
+                  True decarbonisation isn't achieved through a single technology — it's the result of multiple systems working intelligently together. From LED lighting and advanced heating systems to solar generation and smart energy controls, every upgrade plays a role in reducing waste, improving operational efficiency, and making carbon reporting more credible.
                 </Body>
                 <Body className="text-white/80 text-lg">
                   At Unifi.id, we design and deliver complete, future-proof solutions that balance innovation with reliability. We focus on technologies that have been rigorously tested, offer clear returns on investment, and can integrate seamlessly into your existing infrastructure.
@@ -70,9 +70,9 @@ export default function EnergyTechnology() {
       <Section backgroundColor="white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-3xl mx-auto text-left mb-10">
-            <H2 className="mb-4">Core Upgrade Technologies</H2>
+            <H2 className="mb-4">Core upgrade technologies for carbon reporting and action</H2>
             <Body className="text-lg text-unifi-gray-dark">
-              Start with the technology that delivers the biggest impact for your estate. Each solution can be implemented independently or as part of a comprehensive upgrade program.
+              Start with the technology that delivers the biggest impact for your estate. Each solution can be implemented independently or as part of a comprehensive upgrade programme that supports a stronger carbon action plan.
             </Body>
           </div>
 
@@ -219,7 +219,7 @@ export default function EnergyTechnology() {
       <Section backgroundColor="gray">
         <div className="container px-6 text-left">
           <div className="max-w-3xl mx-auto">
-            <H2 className="mb-4">Ready to explore your upgrade pathway?</H2>
+            <H2 className="mb-4">Ready to turn carbon reporting into a carbon action plan?</H2>
             <Body className="text-unifi-gray-dark mb-8">
               Start with a free survey. We'll identify the highest-impact opportunities and structure a programme that is low-disruption, evidence-led, and aligned to your governance requirements.
             </Body>
