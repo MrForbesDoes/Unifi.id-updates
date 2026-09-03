@@ -6,15 +6,12 @@ import {
   BadgeCheck,
   BarChart3,
   BookOpen,
-  Bot,
   Briefcase,
-  Building2,
   CheckCircle,
   ChevronDown,
   ClipboardList,
   FileSpreadsheet,
   GraduationCap,
-  Landmark,
   Leaf,
   Megaphone,
   School,
@@ -22,7 +19,6 @@ import {
   Sparkles,
   Target,
   TrendingDown,
-  University,
   Users,
 } from 'lucide-react';
 
@@ -195,37 +191,17 @@ const faqs: FaqItem[] = [
   },
 ];
 
-const partnerClients = [
-  'Bridgestone',
-  'Cranfield University',
-  'x+why',
-  'Robinson',
-  'LMF Energy Services',
-  'Sleek Events',
-  'F. Ball and Co',
-  'Sustainable X',
-  'Northamptonshire Chamber of Commerce',
-  'Green Team Consulting',
-  'Silverstone Technology Cluster',
-  'TrainEasy',
-  'Synergy',
-  'Frontier Space',
-  'Milton Keynes Chamber of Commerce',
-  'Green Future Investments Ltd',
-  'Innoviz',
-];
-
-const partnerIcons = [
-  Building2,
-  University,
-  Users,
-  Landmark,
-  Briefcase,
-  Sparkles,
-  ShieldCheck,
-  Leaf,
-  Bot,
-  School,
+const partnerClients: { name: string; logo: string }[] = [
+  { name: 'Bridgestone', logo: '/unifi-assets/client-logos/bridgestone.png' },
+  { name: 'Cranfield University', logo: '/unifi-assets/client-logos/cranfield-university.png' },
+  { name: 'x+why', logo: '/unifi-assets/client-logos/x-plus-why.png' },
+  { name: 'Robinson', logo: '/unifi-assets/client-logos/robinson.png' },
+  { name: 'LMF Energy Services', logo: '/unifi-assets/client-logos/lmf-energy-services.png' },
+  { name: 'Sleek', logo: '/unifi-assets/client-logos/sleek.png' },
+  { name: 'Silverstone Technology Cluster', logo: '/unifi-assets/client-logos/silverstone-technology-cluster.png' },
+  { name: 'Synergy', logo: '/unifi-assets/client-logos/synergy.png' },
+  { name: 'Frontier Space Technologies', logo: '/unifi-assets/client-logos/frontier-space-technologies.png' },
+  { name: 'Green Future Investments Ltd', logo: '/unifi-assets/client-logos/green-future-investments.png' },
 ];
 
 export default function CarbonReportingPage() {
@@ -329,10 +305,9 @@ export default function CarbonReportingPage() {
             <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-white to-transparent" />
             <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-white to-transparent" />
             <div className="marquee-right flex w-max gap-4 py-3">
-              {[...partnerClients, ...partnerClients].map((client, index) => {
-                const Icon = partnerIcons[index % partnerIcons.length];
-                return <LogoChip key={`${client}-${index}`} name={client} Icon={Icon} />;
-              })}
+              {[...partnerClients, ...partnerClients].map((client, index) => (
+                <LogoChip key={`${client.name}-${index}`} name={client.name} logo={client.logo} />
+              ))}
             </div>
           </div>
         </div>
@@ -742,19 +717,11 @@ function Field({
   );
 }
 
-function LogoChip({
-  name,
-  Icon,
-}: {
-  name: string;
-  Icon: React.ComponentType<{ className?: string }>;
-}) {
+function LogoChip({ name, logo }: { name: string; logo: string }) {
   return (
-    <div className="flex min-w-[280px] items-center gap-4 rounded-sm border border-gray-200 bg-white px-6 py-5 shadow-sm">
-      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-unifi-blue/10 text-unifi-blue">
-        <Icon className="h-6 w-6" />
-      </div>
-      <div className="text-base font-semibold text-unifi-dark">{name}</div>
+    <div className="flex items-center justify-center px-8 py-5">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={logo} alt={name} className="h-[60px] w-auto max-w-[270px] object-contain" />
     </div>
   );
 }
