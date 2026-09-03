@@ -18,12 +18,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const sector = getSectorBySlug(slug);
   if (!sector || sector.comingSoon) return {};
   const title = `${sector.title} Sector | Unifi.id`;
+  const canonical = `https://unifi.id/sectors/${sector.slug}`;
   return {
-    title,
+    title: { absolute: title },
     description: sector.description,
+    alternates: {
+      canonical,
+    },
     openGraph: {
       title,
       description: sector.description,
+      url: canonical,
       type: 'website',
     },
   };
