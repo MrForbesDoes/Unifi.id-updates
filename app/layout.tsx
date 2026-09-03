@@ -5,6 +5,7 @@ import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { MotionProvider } from '@/src/components/motion';
+import { buildOrganizationSchema } from '@/src/lib/schema';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -29,6 +30,10 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <script type="text/javascript" src="https://secure.leadforensics.com/js/52873.js"></script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(buildOrganizationSchema()) }}
+        />
       </head>
       <body className={`${ubuntu.variable} ${montserrat.variable} font-sans flex flex-col min-h-screen`}>
         <noscript>

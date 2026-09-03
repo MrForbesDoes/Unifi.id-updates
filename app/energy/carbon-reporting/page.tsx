@@ -30,6 +30,7 @@ import Card from '@/src/components/Card';
 import { ButtonLink } from '@/src/components/ButtonLink';
 import { Section } from '@/src/components/Section';
 import { SEO } from '@/src/components/SEO';
+import { buildFaqSchema } from '@/src/lib/schema';
 import { Body, H1, H2, H3, Lead } from '@/src/components/Typography';
 import { pickUnifiPlaceholder } from '@/src/content/unifiAssets';
 import { submitLeadForm } from '@/src/lib/leadForms';
@@ -265,6 +266,10 @@ export default function CarbonReportingPage() {
       <SEO
         title="Carbon accounting and reporting for UK schools | Unifi.id"
         description="Unifi.id helps UK schools and multi-academy trusts track emissions, report progress, and support their Climate Action Plan."
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFaqSchema(faqs)) }}
       />
 
       <Section className="relative overflow-hidden min-h-[75vh] flex items-center">
