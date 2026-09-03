@@ -1,4 +1,3 @@
-'use client';
 import type { Metadata } from 'next';
 import { Montserrat, Ubuntu } from 'next/font/google';
 import './globals.css';
@@ -19,6 +18,49 @@ const ubuntu = Ubuntu({
   display: 'swap',
   variable: '--font-sans',
 });
+
+const siteDescription =
+  'unifi.id is a movement-intelligence and decarbonisation platform for smart buildings — unifying occupancy, fire safety, energy, and carbon reporting data into one verifiable system.';
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://unifi.id'),
+  title: {
+    default: 'unifi.id | Movement Intelligence & Decarbonisation Platform',
+    template: '%s | unifi.id',
+  },
+  description: siteDescription,
+  keywords: [
+    'unifi.id',
+    'unifid',
+    'unifi',
+    'movement intelligence',
+    'decarbonisation platform',
+    'carbon reporting',
+    'carbon action plan',
+    'the energy trap',
+  ],
+  alternates: {
+    canonical: 'https://unifi.id/',
+  },
+  openGraph: {
+    title: 'unifi.id | Movement Intelligence & Decarbonisation Platform',
+    description: siteDescription,
+    url: 'https://unifi.id/',
+    siteName: 'unifi.id',
+    type: 'website',
+    images: ['/unifi-assets/logo.png'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'unifi.id | Movement Intelligence & Decarbonisation Platform',
+    description: siteDescription,
+    images: ['/unifi-assets/logo.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 
 export default function RootLayout({
