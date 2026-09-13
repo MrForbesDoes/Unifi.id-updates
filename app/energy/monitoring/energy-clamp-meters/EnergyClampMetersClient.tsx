@@ -71,7 +71,7 @@ export default function EnergyClampMetersClient() {
               </Lead>
 
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                <ButtonLink href="/energy/contact" variant="primary">
+                <ButtonLink href="/energy/contact" variant="primary" data-track-event="energy_service_cta" data-track-service="clamp-meters" data-track-cta="Discuss Energy Clamp Meters">
                   Discuss Energy Clamp Meters
                 </ButtonLink>
                 <ButtonLink
@@ -176,7 +176,7 @@ export default function EnergyClampMetersClient() {
             </ul>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <ButtonLink href="/energy/contact" variant="primary">
+              <ButtonLink href="/energy/contact" variant="primary" data-track-event="energy_service_cta" data-track-service="clamp-meters" data-track-cta="Request an Energy Clamp Meter Review">
                 Request an Energy Clamp Meter Review
               </ButtonLink>
               <ButtonLink href="/energy/hub" variant="secondary">

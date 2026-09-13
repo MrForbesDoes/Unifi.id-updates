@@ -26,6 +26,8 @@ import Card from '@/src/components/Card';
 import { ButtonLink } from '@/src/components/ButtonLink';
 import { Section } from '@/src/components/Section';
 import { buildFaqSchema } from '@/src/lib/schema';
+import { trackEvent } from '@/src/lib/analytics';
+import { trackZeroUrl } from '@/src/content/partners';
 import { Body, H1, H2, H3, Lead } from '@/src/components/Typography';
 import { pickUnifiPlaceholder } from '@/src/content/unifiAssets';
 import { submitLeadForm } from '@/src/lib/leadForms';
@@ -228,7 +230,11 @@ export default function CarbonReportingClient() {
     setErrorMessage('');
 
     try {
-      await submitLeadForm('energy_contact', form);
+      await submitLeadForm('carbon_reporting_contact', form);
+      trackEvent('energy_form_submit', {
+        service: 'trackzero',
+        cta: 'Carbon reporting enquiry',
+      });
       setForm(initialForm);
       setSubmissionStatus('success');
     } catch (error) {
@@ -361,7 +367,14 @@ export default function CarbonReportingClient() {
           </div>
 
           <div className="mt-10">
-            <ButtonLink href="#get-in-touch" variant="primary">
+            <ButtonLink
+              href="#get-in-touch"
+              variant="primary"
+              data-track-event="energy_service_cta"
+              data-track-service="trackzero"
+              data-track-sector="local-authority"
+              data-track-cta="Discuss TrackZero for Your Council"
+            >
               Discuss TrackZero for Your Council
             </ButtonLink>
           </div>
@@ -667,12 +680,31 @@ export default function CarbonReportingClient() {
                     <a
                       href={href}
                       className="text-unifi-blue underline underline-offset-4 hover:text-unifi-dark"
+                      data-track-event="energy_crosslink"
+                      data-track-service="trackzero"
+                      data-track-cta={label}
                     >
                       {label}
                     </a>
                   </li>
                 ))}
               </ul>
+
+              <Body className="mt-6 text-sm text-gray-600">
+                TrackZero is our carbon reporting partner. You can also{' '}
+                <a
+                  href={trackZeroUrl({ placement: 'carbon-reporting' })}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-unifi-blue underline underline-offset-4 hover:text-unifi-dark"
+                  data-track-event="partner_outbound"
+                  data-track-service="trackzero"
+                  data-track-cta="Visit the TrackZero platform"
+                >
+                  visit the TrackZero platform
+                </a>{' '}
+                directly.
+              </Body>
             </div>
           </div>
         </div>

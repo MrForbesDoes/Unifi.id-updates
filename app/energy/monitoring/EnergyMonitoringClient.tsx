@@ -114,7 +114,7 @@ export default function EnergyMonitoringClient() {
               </Body>
 
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                <ButtonLink href="/energy/contact">Discuss Energy Monitoring</ButtonLink>
+                <ButtonLink href="/energy/contact" data-track-event="energy_service_cta" data-track-service="monitoring" data-track-cta="Discuss Energy Monitoring">Discuss Energy Monitoring</ButtonLink>
                 <ButtonLink
                   href="/energy/monitoring/energy-clamp-meters/"
                   variant="outline"
@@ -232,7 +232,7 @@ export default function EnergyMonitoringClient() {
             level of monitoring fits the decision you are trying to make.
           </Body>
           <div className="flex flex-col gap-4 sm:flex-row">
-            <ButtonLink href="/energy/contact">Request a Monitoring Review</ButtonLink>
+            <ButtonLink href="/energy/contact" data-track-event="energy_service_cta" data-track-service="monitoring" data-track-cta="Request a Monitoring Review">Request a Monitoring Review</ButtonLink>
             <ButtonLink href="/energy/hub" variant="secondary">
               Back to Energy Hub
             </ButtonLink>

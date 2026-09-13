@@ -9,6 +9,13 @@ type ButtonLinkProps = LinkProps & {
   className?: string;
   variant?: Variant;
   size?: Size;
+  /** Analytics hooks read by AnalyticsProvider's delegated click listener. */
+  'data-track-event'?: string;
+  'data-track-tab'?: string;
+  'data-track-sector'?: string;
+  'data-track-service'?: string;
+  'data-track-cta'?: string;
+  'data-track-destination'?: string;
 };
 
 export function ButtonLink({

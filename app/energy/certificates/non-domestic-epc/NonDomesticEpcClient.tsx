@@ -405,7 +405,7 @@ export default function NonDomesticEpcClient() {
             of decisions.
           </Body>
           <div className="flex flex-col gap-4 sm:flex-row">
-            <ButtonLink href="/energy/contact">Contact the Unifi.id energy team</ButtonLink>
+            <ButtonLink href="/energy/contact" data-track-event="energy_service_cta" data-track-service="non-domestic-epc" data-track-cta="Contact the Unifi.id energy team">Contact the Unifi.id energy team</ButtonLink>
             <ButtonLink href="/energy/funding-options" variant="secondary">
               Read about Funding Options for energy upgrades
             </ButtonLink>

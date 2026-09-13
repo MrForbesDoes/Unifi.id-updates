@@ -3060,6 +3060,9 @@ export default function EnergyHubClient() {
                     key={tab.id}
                     onClick={() => setActiveMainTab(tab.id as MainTab)}
                     aria-pressed={activeMainTab === tab.id}
+                    data-track-event="energy_tab_select"
+                    data-track-tab={tab.id}
+                    data-track-cta="Explore switch"
                 className={`flex items-center gap-2 py-6 border-b-2 transition-all font-bold ${
                   activeMainTab === tab.id 
                     ? 'border-unifi-blue text-unifi-blue' 
@@ -3106,6 +3109,9 @@ export default function EnergyHubClient() {
                     key={tab.id}
                     onClick={() => setActiveTechTab(tab.id as TechnologyTab)}
                     aria-pressed={activeTechTab === tab.id}
+                    data-track-event="energy_tab_select"
+                    data-track-tab={tab.id}
+                    data-track-service="technology"
                     className={`px-8 py-3 rounded-full font-bold transition-all flex items-center gap-2 ${
                       activeTechTab === tab.id
                         ? 'bg-unifi-blue text-white shadow-lg'
@@ -3841,6 +3847,8 @@ export default function EnergyHubClient() {
                       setActiveSectorTechTab('led');
                     }}
                     aria-pressed={activeSectorTab === tab.id}
+                    data-track-event="energy_tab_select"
+                    data-track-sector={tab.id}
                     className={`px-8 py-3 rounded-full font-bold transition-all flex items-center gap-2 ${
                       activeSectorTab === tab.id
                         ? 'bg-unifi-blue text-white shadow-lg'
@@ -3877,6 +3885,8 @@ export default function EnergyHubClient() {
                           key={tab.id}
                           onClick={() => setActiveEduTab(tab.id as EducationTab)}
                           aria-pressed={activeEduTab === tab.id}
+                          data-track-event="energy_tab_select"
+                          data-track-sector={`education:${tab.id}`}
                           className={`px-6 py-2 rounded-lg font-bold transition-all ${
                             activeEduTab === tab.id
                               ? 'bg-unifi-blue/10 text-unifi-blue border-2 border-unifi-blue'
@@ -4497,6 +4507,8 @@ export default function EnergyHubClient() {
                           key={tab.id}
                           onClick={() => setActiveCorporateTab(tab.id as CorporateTab)}
                           aria-pressed={activeCorporateTab === tab.id}
+                          data-track-event="energy_tab_select"
+                          data-track-sector={`corporate:${tab.id}`}
                           className={
                             'px-6 py-2 rounded-lg font-bold transition-all border-2 ' +
                             (activeCorporateTab === tab.id
@@ -5000,6 +5012,8 @@ export default function EnergyHubClient() {
                           key={tab.id}
                           onClick={() => setActivePublicTab(tab.id as PublicTab)}
                           aria-pressed={activePublicTab === tab.id}
+                          data-track-event="energy_tab_select"
+                          data-track-sector={`public:${tab.id}`}
                           className={
                             'px-6 py-2 rounded-lg font-bold transition-all border-2 ' +
                             (activePublicTab === tab.id
