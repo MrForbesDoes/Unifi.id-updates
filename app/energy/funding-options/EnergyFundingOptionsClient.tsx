@@ -5,6 +5,7 @@ import { Section } from '@/src/components/Section';
 import Image from 'next/image';
 import { pickUnifiPlaceholder } from '@/src/content/unifiAssets';
 import { CheckCircle, PoundSterling, CreditCard, TrendingUp, FileText } from 'lucide-react';
+import RelatedEnergyServices from '@/src/components/RelatedEnergyServices';
 
 export default function EnergyFundingOptionsClient() {
   const heroImage = pickUnifiPlaceholder('hero', 'energy-funding');
@@ -123,6 +124,36 @@ export default function EnergyFundingOptionsClient() {
           </div>
         </div>
       </Section>
+          <RelatedEnergyServices
+        heading="Where this leads next"
+        intro="Funding is one part of the picture. Evidence of where energy is going usually strengthens the case."
+        links={[
+          {
+            href: '/energy/technology',
+            label: 'Our Technology',
+            description: 'LED, smart sockets, heating, HVAC and solar — the measures that deliver the saving.',
+            service: 'technology',
+          },
+          {
+            href: '/energy/monitoring',
+            label: 'Energy Monitoring',
+            description: 'See which circuits, systems and appliances are actually using energy.',
+            service: 'monitoring',
+          },
+          {
+            href: '/energy/carbon-reporting',
+            label: 'Carbon Reporting with TrackZero',
+            description: 'Turn energy and carbon data into a reportable, coordinated action plan.',
+            service: 'trackzero',
+          },
+          {
+            href: '/energy/certificates/non-domestic-epc',
+            label: 'Non-Domestic EPCs',
+            description: 'Understand a building’s calculated rating and the improvements behind it.',
+            service: 'non-domestic-epc',
+          },
+        ]}
+      />
     </>
   );
 }

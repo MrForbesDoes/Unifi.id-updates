@@ -5404,7 +5404,8 @@ export default function EnergyHubClient() {
           <div className="bg-unifi-blue rounded-3xl p-12 text-left text-white max-w-4xl mx-auto">
             <H2 className="text-white mb-6">Ready to Start Your Decarbonisation Journey?</H2>
             <Body className="text-white/80 text-lg mb-8">
-              Join hundreds of organisations already saving millions in energy costs while protecting the planet.
+              Start with measurement, a certificate or a specific upgrade — and build the evidence
+              for the next step across your estate.
             </Body>
             <div className="flex flex-wrap justify-center gap-4">
               <ButtonLink
@@ -5416,6 +5417,16 @@ export default function EnergyHubClient() {
               </ButtonLink>
               <ButtonLink href="/contact" variant="outline" className="border-white text-white hover:bg-white/10">
                 Talk to a Specialist
+              </ButtonLink>
+              <ButtonLink
+                href="/energy/funding-options"
+                variant="outline"
+                className="border-white text-white hover:bg-white/10"
+                data-track-event="energy_crosslink"
+                data-track-service="funding"
+                data-track-cta="Explore Funding Options"
+              >
+                Explore Funding Options
               </ButtonLink>
             </div>
           </div>

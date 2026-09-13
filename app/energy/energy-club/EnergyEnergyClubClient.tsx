@@ -5,6 +5,7 @@ import { Section } from '@/src/components/Section';
 import Image from 'next/image';
 import { pickUnifiPlaceholder } from '@/src/content/unifiAssets';
 import { CheckCircle, Building2, Factory, Users, School, Leaf, Shield } from 'lucide-react';
+import RelatedEnergyServices from '@/src/components/RelatedEnergyServices';
 
 export default function EnergyEnergyClubClient() {
   const heroImage = pickUnifiPlaceholder('hero', 'energy-club');
@@ -117,6 +118,36 @@ export default function EnergyEnergyClubClient() {
           </div>
         </div>
       </Section>
+          <RelatedEnergyServices
+        heading="Beyond buying energy better"
+        intro="Membership sits alongside the reporting and measurement services that reduce consumption itself."
+        links={[
+          {
+            href: '/energy/carbon-reporting',
+            label: 'Carbon Reporting with TrackZero',
+            description: 'Turn energy and carbon data into a reportable, coordinated action plan.',
+            service: 'trackzero',
+          },
+          {
+            href: '/energy/monitoring',
+            label: 'Energy Monitoring',
+            description: 'See which circuits, systems and appliances are actually using energy.',
+            service: 'monitoring',
+          },
+          {
+            href: '/energy/technology',
+            label: 'Our Technology',
+            description: 'LED, smart sockets, heating, HVAC and solar — the measures that deliver the saving.',
+            service: 'technology',
+          },
+          {
+            href: '/energy/hub',
+            label: 'Energy Hub',
+            description: 'Explore by technology or by sector to find the right starting point.',
+            service: 'hub',
+          },
+        ]}
+      />
     </>
   );
 }

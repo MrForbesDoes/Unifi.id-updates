@@ -6,6 +6,7 @@ import { Body, H1, H2, H3 } from '@/src/components/Typography';
 import { ButtonLink } from '@/src/components/ButtonLink';
 import { Section } from '@/src/components/Section';
 import { pickUnifiPlaceholder } from '@/src/content/unifiAssets';
+import RelatedEnergyServices from '@/src/components/RelatedEnergyServices';
 
 const paperCoverage = [
   'The long-run trend in UK electricity prices, and why the crisis reset the baseline rather than reversing it.',
@@ -179,6 +180,36 @@ export default function TheEnergyTrapClient() {
           </div>
         </div>
       </Section>
+          <RelatedEnergyServices
+        heading="Act on what the paper describes"
+        intro="The compounding cost of wasted energy is only avoidable once you can see where it is going."
+        links={[
+          {
+            href: '/energy/monitoring',
+            label: 'Energy Monitoring',
+            description: 'See which circuits, systems and appliances are actually using energy.',
+            service: 'monitoring',
+          },
+          {
+            href: '/energy/monitoring/energy-clamp-meters',
+            label: 'Energy Clamp Meters',
+            description: 'Circuit-level visibility across lighting, HVAC, compressors and fixed plant.',
+            service: 'clamp-meters',
+          },
+          {
+            href: '/energy/technology',
+            label: 'Our Technology',
+            description: 'LED, smart sockets, heating, HVAC and solar — the measures that deliver the saving.',
+            service: 'technology',
+          },
+          {
+            href: '/energy/carbon-reporting',
+            label: 'Carbon Reporting with TrackZero',
+            description: 'Turn energy and carbon data into a reportable, coordinated action plan.',
+            service: 'trackzero',
+          },
+        ]}
+      />
     </>
   );
 }

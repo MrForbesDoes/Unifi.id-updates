@@ -7,6 +7,7 @@ import { H1, H2, H3, Body } from '@/src/components/Typography';
 import { ButtonLink } from '@/src/components/ButtonLink';
 import { pickUnifiPlaceholder } from '@/src/content/unifiAssets';
 import { Lightbulb, Thermometer, Sun, ArrowRight, Zap } from 'lucide-react';
+import RelatedEnergyServices from '@/src/components/RelatedEnergyServices';
 
 type TechTab = 'led' | 'hvac' | 'solar';
 
@@ -224,6 +225,36 @@ export default function EnergyTechnologyClient() {
           </div>
         </div>
       </Section>
+          <RelatedEnergyServices
+        heading="Build the evidence around the upgrade"
+        intro="Measurement before and after an installation turns a technology change into a result you can report."
+        links={[
+          {
+            href: '/energy/monitoring',
+            label: 'Energy Monitoring',
+            description: 'See which circuits, systems and appliances are actually using energy.',
+            service: 'monitoring',
+          },
+          {
+            href: '/energy/monitoring/energy-clamp-meters',
+            label: 'Energy Clamp Meters',
+            description: 'Circuit-level visibility across lighting, HVAC, compressors and fixed plant.',
+            service: 'clamp-meters',
+          },
+          {
+            href: '/energy/carbon-reporting',
+            label: 'Carbon Reporting with TrackZero',
+            description: 'Turn energy and carbon data into a reportable, coordinated action plan.',
+            service: 'trackzero',
+          },
+          {
+            href: '/energy/funding-options',
+            label: 'Funding Options',
+            description: 'Routes that can reduce or remove upfront capital, subject to eligibility.',
+            service: 'funding',
+          },
+        ]}
+      />
     </>
   );
 }
