@@ -25,7 +25,7 @@ export default function EnergyFundingOptionsClient() {
               Funding Options
             </H1>
             <Body className="text-lg md:text-xl text-white/85 max-w-3xl mb-10 animate-fade-in-up">
-              Multiple funding routes available to support your building upgrade programme with zero upfront capital required.
+              Multiple funding routes are available to support your building upgrade programme, including options that reduce or remove upfront capital, subject to eligibility and project economics.
             </Body>
           </div>
         </div>

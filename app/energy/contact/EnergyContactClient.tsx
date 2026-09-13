@@ -51,7 +51,7 @@ export default function EnergyContactClient() {
                 {[
                   "Complete energy audit of your facilities",
                   "Detailed savings projections",
-                  "Fully funded upgrade options",
+                  "Funded upgrade options, subject to eligibility",
                   "Implementation timeline planning"
                 ].map((item, i) => (
                   <li key={i} className="flex gap-3 items-start">
@@ -97,7 +97,7 @@ export default function EnergyContactClient() {
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 animate-fade-in-up">
               <H3 className="text-lg font-bold text-gray-900 mb-2">Zero Upfront Cost</H3>
-              <Body className="text-gray-600">Fully funded upgrades using projected energy savings. No capital outlay required.</Body>
+              <Body className="text-gray-600">Funding routes that can use projected energy savings to reduce or remove upfront capital, subject to eligibility and project economics.</Body>
             </div>
             <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 animate-fade-in-up">
               <H3 className="text-lg font-bold text-gray-900 mb-2">Immediate Savings</H3>

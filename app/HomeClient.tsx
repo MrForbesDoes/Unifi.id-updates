@@ -1,6 +1,7 @@
 'use client';
 import HeroSection from '@/src/components/HeroSection';
 import ChallengeSection from '@/src/components/ChallengeSection';
+import CarbonReportingSection from '@/src/components/CarbonReportingSection';
 import CortexSection from '@/src/components/CortexSection';
 import SolutionsSection from '@/src/components/SolutionsSection';
 import SectorsSection from '@/src/components/SectorsSection';
@@ -11,6 +12,7 @@ export default function HomeClient() {
     <>
       <HeroSection />
       <ChallengeSection />
+      <CarbonReportingSection />
       <CortexSection />
       <SolutionsSection />
       <SectorsSection />

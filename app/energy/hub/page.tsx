@@ -1,17 +1,21 @@
 import type { Metadata } from 'next';
 import EnergyHubClient from './EnergyHubClient';
 
+const title = "Energy & Decarbonisation Hub | Stop Paying for Wasted Energy | unifi.id";
+const description =
+  "Identify and reduce wasted energy, then reinvest in your estate. Carbon reporting, energy monitoring, certificates, LED, heating, HVAC and solar support from Unifi.id.";
+
 export const metadata: Metadata = {
   title: {
-    absolute: "Energy Hub | Carbon Reporting and Carbon Action Plan Solutions | unifi.id",
+    absolute: title,
   },
-  description: "Build a carbon action plan with funded LED, smart sockets, heating, HVAC, solar, and carbon reporting support from Unifi.id.",
+  description,
   alternates: {
     canonical: "https://unifi.id/energy/hub",
   },
   openGraph: {
-    title: "Energy Hub | Carbon Reporting and Carbon Action Plan Solutions | unifi.id",
-    description: "Build a carbon action plan with funded LED, smart sockets, heating, HVAC, solar, and carbon reporting support from Unifi.id.",
+    title,
+    description,
     url: "https://unifi.id/energy/hub",
     images: ['/unifi-assets/unifid-logo.png'],
   },

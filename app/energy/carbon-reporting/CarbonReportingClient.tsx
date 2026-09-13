@@ -161,7 +161,7 @@ const faqs: FaqItem[] = [
   {
     question: 'Do all UK schools need a Climate Action Plan?',
     answer:
-      'Yes. The Department for Education expects every education setting in England — including maintained schools, academies, multi-academy trusts, independent schools, special schools, and early years settings — to appoint a sustainability lead and publish a Climate Action Plan. While not yet statutory, this is a firm government expectation with progress reporting from 2025 onwards.',
+      'The Department for Education expects education settings in England — including maintained schools, academies, multi-academy trusts, independent schools, special schools, and early years settings — to have sustainability leadership and a Climate Action Plan in place. DfE does not prescribe a single template or storage method, and there is no requirement for every setting to publish its plan. For most schools the practical challenge is keeping the plan current, measurable and connected to action.',
   },
   {
     question: 'What is the difference between maintained schools and academies for carbon reporting?',
@@ -171,7 +171,7 @@ const faqs: FaqItem[] = [
   {
     question: 'Do independent schools need to comply with DfE climate requirements?',
     answer:
-      "Yes. The DfE's Sustainability and Climate Change Strategy applies to all education settings, and independent schools are regulated by the department. They are expected to appoint a sustainability lead and maintain a Climate Action Plan covering decarbonisation, adaptation, biodiversity, and climate education — the same core pillars as state-funded schools.",
+      "The DfE's Sustainability and Climate Change Strategy applies across education settings, and independent schools are regulated by the department. They are expected to have sustainability leadership and a Climate Action Plan covering decarbonisation, adaptation, biodiversity, and climate education — the same core pillars as state-funded schools.",
   },
   {
     question: 'When do academy trusts need SECR reporting?',
@@ -256,30 +256,36 @@ export default function CarbonReportingClient() {
             <div className="max-w-4xl pt-16">
               <div className="flex items-center gap-2 text-sm font-medium uppercase tracking-[0.18em] text-white/75">
                 <Leaf className="h-4 w-4" />
-                <span>Energy Solutions · Carbon Reporting for UK Schools</span>
+                <span>Energy Solutions · Carbon Reporting &amp; Action Planning</span>
               </div>
 
               <H1 className="mt-6 mb-6 text-white">
-                Track and report carbon emissions for UK schools
+                Turn Carbon Reporting into Coordinated Action
               </H1>
 
               <Lead className="max-w-3xl text-white/85">
-                Every school in England is expected to have a sustainability lead and Climate Action
-                Plan in place. Unifi.id, through its partnership with TrackZero, gives headteachers, bursars, and trust sustainability
-                leads the tools to track emissions and report progress to support that plan —
-                affordably and without spreadsheets.
+                Carbon reporting should do more than document what has already happened. Organised
+                properly, it can show where energy is being consumed, identify where support and
+                investment are most needed, and create a practical route from targets to measurable
+                improvement.
+              </Lead>
+
+              <Lead className="mt-5 max-w-3xl text-white/85">
+                Through our partnership with TrackZero, Unifi.id helps councils, schools, academy
+                trusts and other organisations bring carbon data, actions and progress into one
+                structured platform — without relying on disconnected documents and spreadsheets.
               </Lead>
 
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <ButtonLink href="#get-in-touch" variant="primary">
-                  Book a Demo
+                  Book a TrackZero Demonstration
                 </ButtonLink>
                 <ButtonLink
-                  href="#get-in-touch"
+                  href="#councils"
                   variant="outline"
                   className="border-white text-white hover:bg-white hover:text-black"
                 >
-                  Get Started
+                  Discuss Council &amp; Estate-Wide Reporting
                 </ButtonLink>
               </div>
             </div>
@@ -309,21 +315,74 @@ export default function CarbonReportingClient() {
         </div>
       </Section>
 
+      <Section backgroundColor="gray" className="scroll-mt-28">
+        <div className="max-w-7xl mx-auto px-6" id="councils">
+          <div className="mb-10 max-w-4xl">
+            <H2 className="mb-5">One Reporting Framework Across Schools, Buildings and Services</H2>
+            <Body>
+              TrackZero can support a single school or organisation, but its value grows
+              significantly across a council or multi-site estate. Each participating organisation
+              can maintain its own information, actions and progress while central teams receive
+              that information in a consistent structure.
+            </Body>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {[
+              {
+                icon: FileSpreadsheet,
+                title: 'Replace fragmented returns',
+                body: 'Reduce the work involved in combining different spreadsheets, templates, methodologies and reporting periods.',
+              },
+              {
+                icon: BarChart3,
+                title: 'See the position across the estate',
+                body: 'Give sustainability, energy and estates teams a clearer view across participating schools, buildings, departments or services while retaining site-level detail.',
+              },
+              {
+                icon: Target,
+                title: 'Prioritise support and investment',
+                body: 'Compare progress, identify gaps and determine which organisations or buildings may benefit most from guidance, monitoring or investment.',
+              },
+              {
+                icon: TrendingDown,
+                title: 'Connect reporting to delivery',
+                body: 'Use the evidence to open the right next conversation — from behavioural change and Energy Clamp Meters to Smart Sockets, LED, heating, HVAC or solar.',
+              },
+            ].map(({ icon: Icon, title, body }) => (
+              <Card key={title} withImage={false} className="border-unifi-blue/10">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-unifi-blue/10 text-unifi-blue">
+                  <Icon className="h-6 w-6" />
+                </div>
+                <H3 className="text-xl">{title}</H3>
+                <Body>{body}</Body>
+              </Card>
+            ))}
+          </div>
+
+          <div className="mt-10">
+            <ButtonLink href="#get-in-touch" variant="primary">
+              Discuss TrackZero for Your Council
+            </ButtonLink>
+          </div>
+        </div>
+      </Section>
+
       <Section backgroundColor="gray">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
             <div className="max-w-3xl">
               <H2 className="mb-5">What UK schools are expected to deliver</H2>
               <Body className="mb-6">
-                The Department for Education&apos;s Sustainability and Climate Change Strategy sets
-                clear expectations for every education setting in England. By the end of 2025,
-                schools should have:
+                The Department for Education expects education settings to have sustainability
+                leadership and a Climate Action Plan in place. For many schools, the challenge is
+                now keeping that plan current, measurable and connected to practical action.
               </Body>
               <ul className="space-y-4">
                 {[
                   'A nominated sustainability lead to drive action and awareness',
-                  'A published Climate Action Plan covering decarbonisation, adaptation, biodiversity, and climate education',
-                  'Progress monitoring and reporting, with estate emissions baselined and tracked from 2025',
+                  'A Climate Action Plan covering decarbonisation, adaptation, biodiversity, and climate education',
+                  'Progress monitoring and reporting, supported by a baseline for estate emissions',
                   "Alignment with initiatives such as Let's Go Zero, which sets net zero targets for schools between 2025 and 2035",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
@@ -333,8 +392,9 @@ export default function CarbonReportingClient() {
                 ))}
               </ul>
               <Body className="mt-6">
-                TrackZero helps you move from policy to practice — baselining emissions, tracking
-                reductions, and reporting progress against your Climate Action Plan.
+                DfE does not prescribe a single template or storage method. TrackZero provides a
+                structured, supported place to maintain information, actions and evidence while
+                allowing each setting to reflect its own circumstances.
               </Body>
             </div>
 
@@ -360,6 +420,14 @@ export default function CarbonReportingClient() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-10 max-w-4xl">
             <H2 className="mb-4">Built for every type of UK school</H2>
+            <Body className="mb-5">
+              The council-level benefit depends on giving individual schools a process they can
+              realistically use. TrackZero helps sustainability leads, bursars, business managers
+              and estates teams keep emissions information, actions and progress together. For
+              maintained schools, it can complement the relationship with the local authority
+              rather than duplicating it. For academy trusts, it can support consistent reporting
+              across schools while providing trust-level oversight.
+            </Body>
             <Body>
               The reporting requirement is shared. The operating context is not. Choose the school
               type closest to your estate and governance model.
@@ -558,6 +626,54 @@ export default function CarbonReportingClient() {
                 </div>
               </details>
             ))}
+          </div>
+        </div>
+      </Section>
+
+      <Section backgroundColor="white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-4xl">
+            <H2 className="mb-5">Start with a School, a Group or a Council-Wide Programme</H2>
+            <Body className="mb-8">
+              Deployment does not have to begin everywhere at once. A council may start with a
+              pilot group of schools, a defined service area or selected buildings before expanding
+              the framework across the wider estate. Unifi.id can help shape the rollout, support
+              participating organisations and connect the resulting evidence to the wider energy
+              programme.
+            </Body>
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <ButtonLink href="#get-in-touch" variant="primary">
+                Discuss a Council Pilot
+              </ButtonLink>
+              <ButtonLink href="#get-in-touch" variant="secondary">
+                Book a TrackZero Demonstration
+              </ButtonLink>
+            </div>
+
+            <div className="mt-12 border-t border-gray-200 pt-8">
+              <H3 className="mb-4 text-lg">Turn the reporting evidence into measured action</H3>
+              <ul className="grid gap-3 sm:grid-cols-2">
+                {[
+                  { href: '/energy/monitoring', label: 'Explore Energy Monitoring' },
+                  {
+                    href: '/energy/monitoring/energy-clamp-meters/',
+                    label: 'See circuit-level data with Energy Clamp Meters',
+                  },
+                  { href: '/energy/hub', label: 'Compare Smart Sockets and other technologies' },
+                  { href: '/energy/technology', label: 'Browse our decarbonisation technology' },
+                ].map(({ href, label }) => (
+                  <li key={href} className="flex items-start gap-3">
+                    <BadgeCheck className="mt-0.5 h-5 w-5 flex-shrink-0 text-unifi-blue" />
+                    <a
+                      href={href}
+                      className="text-unifi-blue underline underline-offset-4 hover:text-unifi-dark"
+                    >
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </Section>

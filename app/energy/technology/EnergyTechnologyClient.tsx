@@ -106,28 +106,28 @@ export default function EnergyTechnologyClient() {
 
               <div className="max-w-4xl mx-auto space-y-4 text-left">
                 <Body className="text-unifi-gray-dark">
-                  Modern LED lighting is one of the most proven, high-impact upgrades any organisation can make. It delivers up to 80% energy savings, extends fixture life to 25 years or more, and enhances visibility, safety, and wellbeing across every environment.
+                  Modern LED lighting is one of the most proven, high-impact upgrades any organisation can make. It typically reduces lighting energy by 50-80%, depending on the age and quality of the existing installation, and improves visibility, safety and wellbeing across every environment.
                 </Body>
                 <Body className="text-unifi-gray-dark">
                   Unlike older fluorescent or halogen systems, high-quality LEDs maintain light levels and colour performance for decades. When combined with smart controls, daylight sensors, and occupancy detection, lighting becomes intelligent — responding automatically to how spaces are used and cutting waste without compromising comfort.
                 </Body>
                 <Body className="text-unifi-gray-dark">
-                  This isn't just about lower energy bills. It's about building resilience: fewer maintenance call-outs, longer component life, and verifiable ESG improvements. A single well-executed LED upgrade can fund itself through savings while improving the quality and safety of the spaces people use every day.
+                  This isn&apos;t just about lower energy bills. It&apos;s about building resilience: fewer maintenance call-outs, longer component life, and measured outcomes you can report against. Payback on a well-executed LED upgrade is typically 3-7 years, subject to site conditions and commercial structure.
                 </Body>
               </div>
 
               <div className="grid md:grid-cols-3 gap-6 mt-12">
                 {[
                   {
-                    title: 'Up to 80% energy savings',
-                    desc: 'Immediate reduction in lighting consumption compared with fluorescent or halogen.',
+                    title: 'Typically 50-80% lighting savings',
+                    desc: 'Reduction in lighting consumption compared with fluorescent or halogen, depending on the age and quality of the existing installation.',
                   },
                   {
-                    title: '25+ years fixture life',
-                    desc: 'Drastically reduced maintenance burden and call-outs across estates.',
+                    title: 'Typically 3-7 year payback',
+                    desc: 'Subject to site conditions, tariff and the commercial structure of the project.',
                   },
                   {
-                    title: 'Verifiable ESG impact',
+                    title: 'Measured ESG impact',
                     desc: 'Measured outcomes support reporting, governance, and sustainability commitments.',
                   },
                 ].map((c) => (

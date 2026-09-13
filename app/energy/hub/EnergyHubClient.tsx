@@ -2,7 +2,7 @@
 'use client';
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Zap, Building, TrendingUp, Shield, DollarSign, AlertTriangle, CheckCircle, Target, GraduationCap, School, Award, Users, ArrowRight, Lightbulb, Thermometer, Sun, Plug } from 'lucide-react';
+import { Zap, Building, TrendingUp, Shield, DollarSign, AlertTriangle, CheckCircle, Target, GraduationCap, School, Award, Users, ArrowRight, Lightbulb, Thermometer, Sun, Plug, Gauge, FileText, BarChart3, Wrench } from 'lucide-react';
 import { H1, H2, H3, Body, Lead } from '@/src/components/Typography';
 import { Section } from '@/src/components/Section';
 import { ButtonLink } from '@/src/components/ButtonLink';
@@ -18,7 +18,7 @@ const sectorTechTabs = [
 ] as const;
 
 type MainTab = 'technology' | 'sector';
-type TechnologyTab = 'led' | 'smart-sockets' | 'heating' | 'solar';
+type TechnologyTab = 'led' | 'smart-sockets' | 'energy-clamp-meters' | 'heating' | 'solar';
 type SectorTab = 'education' | 'corporate' | 'public';
 type SectorTechnologyTab = 'led' | 'smart-sockets' | 'heating' | 'solar';
 type EducationTab =
@@ -693,7 +693,7 @@ const nestedSectorTechnologyContent = {
         benefitsHeading: 'Unifi.id helps state schools deliver:',
         benefits: [
           '40-60% reduction in heating energy use',
-          'Funded upgrades through Salix and PSDS with no capital outlay',
+          'Funded upgrades through Salix and PSDS, subject to eligibility',
           'Lower maintenance costs and fewer emergency failures',
           'Improved thermal comfort for students and staff',
           'DfE and BB101-aligned compliance support',
@@ -749,7 +749,7 @@ const nestedSectorTechnologyContent = {
         benefits: [
           '40-60% reduction in heating energy use across the estate',
           'Standardised systems across multiple schools',
-          'Funded upgrades with no capital outlay',
+          'Funded upgrades, subject to eligibility',
           'Centralised carbon reporting via Cortex',
           'Lower maintenance costs through economies of scale',
           'DfE-aligned compliance across the trust',
@@ -1747,7 +1747,7 @@ const nestedSectorTechnologyContent = {
         ],
         benefitsHeading: 'Unifi.id helps office buildings deliver:',
         benefits: [
-          'Fully funded solar PV with battery storage and smart energy management',
+          'Funded solar PV with battery storage and smart energy management',
           'Cashflow-positive projects generating immediate savings',
           'Significant on-site renewable generation reducing grid dependence',
           'Enhanced ESG performance and green building credentials',
@@ -1762,7 +1762,7 @@ const nestedSectorTechnologyContent = {
             description:
               'Solar installations offer strong returns but often stall because of upfront investment.',
             features: [
-              'Fully funded solution with no capital requirement',
+              'Funded solution that can reduce or remove the capital requirement, subject to eligibility',
               'Immediate energy savings from day one',
               'Long-term predictable energy costs',
             ],
@@ -1798,7 +1798,7 @@ const nestedSectorTechnologyContent = {
         ],
         benefitsHeading: 'Unifi.id helps retail properties deliver:',
         benefits: [
-          'Fully funded solar installations tuned to retail operating patterns',
+          'Funded solar installations tuned to retail operating patterns',
           'Maximised self-consumption during trading hours',
           'Immediate cost savings with cashflow-positive delivery',
           'Enhanced corporate sustainability credentials',
@@ -1887,7 +1887,7 @@ const nestedSectorTechnologyContent = {
             features: [
               'Single integrated platform across the development',
               'Clear allocation of costs and savings',
-              'Fully funded model that removes capital coordination challenges',
+              'Funded model that can reduce capital coordination challenges, subject to eligibility',
             ],
           },
         ],
@@ -1969,7 +1969,7 @@ const nestedSectorTechnologyContent = {
             description:
               'Industrial-scale systems can require major upfront capital without the right funding model.',
             features: [
-              'Fully funded deployment',
+              'Funded deployment, subject to eligibility',
               'Cost savings from day one',
               'Capital preserved for core operations and growth',
             ],
@@ -2371,7 +2371,7 @@ const nestedSectorTechnologyContent = {
               'Funded delivery through Salix and PSDS',
               'Cashflow-neutral structures',
               'EPC pathways where relevant',
-              'No capital outlay required',
+              'Can reduce or remove upfront capital, subject to eligibility',
             ],
           },
           {
@@ -2436,7 +2436,7 @@ const nestedSectorTechnologyContent = {
             features: [
               'Funded delivery structures',
               'Building Regulations Part L support',
-              'No capital outlay required',
+              'Can reduce or remove upfront capital, subject to eligibility',
               'Clear carbon and savings reporting',
             ],
           },
@@ -2453,7 +2453,7 @@ const nestedSectorTechnologyContent = {
         ],
         benefitsHeading: 'Unifi.id helps local authorities deliver:',
         benefits: [
-          'Fully funded solar PV across council estates',
+          'Funded solar PV across council estates',
           'On-site generation that reduces grid dependence and costs',
           'Cashflow-positive delivery with immediate operational savings',
           'Significant carbon reduction supporting net zero commitments',
@@ -2468,7 +2468,7 @@ const nestedSectorTechnologyContent = {
             description:
               'Strong business cases still stall when capital budgets are not available.',
             features: [
-              'Fully funded solution with no capital requirement',
+              'Funded solution that can reduce or remove the capital requirement, subject to eligibility',
               'Immediate savings that protect service budgets',
               '25+ year asset life with long-term value',
             ],
@@ -2504,7 +2504,7 @@ const nestedSectorTechnologyContent = {
         ],
         benefitsHeading: 'Unifi.id helps NHS organisations deliver:',
         benefits: [
-          'Fully funded solar installations across healthcare facilities',
+          'Funded solar installations across healthcare facilities',
           'Enhanced resilience for critical 24/7 operations',
           'Cashflow-positive projects that protect care budgets',
           'Significant carbon reduction for NHS net zero goals',
@@ -2551,7 +2551,7 @@ const nestedSectorTechnologyContent = {
         heading: 'Government Solar Leadership. Policy into Practice.',
         paragraphs: [
           'Government buildings need renewable infrastructure that demonstrates visible net zero progress while standing up to public scrutiny on cost and delivery. Solar and battery storage offer one of the clearest ways to lead by example.',
-          'Fully funded delivery also helps departments move faster without compromising transparency or accountability.',
+          'Funded delivery can also help departments move faster without compromising transparency or accountability.',
         ],
         benefitsHeading: 'Unifi.id helps government buildings deliver:',
         benefits: [
@@ -2646,7 +2646,7 @@ const nestedSectorTechnologyContent = {
             features: [
               'Salix-approved and grant-friendly structures',
               'Support for PSDS and resilience funding',
-              'No capital outlay required',
+              'Can reduce or remove upfront capital, subject to eligibility',
               'Clear compliance and reporting visibility',
             ],
           },
@@ -2791,6 +2791,7 @@ function SectorTechnologyTabs({
           <button
             key={tab.id}
             onClick={() => onChange(tab.id)}
+            aria-pressed={activeTab === tab.id}
             className={`px-6 py-3 rounded-full font-bold transition-all flex items-center gap-2 ${
               activeTab === tab.id
                 ? 'bg-unifi-dark text-white shadow-lg'
@@ -2820,6 +2821,82 @@ function SectorIntroCard({ content }: { content: SectorIntroCardContent }) {
           <Body className="text-lg text-unifi-gray-dark">{content.body}</Body>
         </div>
       </div>
+    </div>
+  );
+}
+
+type RelevantEnergyServicesContent = {
+  body: string;
+  links: readonly { label: string; href: string }[];
+};
+
+const relevantEnergyServices: Record<string, RelevantEnergyServicesContent> = {
+  'education-state-schools': {
+    body: 'Bring Climate Action Planning, Display Energy Certificates and measured energy improvement into one practical programme. TrackZero helps organise actions and evidence; Energy Clamp Meters and Smart Sockets reveal where electricity is being used; Unifi.id can then support the appropriate physical improvements.',
+    links: [
+      { label: 'TrackZero', href: '/energy/carbon-reporting' },
+      { label: 'Display Energy Certificates', href: '/energy/certificates/display-energy-certificates/' },
+      { label: 'Energy Clamp Meters', href: '/energy/monitoring/energy-clamp-meters/' },
+    ],
+  },
+  'education-mats': {
+    body: 'Use a consistent reporting and measurement framework across multiple schools. Central teams can compare sites, consolidate progress and prioritise where support or investment is most needed.',
+    links: [
+      { label: 'TrackZero', href: '/energy/carbon-reporting' },
+      { label: 'Display Energy Certificates', href: '/energy/certificates/display-energy-certificates/' },
+      { label: 'Energy Monitoring', href: '/energy/monitoring' },
+    ],
+  },
+  'public-local': {
+    body: 'Create a clearer view across schools and public buildings. TrackZero can standardise carbon information across participating organisations, while Display Energy Certificates and Energy Clamp Meters provide building-level evidence for compliance and investment decisions.',
+    links: [
+      { label: 'TrackZero for Councils', href: '/energy/carbon-reporting' },
+      { label: 'Display Energy Certificates', href: '/energy/certificates/display-energy-certificates/' },
+      { label: 'Energy Clamp Meters', href: '/energy/monitoring/energy-clamp-meters/' },
+    ],
+  },
+  'public-nhs': {
+    body: 'Connect estate-wide reporting with operational building evidence. Display Energy Certificates, Energy Clamp Meters and targeted monitoring can help identify priority sites and support measurable improvement programmes.',
+    links: [
+      { label: 'Display Energy Certificates', href: '/energy/certificates/display-energy-certificates/' },
+      { label: 'Energy Monitoring', href: '/energy/monitoring' },
+      { label: 'TrackZero', href: '/energy/carbon-reporting' },
+    ],
+  },
+  corporate: {
+    body: 'Combine Non-Domestic EPCs, carbon reporting and detailed energy monitoring to understand asset performance, operational consumption and the strongest opportunities for improvement.',
+    links: [
+      { label: 'Non-Domestic EPCs', href: '/energy/certificates/non-domestic-epc/' },
+      { label: 'Energy Monitoring', href: '/energy/monitoring' },
+      { label: 'TrackZero', href: '/energy/carbon-reporting' },
+    ],
+  },
+};
+
+function RelevantEnergyServices({ contentKey }: { contentKey: string | null }) {
+  const content = contentKey ? relevantEnergyServices[contentKey] : undefined;
+
+  if (!content) {
+    return null;
+  }
+
+  return (
+    <div className="mb-12 rounded-2xl border border-unifi-blue/10 bg-unifi-light p-6">
+      <H3 className="mb-3 text-lg">Relevant Energy Services</H3>
+      <Body className="mb-4 text-unifi-gray-dark">{content.body}</Body>
+      <ul className="flex flex-wrap gap-x-6 gap-y-2">
+        {content.links.map((link) => (
+          <li key={link.label} className="flex items-center gap-2 text-sm font-bold text-unifi-blue">
+            <ArrowRight className="w-3 h-3 flex-shrink-0" />
+            <a
+              href={link.href}
+              className="underline underline-offset-4 hover:text-unifi-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-unifi-blue/30 focus-visible:ring-offset-2"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
@@ -2883,32 +2960,96 @@ export default function EnergyHubClient() {
           >
             <div className="h-20" aria-hidden="true" />
             <motion.div variants={fadeInUp}>
-              <H1 className="text-white mb-6">Build a Carbon Action Plan That Stops Wasted Energy.</H1>
+              <p className="text-white/80 text-sm font-bold tracking-[0.2em] uppercase mb-4">
+                Energy &amp; Decarbonisation
+              </p>
+              <H1 className="text-white mb-6">Stop Paying for Wasted Energy. Start Investing in Your Estate.</H1>
             </motion.div>
             <motion.div variants={fadeInUp} className="space-y-6">
               <Body className="text-white text-xl leading-relaxed">
-                Every month, organisations of every size - from schools to global corporates - pour money into the pockets of energy companies by running outdated lighting, heating, and HVAC systems, and wasted plug power energy. It feels like you don't have the budget for upgrades. In reality, you do. You're just spending it in the wrong place.
+                Every building uses energy. The question is how much of that energy is delivering value - and how much is being lost through outdated equipment, uncontrolled loads and systems operating when they are not needed.
               </Body>
               <Body className="text-white text-lg leading-relaxed">
-                Unifi.id helps you redirect that wasted spend into fully funded upgrades in LED, smart sockets, heating, HVAC, solar and renewables. No capital outlay. No hidden costs. Just lower bills, lower carbon, stronger carbon reporting, and verifiable compliance. The savings stay with you, not your supplier.
+                In many estates, some of the money needed to improve the building is already being spent - it is simply being paid to energy companies for energy that delivers no value. By identifying and reducing that waste, organisations can redirect more of their existing energy spend into the improvements their estates need.
+              </Body>
+              <Body className="text-white text-lg leading-relaxed">
+                Unifi.id combines carbon reporting, energy monitoring, certification, practical upgrades and funding support to help you identify the right action, deliver it effectively and verify the result. Begin with an immediate project or start by building the evidence. The objective is the same: lower bills, stronger performance and savings that stay with you rather than disappearing into avoidable energy costs.
               </Body>
             </motion.div>
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 mt-10">
-              <ButtonLink href="/energy/carbon-action-plan">Explore Carbon Action Plans</ButtonLink>
               <ButtonLink
-                href="/energy/carbon-reporting"
+                href="#explore-energy"
+                onClick={() => setActiveMainTab('technology')}
+              >
+                Explore by Technology
+              </ButtonLink>
+              <ButtonLink
+                href="#explore-energy"
                 variant="secondary"
                 className="border-white text-white hover:bg-white hover:text-black"
+                onClick={() => setActiveMainTab('sector')}
               >
-                Carbon Reporting Support
+                Explore by Sector
               </ButtonLink>
             </motion.div>
           </motion.div>
         </div>
       </Section>
 
+      {/* Energy Approach */}
+      <Section backgroundColor="white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-4xl text-left mb-12">
+            <H2 className="mb-4">Start Where the Need Is Clearest</H2>
+            <Body className="text-lg text-unifi-gray-dark">
+              There is no single route to better energy performance. You may already know that you need an LED or heating upgrade. You may need a Carbon Action Plan, a Non-Domestic EPC or DEC, or better information about where energy is being consumed. Unifi.id meets you at the point of need and connects each project to the wider opportunity.
+            </Body>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                icon: FileText,
+                title: 'Measure & Report',
+                body: 'TrackZero, energy data, Non-Domestic EPCs and DECs establish the starting point.',
+              },
+              {
+                icon: BarChart3,
+                title: 'Understand & Prioritise',
+                body: 'Energy Clamp Meters, Smart Sockets and dashboards expose waste and support better decisions.',
+              },
+              {
+                icon: Wrench,
+                title: 'Deliver & Verify',
+                body: 'LED, heating, HVAC, controls and solar turn the evidence into measurable improvement.',
+              },
+              {
+                icon: TrendingUp,
+                title: 'Expand & Optimise',
+                body: 'Use the results of each successful project to identify the next opportunity across the estate.',
+              },
+            ].map((stage) => (
+              <div
+                key={stage.title}
+                className="rounded-2xl border border-unifi-blue/10 bg-unifi-light p-6 text-left"
+              >
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-unifi-blue shadow-sm">
+                  <stage.icon className="h-6 w-6" />
+                </div>
+                <H3 className="mb-2 text-lg">{stage.title}</H3>
+                <Body className="text-unifi-gray-dark">{stage.body}</Body>
+              </div>
+            ))}
+          </div>
+
+          <Body className="mt-8 text-lg font-medium text-unifi-gray-dark">
+            Start at any point. Use each service independently or combine several in parallel.
+          </Body>
+        </div>
+      </Section>
+
       {/* Main Tabs Navigation */}
-      <div className="bg-white border-b sticky top-20 z-40">
+      <div id="explore-energy" className="bg-white border-b sticky top-20 z-40 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex justify-center gap-8">
                 {[
@@ -2918,6 +3059,7 @@ export default function EnergyHubClient() {
                   <button
                     key={tab.id}
                     onClick={() => setActiveMainTab(tab.id as MainTab)}
+                    aria-pressed={activeMainTab === tab.id}
                 className={`flex items-center gap-2 py-6 border-b-2 transition-all font-bold ${
                   activeMainTab === tab.id 
                     ? 'border-unifi-blue text-unifi-blue' 
@@ -2956,12 +3098,14 @@ export default function EnergyHubClient() {
                 {[
                   { id: 'led', label: 'LED Lighting', icon: Lightbulb },
                   { id: 'smart-sockets', label: 'Smart Sockets', icon: Plug },
+                  { id: 'energy-clamp-meters', label: 'Energy Clamp Meters', icon: Gauge },
                   { id: 'heating', label: 'Heating & HVAC', icon: Thermometer },
                   { id: 'solar', label: 'Solar & Renewables', icon: Sun }
                 ].map((tab) => (
                   <button
                     key={tab.id}
                     onClick={() => setActiveTechTab(tab.id as TechnologyTab)}
+                    aria-pressed={activeTechTab === tab.id}
                     className={`px-8 py-3 rounded-full font-bold transition-all flex items-center gap-2 ${
                       activeTechTab === tab.id
                         ? 'bg-unifi-blue text-white shadow-lg'
@@ -3164,16 +3308,18 @@ export default function EnergyHubClient() {
                       </div>
                       <div className="space-y-6">
                         <Body className="text-lg text-unifi-gray-dark">
-                          Make hidden energy usage visible and act on it automatically to cut energy bills, lower carbon emissions, and avoid powering unused space. Reduce plug load energy by 30-67% with 3-12-months payback.
+                          Smart Sockets provide appliance-level visibility and control for plug-in equipment. Energy Clamp Meters complement them by monitoring circuits and fixed loads such as lighting, HVAC and plant. Together they provide a more complete view of building electricity use.
+                        </Body>
+                        <Body className="text-lg text-unifi-gray-dark">
+                          Make hidden energy usage visible and act on it automatically to cut energy bills, lower carbon emissions, and avoid powering unused space.
                         </Body>
                       </div>
                     </div>
 
-                    <div className="grid md:grid-cols-3 gap-6 mb-12">
+                    <div className="grid md:grid-cols-2 gap-6 mb-12">
                       {[
                         { val: '30%-67%', label: 'Typical plug load energy savings' },
-                        { val: '3-12 months', label: 'Typical Payback Period' },
-                        { val: 'X2.4 return', label: 'On subscription' }
+                        { val: '3-12 months', label: 'Typical Payback Period' }
                       ].map((stat, i) => (
                         <div key={i} className="bg-unifi-blue/5 p-8 rounded-2xl text-left border border-unifi-blue/10">
                           <div className="text-4xl font-bold text-unifi-blue mb-2">{stat.val}</div>
@@ -3184,7 +3330,7 @@ export default function EnergyHubClient() {
 
                     <div className="max-w-4xl mx-auto space-y-6 mb-12">
                       <Body className="text-lg leading-relaxed">
-                        Most buildings can't see up to 40% of their electricity use - nearly half of that is wasted. That's plug load energy: the everyday appliances running under the radar of traditional systems.
+                        In many buildings a significant share of electricity use sits outside the view of traditional building systems. That is plug load energy: the everyday appliances running under the radar.
                       </Body>
                       <Body className="text-lg leading-relaxed">
                         Appliance-level control powered by AI identifies hidden energy drains and shuts them off automatically. Cut costs. Lower carbon. Reduce fire risk. Understand occupancy. All from a single system.
@@ -3204,8 +3350,8 @@ export default function EnergyHubClient() {
                             'Cut carbon',
                             'Reduce risk',
                             'Automate compliance',
-                            'Reduce plug load energy by 30-67%',
-                            'See payback in 3-12-months'
+                            'Reduce plug load energy where equipment is left running unnecessarily',
+                            'Measure the result so savings can be verified over time'
                           ].map((item, i) => (
                             <li key={i} className="flex gap-2 text-unifi-gray-dark">
                               <span className="text-unifi-blue">•</span> {item}
@@ -3251,6 +3397,64 @@ export default function EnergyHubClient() {
               </div>
             )}
 
+            {activeTechTab === 'energy-clamp-meters' && (
+              <div className="animate-in fade-in duration-500">
+                <Section backgroundColor="white">
+                  <div className="max-w-7xl mx-auto px-6">
+                    <div className="max-w-4xl mx-auto text-left mb-12">
+                      <div className="flex items-center gap-4 mb-6">
+                        <div className="w-14 h-14 rounded-full bg-unifi-blue/10 flex items-center justify-center">
+                          <Gauge className="w-7 h-7 text-unifi-blue" />
+                        </div>
+                        <H2>Energy Clamp Meters: See What Each Circuit Is Costing You</H2>
+                      </div>
+                      <Body className="text-lg text-unifi-gray-dark">
+                        Overall energy bills can hide very different patterns of use. Energy Clamp Meters provide circuit-level visibility across lighting, HVAC, compressors, plant and other fixed electrical loads, showing when and where energy is being consumed.
+                      </Body>
+                    </div>
+
+                    <div className="grid md:grid-cols-3 gap-6">
+                      {[
+                        {
+                          title: 'Circuit-level visibility',
+                          body: 'Monitor selected fixed loads that cannot be measured through a Smart Socket.',
+                        },
+                        {
+                          title: 'Energy, cost and emissions data',
+                          body: 'Bring consumption into a dashboard that supports operational and investment decisions.',
+                        },
+                        {
+                          title: 'Measured verification',
+                          body: 'Establish a baseline before an upgrade and continue monitoring afterwards to assess the result.',
+                        },
+                      ].map((point) => (
+                        <div
+                          key={point.title}
+                          className="rounded-2xl border border-unifi-blue/10 bg-unifi-light p-6 text-left"
+                        >
+                          <div className="flex gap-3 items-start">
+                            <CheckCircle className="w-5 h-5 text-unifi-blue flex-shrink-0 mt-1" />
+                            <div>
+                              <H3 className="mb-2 text-lg">{point.title}</H3>
+                              <Body className="text-unifi-gray-dark">{point.body}</Body>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </Section>
+
+                <Section backgroundColor="white">
+                  <div className="max-w-7xl mx-auto px-6 text-left py-12">
+                    <ButtonLink href="/energy/monitoring/energy-clamp-meters/" variant="primary">
+                      Explore Energy Clamp Meters
+                    </ButtonLink>
+                  </div>
+                </Section>
+              </div>
+            )}
+
             {activeTechTab === 'heating' && (
               <div className="animate-in fade-in duration-500">
                 {/* Heating & HVAC Hero Stats */}
@@ -3279,7 +3483,7 @@ export default function EnergyHubClient() {
                         Intelligent heating and HVAC upgrades optimise your building's climate control - reducing energy waste, improving comfort, and supporting sustainability targets. Boiler replacements, heat pumps, and building management system upgrades can all be delivered without upfront capital.
                       </Body>
                       <Body className="text-lg leading-relaxed">
-                        Third-party funding structures allow energy and cost savings to finance the installation. Organisations redirect spend from wasted heating and cooling into fully funded upgrades, with positive cash flow from day one.
+                        Third-party funding structures allow energy and cost savings to finance the installation. Organisations can redirect spend from wasted heating and cooling into funded upgrades, with the cashflow position depending on eligibility and project economics.
                       </Body>
                     </div>
                   </div>
@@ -3441,7 +3645,7 @@ export default function EnergyHubClient() {
                     <div className="max-w-4xl mx-auto text-left mb-16">
                       <H2 className="mb-4">Solar & Renewables: Generate Clean Energy, Reduce Reliance on the Grid</H2>
                       <Body className="text-lg text-unifi-gray-dark">
-                        Solar PV and renewable energy systems allow organisations to generate their own clean power, cut energy costs, and build long-term energy security. Fully funded solutions remove the capital barrier to adoption.
+                        Solar PV and renewable energy systems allow organisations to generate their own clean power, cut energy costs, and build long-term energy security. Funding routes can reduce or remove the capital barrier to adoption, subject to eligibility.
                       </Body>
                     </div>
                     <div className="grid md:grid-cols-3 gap-8 mb-16">
@@ -3636,6 +3840,7 @@ export default function EnergyHubClient() {
                       setActiveSectorTab(tab.id as SectorTab);
                       setActiveSectorTechTab('led');
                     }}
+                    aria-pressed={activeSectorTab === tab.id}
                     className={`px-8 py-3 rounded-full font-bold transition-all flex items-center gap-2 ${
                       activeSectorTab === tab.id
                         ? 'bg-unifi-blue text-white shadow-lg'
@@ -3671,6 +3876,7 @@ export default function EnergyHubClient() {
                         <button
                           key={tab.id}
                           onClick={() => setActiveEduTab(tab.id as EducationTab)}
+                          aria-pressed={activeEduTab === tab.id}
                           className={`px-6 py-2 rounded-lg font-bold transition-all ${
                             activeEduTab === tab.id
                               ? 'bg-unifi-blue/10 text-unifi-blue border-2 border-unifi-blue'
@@ -3683,6 +3889,16 @@ export default function EnergyHubClient() {
                     </div>
 
                     <SectorIntroCard content={activeSectorCard} />
+
+                    <RelevantEnergyServices
+                      contentKey={
+                        normalizedEducationTab === 'state-schools'
+                          ? 'education-state-schools'
+                          : normalizedEducationTab === 'mats' || normalizedEducationTab === 'groups'
+                            ? 'education-mats'
+                            : null
+                      }
+                    />
 
                     <SectorTechnologyTabs
                       tabs={visibleSectorTechTabs}
@@ -3713,7 +3929,7 @@ export default function EnergyHubClient() {
                             <ul className="space-y-4">
                               {
                                 [
-                                  "Fully funded LED lighting upgrades across entire estates",
+                                  "Funded LED lighting upgrades across entire estates",
                                   "Cashflow-positive projects paid from operational savings",
                                   "Phased LED modernisation that avoids academic disruption",
                                   "Verifiable energy and carbon reductions for ESG",
@@ -3832,7 +4048,7 @@ export default function EnergyHubClient() {
                             <ul className="space-y-4">
                               {
                                 [
-                                  "Fully funded LED lighting upgrades across school estates",
+                                  "Funded LED lighting upgrades across school estates",
                                   "Cashflow-positive projects paid from operational savings",
                                   "Improved learning environments with better light quality",
                                   "Reduced energy bills and carbon footprint",
@@ -3908,7 +4124,7 @@ export default function EnergyHubClient() {
                             <ul className="space-y-4">
                               {
                                 [
-                                  "Fully funded LED lighting upgrades for diverse learning spaces",
+                                  "Funded LED lighting upgrades for diverse learning spaces",
                                   "Cashflow-positive projects paid from operational savings",
                                   "Improved lighting quality for enhanced learning and practical training",
                                   "Significant reductions in energy consumption and maintenance costs",
@@ -3985,7 +4201,7 @@ export default function EnergyHubClient() {
                             <H3 className="text-xl mb-6">Unifi.id helps state schools deliver:</H3>
                             <ul className="space-y-4">
                               {[
-                                'Fully funded LED lighting upgrades across classrooms and campuses',
+                                'Funded LED lighting upgrades across classrooms and campuses',
                                 'Cashflow-positive projects paid from operational savings, not school budgets',
                                 'Phased installations timed around school hours and holidays to avoid disruption',
                                 'Verifiable carbon reductions to meet regulatory and Ofsted-linked sustainability standards',
@@ -4017,7 +4233,7 @@ export default function EnergyHubClient() {
                               title: 'Tight Budgets',
                               desc: 'Fixed or ringfenced funding leaves little room for capital projects.',
                               features: [
-                                'Fully funded models with no upfront cost',
+                                'Funded models that can reduce or remove upfront cost, subject to eligibility',
                                 'Immediate operational savings after installation',
                                 'Long-term reduction in maintenance spend',
                               ],
@@ -4280,6 +4496,7 @@ export default function EnergyHubClient() {
                         <button
                           key={tab.id}
                           onClick={() => setActiveCorporateTab(tab.id as CorporateTab)}
+                          aria-pressed={activeCorporateTab === tab.id}
                           className={
                             'px-6 py-2 rounded-lg font-bold transition-all border-2 ' +
                             (activeCorporateTab === tab.id
@@ -4293,6 +4510,8 @@ export default function EnergyHubClient() {
                     </div>
 
                     <SectorIntroCard content={activeSectorCard} />
+
+                    <RelevantEnergyServices contentKey="corporate" />
 
                     <SectorTechnologyTabs
                       tabs={visibleSectorTechTabs}
@@ -4780,6 +4999,7 @@ export default function EnergyHubClient() {
                         <button
                           key={tab.id}
                           onClick={() => setActivePublicTab(tab.id as PublicTab)}
+                          aria-pressed={activePublicTab === tab.id}
                           className={
                             'px-6 py-2 rounded-lg font-bold transition-all border-2 ' +
                             (activePublicTab === tab.id
@@ -4793,6 +5013,16 @@ export default function EnergyHubClient() {
                     </div>
 
                     <SectorIntroCard content={activeSectorCard} />
+
+                    <RelevantEnergyServices
+                      contentKey={
+                        activePublicTab === 'local'
+                          ? 'public-local'
+                          : activePublicTab === 'nhs'
+                            ? 'public-nhs'
+                            : null
+                      }
+                    />
 
                     <SectorTechnologyTabs
                       tabs={visibleSectorTechTabs}
@@ -4822,7 +5052,7 @@ export default function EnergyHubClient() {
                             <H3 className="text-xl mb-6">Unifi.id helps local authorities deliver:</H3>
                             <ul className="space-y-4">
                               {[
-                                'Fully funded LED retrofits across public buildings',
+                                'Funded LED retrofits across public buildings',
                                 'Immediate reductions in energy spend and maintenance burden',
                                 'Phased delivery planned around public access and service continuity',
                                 'Verifiable carbon reporting aligned with local authority targets',
@@ -4856,7 +5086,7 @@ export default function EnergyHubClient() {
                             <H3 className="text-xl mb-6">Unifi.id helps NHS & health estates deliver:</H3>
                             <ul className="space-y-4">
                               {[
-                                'Fully funded LED lighting upgrades across clinical and non-clinical areas',
+                                'Funded LED lighting upgrades across clinical and non-clinical areas',
                                 'Cashflow-positive projects paid from operational savings, protecting patient care budgets',
                                 'Superior lighting quality supporting patient recovery and staff wellbeing',
                                 'Reduced maintenance burden freeing estates teams for critical tasks',
@@ -4942,7 +5172,7 @@ export default function EnergyHubClient() {
                             <H3 className="text-xl mb-6">Unifi.id helps government estates deliver:</H3>
                             <ul className="space-y-4">
                               {[
-                                'Fully funded LED lighting upgrades across government estate - no capital approval delays',
+                                'Funded LED lighting upgrades across government estate, subject to eligibility',
                                 'Cashflow-positive projects with transparent, auditable funding structures',
                                 'Rapid deployment supporting ministerial commitments and policy objectives',
                                 'Significant carbon reduction demonstrating climate leadership',
@@ -5028,7 +5258,7 @@ export default function EnergyHubClient() {
                             <H3 className="text-xl mb-6">Unifi.id helps emergency services deliver:</H3>
                             <ul className="space-y-4">
                               {[
-                                'Fully funded LED lighting upgrades across operational and administrative facilities',
+                                'Funded LED lighting upgrades across operational and administrative facilities',
                                 'Cashflow-positive projects paid from energy savings, protecting frontline budgets',
                                 'Superior lighting reliability critical for 24/7 emergency operations',
                                 'Instant-on LED technology ensuring immediate full light output when needed',
@@ -5106,6 +5336,53 @@ export default function EnergyHubClient() {
 </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Energy Certificates */}
+      <Section backgroundColor="white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-4xl text-left mb-12">
+            <H2 className="mb-4">Energy Certificates That Lead to Action</H2>
+            <Body className="text-lg text-unifi-gray-dark">
+              An energy certificate can satisfy an immediate property or regulatory requirement. It can also provide a useful starting point for reducing consumption, improving performance and planning investment.
+            </Body>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                icon: FileText,
+                title: 'Non-Domestic EPCs',
+                body: 'Understand the calculated energy efficiency of a commercial or public-sector building and the improvements that could strengthen its rating.',
+                ctaLabel: 'Explore Non-Domestic EPCs',
+                href: '/energy/certificates/non-domestic-epc/',
+              },
+              {
+                icon: Award,
+                title: 'Display Energy Certificates',
+                body: 'Show how a qualifying public building has actually performed using metered energy consumption, and turn the advisory report into a practical improvement programme.',
+                ctaLabel: 'Explore Display Energy Certificates',
+                href: '/energy/certificates/display-energy-certificates/',
+              },
+            ].map((certificate) => (
+              <div
+                key={certificate.title}
+                className="flex flex-col rounded-3xl border border-unifi-blue/10 bg-unifi-light p-8 text-left"
+              >
+                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-unifi-blue shadow-sm">
+                  <certificate.icon className="h-7 w-7" />
+                </div>
+                <H3 className="mb-3 text-2xl">{certificate.title}</H3>
+                <Body className="mb-8 text-unifi-gray-dark">{certificate.body}</Body>
+                <div className="mt-auto">
+                  <ButtonLink href={certificate.href} variant="primary">
+                    {certificate.ctaLabel}
+                  </ButtonLink>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
 
       {/* Final CTA */}
       <Section backgroundColor="gray">
