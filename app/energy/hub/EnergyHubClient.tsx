@@ -2904,6 +2904,10 @@ function RelevantEnergyServices({ contentKey }: { contentKey: string | null }) {
 export default function EnergyHubClient() {
   const [activeMainTab, setActiveMainTab] = useState<MainTab>('technology');
   const [activeTechTab, setActiveTechTab] = useState<TechnologyTab>('led');
+  // Panels above the certificates end on different colours; flip the closing sections to keep grey/white alternating.
+  const contentEndsWhite =
+    activeMainTab === 'technology' &&
+    (activeTechTab === 'smart-sockets' || activeTechTab === 'heating' || activeTechTab === 'solar');
   const [activeSectorTab, setActiveSectorTab] = useState<SectorTab>('education');
   const [activeSectorTechTab, setActiveSectorTechTab] = useState<SectorTechnologyTab>('led');
   const [activeEduTab, setActiveEduTab] = useState<EducationTab>('higher-ed');
@@ -3086,7 +3090,7 @@ export default function EnergyHubClient() {
             exit={{ opacity: 0, y: -20 }}
           >
             {/* Tech Hero */}
-            <Section backgroundColor="white">
+            <Section backgroundColor="gray" className="pb-10 md:pb-12">
               <div className="max-w-7xl mx-auto px-6 text-left max-w-3xl mx-auto">
                 <H2 className="mb-6">Choose the technology mix for your carbon action plan</H2>
                 <Body className="text-lg">
@@ -3138,9 +3142,9 @@ export default function EnergyHubClient() {
                     </div>
                     <div className="grid md:grid-cols-3 gap-8 mb-16">
                       {[
-                        { val: '60%', label: 'Average Energy Reduction' },
-                        { val: '3-5 Years', label: 'Typical Payback Period' },
-                        { val: '25+ Years', label: 'LED Lifespan' }
+                        { val: '50-80%', label: 'Typical Lighting Energy Reduction' },
+                        { val: '3-7 Years', label: 'Typical Payback, Site Dependent' },
+                        { val: 'Fewer', label: 'Lamp Replacements and Call-Outs' }
                       ].map((stat, i) => (
                         <div key={i} className="bg-unifi-blue/5 p-8 rounded-2xl text-left border border-unifi-blue/10">
                           <div className="text-4xl font-bold text-unifi-blue mb-2">{stat.val}</div>
@@ -3264,7 +3268,7 @@ export default function EnergyHubClient() {
                             [
                               "Meeting or exceeding standards for education, workplaces, and public estates",
                               "Premium fixtures with certified performance ratings",
-                              "20+ year LED lifespan with consistent performance",
+                              "Long rated life and consistent light output, per manufacturer specification",
                               "Fittings that maintain efficiency and light quality for their full rated life",
                               "Designed for longevity, protecting your long-term investment"
                             ].map((item, i) => (
@@ -3451,7 +3455,7 @@ export default function EnergyHubClient() {
                   </div>
                 </Section>
 
-                <Section backgroundColor="white">
+                <Section backgroundColor="gray">
                   <div className="max-w-7xl mx-auto px-6 text-left py-12">
                     <ButtonLink href="/energy/monitoring/energy-clamp-meters/" variant="primary">
                       Explore Energy Clamp Meters
@@ -3864,7 +3868,7 @@ export default function EnergyHubClient() {
 
             {activeSectorTab === 'education' && (
               <div className="animate-in fade-in duration-500">
-                <Section backgroundColor="white">
+                <Section backgroundColor="gray">
                   <div className="max-w-7xl mx-auto px-6">
                     <div className="max-w-4xl mx-auto text-left mb-12">
                       <H2 className="mb-4">{activeSectorContent.heading}</H2>
@@ -3890,7 +3894,7 @@ export default function EnergyHubClient() {
                           className={`px-6 py-2 rounded-lg font-bold transition-all ${
                             activeEduTab === tab.id
                               ? 'bg-unifi-blue/10 text-unifi-blue border-2 border-unifi-blue'
-                              : 'bg-unifi-light text-unifi-gray-dark border-2 border-transparent hover:border-unifi-blue/30'
+                              : 'bg-white text-unifi-gray-dark border-2 border-transparent hover:border-unifi-blue/30'
                           }`}
                         >
                           {tab.label}
@@ -4486,7 +4490,7 @@ export default function EnergyHubClient() {
             
             {activeSectorTab === 'corporate' && (
               <div className="animate-in fade-in duration-500">
-                <Section backgroundColor="white">
+                <Section backgroundColor="gray">
                   <div className="max-w-7xl mx-auto px-6">
                     <div className="max-w-4xl mx-auto text-left mb-12">
                       <H2 className="mb-4">{activeSectorContent.heading}</H2>
@@ -4513,7 +4517,7 @@ export default function EnergyHubClient() {
                             'px-6 py-2 rounded-lg font-bold transition-all border-2 ' +
                             (activeCorporateTab === tab.id
                               ? 'bg-unifi-blue/10 text-unifi-blue border-unifi-blue'
-                              : 'bg-unifi-light text-unifi-gray-dark border-transparent hover:border-unifi-blue/30')
+                              : 'bg-white text-unifi-gray-dark border-transparent hover:border-unifi-blue/30')
                           }
                         >
                           {tab.label}
@@ -4992,7 +4996,7 @@ export default function EnergyHubClient() {
 
             {activeSectorTab === 'public' && (
               <div className="animate-in fade-in duration-500">
-                <Section backgroundColor="white">
+                <Section backgroundColor="gray">
                   <div className="max-w-7xl mx-auto px-6">
                     <div className="max-w-4xl mx-auto text-left mb-12">
                       <H2 className="mb-4">{activeSectorContent.heading}</H2>
@@ -5018,7 +5022,7 @@ export default function EnergyHubClient() {
                             'px-6 py-2 rounded-lg font-bold transition-all border-2 ' +
                             (activePublicTab === tab.id
                               ? 'bg-unifi-blue/10 text-unifi-blue border-unifi-blue'
-                              : 'bg-unifi-light text-unifi-gray-dark border-transparent hover:border-unifi-blue/30')
+                              : 'bg-white text-unifi-gray-dark border-transparent hover:border-unifi-blue/30')
                           }
                         >
                           {tab.label}
@@ -5352,7 +5356,7 @@ export default function EnergyHubClient() {
       </AnimatePresence>
 
       {/* Energy Certificates */}
-      <Section backgroundColor="white">
+      <Section backgroundColor={contentEndsWhite ? 'gray' : 'white'}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl text-left mb-12">
             <H2 className="mb-4">Energy Certificates That Lead to Action</H2>
@@ -5380,9 +5384,9 @@ export default function EnergyHubClient() {
             ].map((certificate) => (
               <div
                 key={certificate.title}
-                className="flex flex-col rounded-3xl border border-unifi-blue/10 bg-unifi-light p-8 text-left"
+                className={`flex flex-col rounded-3xl border border-unifi-blue/10 ${contentEndsWhite ? 'bg-white' : 'bg-unifi-light'} p-8 text-left`}
               >
-                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-unifi-blue shadow-sm">
+                <div className={`mb-5 flex h-14 w-14 items-center justify-center rounded-2xl ${contentEndsWhite ? 'bg-unifi-light' : 'bg-white'} text-unifi-blue shadow-sm`}>
                   <certificate.icon className="h-7 w-7" />
                 </div>
                 <H3 className="mb-3 text-2xl">{certificate.title}</H3>
@@ -5399,7 +5403,7 @@ export default function EnergyHubClient() {
       </Section>
 
       {/* Final CTA */}
-      <Section backgroundColor="gray">
+      <Section backgroundColor={contentEndsWhite ? 'white' : 'gray'}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="bg-unifi-blue rounded-3xl p-12 text-left text-white max-w-4xl mx-auto">
             <H2 className="text-white mb-6">Ready to Start Your Decarbonisation Journey?</H2>

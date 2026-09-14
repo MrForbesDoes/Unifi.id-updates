@@ -46,7 +46,7 @@ export const sectors: Sector[] = [
     summary: 'Estates teams under budget pressure - without disrupting learning.',
     description:
       'Support estates teams under budget pressure while maintaining compliance and minimising disruption.',
-    heroImage: '/unifi-assets/canary/photo-1692894115929-da265ede7d13.webp',
+    heroImage: '/unifi-assets/education-classroom.webp',
     icon: {
       label: 'Graduation cap',
       svgPath:
@@ -128,7 +128,7 @@ export const sectors: Sector[] = [
     summary: 'Consistent oversight across offices and mixed-use estates.',
     description:
       'Create consistent visibility across office and mixed-use estates, with clear accountability and reporting.',
-    heroImage: '/unifi-assets/corporate/photo-1521737711867-e3b97375f902.webp',
+    heroImage: '/unifi-assets/corporate/photo-1551135049-8a33b5883817.webp',
     icon: {
       label: 'Office building',
       svgPath:
@@ -210,7 +210,7 @@ export const sectors: Sector[] = [
     summary: 'Assurance and governance across complex multi-site portfolios.',
     description:
       'Reduce risk and waste across complex, multi-site portfolios where assurance and governance matter.',
-    heroImage: '/unifi-assets/corporate/photo-1600880292203-757bb62b4baf.webp',
+    heroImage: '/unifi-assets/canary/photo-1695105082122-3739cd4e6dd4.webp',
     icon: {
       label: 'Shield',
       svgPath:
@@ -292,7 +292,7 @@ export const sectors: Sector[] = [
     summary: 'High-occupancy, high-risk environments - with zero tolerance for downtime.',
     description:
       'Keep critical environments safe and compliant while coordinating work across busy, high-occupancy sites.',
-    heroImage: '/unifi-assets/canary/photo-1694902304056-b4ba1412d7b7.webp',
+    heroImage: '/unifi-assets/corporate/photo-1524758870432-af57e54afa26.webp',
     icon: {
       label: 'Medical cross',
       svgPath:

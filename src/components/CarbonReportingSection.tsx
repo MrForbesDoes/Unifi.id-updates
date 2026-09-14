@@ -23,7 +23,7 @@ const audiences = [
 
 export default function CarbonReportingSection() {
   return (
-    <Section backgroundColor="white">
+    <Section backgroundColor="gray">
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-10 max-w-4xl">
           <div className="mb-3 text-sm font-medium uppercase tracking-[0.18em] text-unifi-blue">

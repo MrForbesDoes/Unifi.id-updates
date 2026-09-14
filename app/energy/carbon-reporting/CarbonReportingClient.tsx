@@ -12,6 +12,7 @@ import {
   ClipboardList,
   FileSpreadsheet,
   GraduationCap,
+  Landmark,
   Leaf,
   Megaphone,
   School,
@@ -299,7 +300,7 @@ export default function CarbonReportingClient() {
         </div>
       </Section>
 
-      <Section backgroundColor="white">
+      <Section backgroundColor="gray">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-8 max-w-4xl">
             <div className="mb-3 text-sm font-medium uppercase tracking-[0.18em] text-unifi-blue">
@@ -310,8 +311,8 @@ export default function CarbonReportingClient() {
 
         <div className="max-w-7xl mx-auto px-0">
           <div className="relative overflow-hidden">
-            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-white to-transparent" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-white to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-unifi-light to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-unifi-light to-transparent" />
             <div className="marquee-right flex w-max gap-4 py-3">
               {[...partnerClients, ...partnerClients].map((client, index) => (
                 <LogoChip key={`${client.name}-${index}`} name={client.name} logo={client.logo} />
@@ -321,42 +322,62 @@ export default function CarbonReportingClient() {
         </div>
       </Section>
 
-      <Section backgroundColor="gray" className="scroll-mt-28">
+      <Section backgroundColor="white" className="scroll-mt-28">
         <div className="max-w-7xl mx-auto px-6" id="councils">
           <div className="mb-10 max-w-4xl">
-            <H2 className="mb-5">One Reporting Framework Across Schools, Buildings and Services</H2>
+            <div className="mb-4 flex items-center gap-2 text-sm font-medium uppercase tracking-[0.18em] text-unifi-blue">
+              <Landmark className="h-4 w-4" aria-hidden="true" />
+              <span>For councils and local authorities</span>
+            </div>
+            <H2 className="mb-5">One Reporting Framework Across Your Council&apos;s Schools, Buildings and Services</H2>
+            <Body className="mb-4">
+              Councils report carbon across a wide and varied estate — maintained schools, offices,
+              community buildings and operational sites — usually pieced together from different
+              teams, templates and reporting periods. TrackZero gives the council one consistent
+              framework to bring all of it together.
+            </Body>
             <Body>
-              TrackZero can support a single school or organisation, but its value grows
-              significantly across a council or multi-site estate. Each participating organisation
-              can maintain its own information, actions and progress while central teams receive
-              that information in a consistent structure.
+              Each participating school, building or service maintains its own information, actions
+              and progress, while the council&apos;s sustainability and estates teams receive that
+              information in a single, consistent structure.
             </Body>
           </div>
+
+          <ul className="mb-10 flex flex-wrap gap-2" aria-label="Council estates TrackZero can bring together">
+            {['Maintained schools', 'Council offices', 'Community and leisure buildings', 'Operational sites and depots'].map((item) => (
+              <li
+                key={item}
+                className="rounded-full border border-unifi-blue/15 bg-unifi-blue/5 px-4 py-1.5 text-sm font-medium text-unifi-dark"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
 
           <div className="grid gap-6 md:grid-cols-2">
             {[
               {
                 icon: FileSpreadsheet,
                 title: 'Replace fragmented returns',
-                body: 'Reduce the work involved in combining different spreadsheets, templates, methodologies and reporting periods.',
+                body: 'Stop stitching together spreadsheets, templates, methodologies and reporting periods from schools and departments across the council.',
               },
               {
                 icon: BarChart3,
-                title: 'See the position across the estate',
-                body: 'Give sustainability, energy and estates teams a clearer view across participating schools, buildings, departments or services while retaining site-level detail.',
+                title: 'See the position across the council estate',
+                body: 'Give sustainability, energy and estates teams a clearer view across participating schools, buildings, departments and services, while each keeps its own site-level detail.',
               },
               {
                 icon: Target,
                 title: 'Prioritise support and investment',
-                body: 'Compare progress, identify gaps and determine which organisations or buildings may benefit most from guidance, monitoring or investment.',
+                body: 'Compare progress across the estate, identify gaps and target guidance, monitoring or investment where it will make the most difference.',
               },
               {
                 icon: TrendingDown,
                 title: 'Connect reporting to delivery',
-                body: 'Use the evidence to open the right next conversation — from behavioural change and Energy Clamp Meters to Smart Sockets, LED, heating, HVAC or solar.',
+                body: 'Use the evidence to open the right next conversation for each site — from behavioural change and Energy Clamp Meters to Smart Sockets, LED, heating, HVAC or solar.',
               },
             ].map(({ icon: Icon, title, body }) => (
-              <Card key={title} withImage={false} className="border-unifi-blue/10">
+              <Card key={title} withImage={false} className="border-unifi-blue/10 bg-unifi-light">
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-unifi-blue/10 text-unifi-blue">
                   <Icon className="h-6 w-6" />
                 </div>
@@ -556,7 +577,7 @@ export default function CarbonReportingClient() {
 
             <Card
               className="border-black/5"
-              imageSrc="/unifi-assets/corporate/photo-1504384308090-c894fdcc538d.webp"
+              imageSrc="/unifi-assets/corporate/photo-1572274408891-758281498b72.webp"
               imageAlt="Trust leadership reviewing reporting and disclosure documents together."
               imageAspectClassName="aspect-[16/10]"
               seed="secr-trusts"
@@ -643,7 +664,7 @@ export default function CarbonReportingClient() {
         </div>
       </Section>
 
-      <Section backgroundColor="white">
+      <Section backgroundColor="gray" className="scroll-mt-28">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl">
             <H2 className="mb-5">Start with a School, a Group or a Council-Wide Programme</H2>
@@ -708,10 +729,7 @@ export default function CarbonReportingClient() {
             </div>
           </div>
         </div>
-      </Section>
-
-      <Section backgroundColor="gray" className="scroll-mt-28">
-        <div className="max-w-7xl mx-auto px-6" id="get-in-touch">
+        <div className="max-w-7xl mx-auto px-6 mt-16 pt-16 border-t border-gray-200" id="get-in-touch">
           <div className="grid items-start gap-6 lg:grid-cols-3">
             <Card withImage={false} className="lg:col-span-2">
               <H2 className="text-2xl font-bold text-gray-900">

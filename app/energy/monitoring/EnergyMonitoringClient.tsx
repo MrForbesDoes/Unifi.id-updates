@@ -143,7 +143,7 @@ export default function EnergyMonitoringClient() {
 
           <div className="grid gap-6 md:grid-cols-3">
             {visibilityLevels.map((level) => (
-              <Card
+              <Card imageSrc="/unifi-assets/hero-5.webp"
                 key={level.title}
                 className="h-full border-unifi-blue/10"
                 imageAlt={level.imageAlt}

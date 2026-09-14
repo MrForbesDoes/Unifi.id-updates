@@ -172,7 +172,7 @@ export default function DisplayEnergyCertificatesClient() {
 
             <Card
               className="border-unifi-blue/10"
-              imageSrc="/unifi-assets/corporate/photo-1590650046871-92c887180603.webp"
+              imageSrc="/unifi-assets/corporate/photo-1531973576160-7125cd663d86.webp"
               imageAlt="School business manager reviewing building energy information on a laptop"
               imageAspectClassName="aspect-[4/3]"
               seed="dec-schools"
@@ -281,7 +281,7 @@ export default function DisplayEnergyCertificatesClient() {
           <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
             <Card
               className="border-unifi-blue/10"
-              imageSrc="/unifi-assets/corporate/photo-1504384308090-c894fdcc538d.webp"
+              imageSrc="/unifi-assets/canary/photo-1695104214684-2de407363bff.webp"
               imageAlt="Facilities and estates colleagues reviewing an advisory report together"
               imageAspectClassName="aspect-[16/10]"
               seed="dec-advisory-report"

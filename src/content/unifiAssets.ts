@@ -51,6 +51,56 @@ export const unifiAssets = {
   ],
 };
 
+
+// One unique photo per page. Heroes are assigned here explicitly rather than hashed into a
+// small pool, which previously put the same image on up to seven pages.
+export const imageBySeed: Record<string, string> = {
+  'about': '/unifi-assets/corporate/photo-1558959356-2f36c7322d3b.webp',
+  'book-demo-hero': '/unifi-assets/corporate/photo-1554902843-260acd0993f8.webp',
+  'carbon-action-plan': '/unifi-assets/corporate/photo-1590402494682-cd3fb53b1f70.webp',
+  'contact-hero': '/unifi-assets/corporate/photo-1560264357-8d9202250f21.webp',
+  'cortex-platform': '/unifi-assets/canary/photo-1691766383671-a23baffc63a1.webp',
+  'display-energy-certificates': '/unifi-assets/card-1.webp',
+  'energy-clamp-meters': '/unifi-assets/card-3.webp',
+  'energy-club': '/unifi-assets/corporate/photo-1557804506-d8017c1e4856.webp',
+  'energy-contact': '/unifi-assets/corporate/photo-1610387853988-7a1623efb207.webp',
+  'energy-funding': '/unifi-assets/card-11.webp',
+  'energy-hub': '/unifi-assets/card-6.webp',
+  'energy-monitoring': '/unifi-assets/corporate/photo-1538688273852-e29027c0c176.webp',
+  'energy-survey': '/unifi-assets/card-5.webp',
+  'energy-team': '/unifi-assets/hero-3.webp',
+  'energy-technology': '/unifi-assets/card-12.webp',
+  'energy-trap': '/unifi-assets/card-10.webp',
+  'fireguard': '/unifi-assets/corporate/photo-1632923945886-9974836e0706.webp',
+  'insurelink': '/unifi-assets/canary/photo-1694901935650-474295eb9e9d.webp',
+  'legal-support-hero': '/unifi-assets/corporate/photo-1496681859237-6039cd585c4e.webp',
+  'news-3': '/unifi-assets/corporate/photo-1507206130118-b5907f817163.webp',
+  'news-4': '/unifi-assets/corporate/photo-1508780709619-79562169bc64.webp',
+  'news-beyond-capacity': '/unifi-assets/corporate/photo-1510074377623-8cf13fb86c08.webp',
+  'news-data-driven-partnerships': '/unifi-assets/corporate/photo-1577415124269-fc1140a69e91.webp',
+  'news-data-driven-security': '/unifi-assets/corporate/photo-1512428559087-560fa5ceab42.webp',
+  'news-decarbonisation-funding-post': '/unifi-assets/canary/photo-1759229582318-36e1986d0d80.webp',
+  'news-fireguard-new-era': '/unifi-assets/canary/photo-1701285138787-70ed060677da.webp',
+  'news-fireguard-post': '/unifi-assets/canary/photo-1714217592126-49103112dd09.webp',
+  'news-future-of-smart-buildings': '/unifi-assets/canary/photo-1720713790402-46a074e0bfed.webp',
+  'news-hero': '/unifi-assets/canary/photo-1701642792376-0faadfb0d13c.webp',
+  'news-live-view-post': '/unifi-assets/canary/photo-1695063199997-191266d4ab15.webp',
+  'news-transforming-fire-safety': '/unifi-assets/canary/photo-1696535958472-16e647f6028a.webp',
+  'non-domestic-epc': '/unifi-assets/hero-7.webp',
+  'partners-hero': '/unifi-assets/corporate/photo-1513530534585-c7b1394c6d51.webp',
+  'resources-hero': '/unifi-assets/corporate/photo-1598979072814-fa8af5d80de8.webp',
+  'role-ceo': '/unifi-assets/corporate/photo-1603202662747-00e33e7d1468.webp',
+  'role-cfo': '/unifi-assets/corporate/photo-1606857521015-7f9fcf423740.webp',
+  'role-coo': '/unifi-assets/corporate/photo-1616587896595-51352538155b.webp',
+  'role-esg-lead': '/unifi-assets/corporate/photo-1622674777904-386b3ef30c4a.webp',
+  'role-facilities': '/unifi-assets/corporate/photo-1622675205169-901710ac8643.webp',
+  'role-fire-safety-lead': '/unifi-assets/corporate/photo-1630673394533-b13bef31abf2.webp',
+  'role-security-head': '/unifi-assets/canary/photo-1694965383009-d2ae2750b7cc.webp',
+  'sectors-hero': '/unifi-assets/corporate/photo-1483058712412-4245e9b90334.webp',
+  'solutions-hub': '/unifi-assets/hero-2.webp',
+  'trackzero-schools-hero': '/unifi-assets/hero-6.webp',
+};
+
 export type PlaceholderKind = 'hero' | 'card' | 'logo';
 
 export function withBasePath(path: string) {
@@ -65,6 +115,7 @@ export function withBasePath(path: string) {
 
 export function pickUnifiPlaceholder(kind: PlaceholderKind, seed: string = 'default') {
   if (kind === 'logo') return withBasePath(unifiAssets.logo);
+  if (imageBySeed[seed]) return withBasePath(imageBySeed[seed]);
 
   const pool =
     kind === 'hero'

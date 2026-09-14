@@ -100,7 +100,7 @@ export default function PlatformOverviewClient() {
               </Text>
             </Card>
 
-            <Card className="border-t-4 border-orange-500" seed="Risk & Security" imageSrc="/unifi-assets/corporate/photo-1600880292203-757bb62b4baf.webp" imageAlt="Risk and security">
+            <Card className="border-t-4 border-orange-500" seed="Risk & Security" imageSrc="/unifi-assets/canary/photo-1693910530464-bb1385d391d6.webp" imageAlt="Risk and security">
               <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-4 mx-auto">
                 <span className="text-orange-600 text-xl">🛡️</span>
               </div>
@@ -112,7 +112,7 @@ export default function PlatformOverviewClient() {
               </Text>
             </Card>
 
-            <Card className="border-t-4 border-red-500" seed="Fire Safety Compliance" imageSrc="/unifi-assets/canary/photo-1694902304056-b4ba1412d7b7.webp" imageAlt="Fire safety compliance">
+            <Card className="border-t-4 border-red-500" seed="Fire Safety Compliance" imageSrc="/unifi-assets/canary/photo-1694967450668-9055a350b73f.webp" imageAlt="Fire safety compliance">
               <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4 mx-auto">
                 <span className="text-red-600 text-xl">🔥</span>
               </div>
@@ -124,7 +124,7 @@ export default function PlatformOverviewClient() {
               </Text>
             </Card>
 
-            <Card className="border-t-4 border-green-500" seed="Energy Performance" imageSrc="/unifi-assets/canary/photo-1696074010622-65271d2f423b.webp" imageAlt="Energy performance">
+            <Card className="border-t-4 border-green-500" seed="Energy Performance" imageSrc="/unifi-assets/canary/photo-1701178890188-dd030201cd3f.webp" imageAlt="Energy performance">
               <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4 mx-auto">
                 <span className="text-green-600 text-xl">⚡</span>
               </div>
@@ -136,7 +136,7 @@ export default function PlatformOverviewClient() {
               </Text>
             </Card>
 
-            <Card className="border-t-4 border-purple-500 sm:col-span-2 sm:max-w-[520px] sm:mx-auto xl:col-span-1 xl:max-w-none" seed="Operational Insights" imageSrc="/unifi-assets/corporate/photo-1590650046871-92c887180603.webp" imageAlt="Operational insights">
+            <Card className="border-t-4 border-purple-500 sm:col-span-2 sm:max-w-[520px] sm:mx-auto xl:col-span-1 xl:max-w-none" seed="Operational Insights" imageSrc="/unifi-assets/canary/photo-1730133492004-04a4bc30b3d9.webp" imageAlt="Operational insights">
               <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4 mx-auto">
                 <span className="text-purple-600 text-xl">📊</span>
               </div>
@@ -204,17 +204,17 @@ export default function PlatformOverviewClient() {
                     {
                       title: 'Cortex™',
                       desc: 'Central intelligence platform that processes all building data',
-                      image: '/unifi-assets/corporate/photo-1556761175-4b46a572b786.webp',
+                      image: '/unifi-assets/canary/photo-1694901437592-a1f885de2682.webp',
                     },
                     {
                       title: 'Pulse',
                       desc: 'Aggregator of detection technologies data into clear, zone-by-zone occupancy audits',
-                      image: '/unifi-assets/corporate/photo-1600880292203-757bb62b4baf.webp',
+                      image: '/unifi-assets/canary/photo-1694979686628-fc5f9522121c.webp',
                     },
                     {
                       title: 'LiveView',
                       desc: 'Live building visualization and control interface',
-                      image: '/unifi-assets/canary/photo-1692890528796-4b3fb17ec33b.webp',
+                      image: '/unifi-assets/corporate/photo-1516542076529-1ea3854896f2.webp',
                     },
                   ].map((item) => (
                     <Card key={item.title} seed={item.title} imageSrc={item.image} imageAlt={item.title}>
@@ -238,10 +238,10 @@ export default function PlatformOverviewClient() {
                 </Text>
                 <div className="grid md:grid-cols-4 gap-6">
                   {[
-                    { title: 'Sense', desc: 'RFID-based Detection', image: '/unifi-assets/card-7.webp' },
-                    { title: 'Flow', desc: 'Anonymous Footfall', image: '/unifi-assets/card-8.webp' },
-                    { title: 'Cognito', desc: 'Facial Recognition', image: '/unifi-assets/card-9.webp' },
-                    { title: 'Echo', desc: 'WiFi Device Detection', image: '/unifi-assets/card-10.webp' },
+                    { title: 'Sense', desc: 'RFID-based Detection', image: '/unifi-assets/corporate/photo-1517048676732-d65bc937f952.webp' },
+                    { title: 'Flow', desc: 'Anonymous Footfall', image: '/unifi-assets/corporate/photo-1519389950473-47ba0277781c.webp' },
+                    { title: 'Cognito', desc: 'Facial Recognition', image: '/unifi-assets/corporate/photo-1521633286323-05b17f47cb74.webp' },
+                    { title: 'Echo', desc: 'WiFi Device Detection', image: '/unifi-assets/corporate/photo-1522071901873-411886a10004.webp' },
                   ].map((item) => (
                     <Card key={item.title} seed={item.title} imageSrc={item.image} imageAlt={item.title}>
                       <Text as="h3" variant="h3" className="mb-2">{item.title}</Text>
@@ -264,10 +264,10 @@ export default function PlatformOverviewClient() {
                 </Text>
                 <div className="grid md:grid-cols-4 gap-6">
                   {[
-                    { title: 'SafeGuard', desc: 'Comprehensive security monitoring', image: '/unifi-assets/card-11.webp' },
-                    { title: 'FireSafe', desc: 'Advanced fire prevention and detection', image: '/unifi-assets/card-12.webp' },
-                    { title: 'Predict', desc: 'Occupancy forecasting and planning', image: '/unifi-assets/canary/photo-1692890528796-4b3fb17ec33b.webp' },
-                    { title: 'Insights', desc: 'Executive reporting and analytics', image: '/unifi-assets/corporate/photo-1590650046871-92c887180603.webp' },
+                    { title: 'SafeGuard', desc: 'Comprehensive security monitoring', image: '/unifi-assets/corporate/photo-1527192491265-7e15c55b1ed2.webp' },
+                    { title: 'FireSafe', desc: 'Advanced fire prevention and detection', image: '/unifi-assets/corporate/photo-1529421308418-eab98863cee4.webp' },
+                    { title: 'Predict', desc: 'Occupancy forecasting and planning', image: '/unifi-assets/corporate/photo-1531545514256-b1400bc00f31.webp' },
+                    { title: 'Insights', desc: 'Executive reporting and analytics', image: '/unifi-assets/corporate/photo-1535957998253-26ae1ef29506.webp' },
                   ].map((item) => (
                     <Card key={item.title} seed={item.title} imageSrc={item.image} imageAlt={item.title}>
                       <Text as="h3" variant="h3" className="mb-2">{item.title}</Text>
@@ -289,12 +289,12 @@ export default function PlatformOverviewClient() {
                   Pre-integrated solutions combining multiple modules for specific industry needs
                 </Text>
                 <div className="grid md:grid-cols-2 gap-6">
-                  <Card className="border-t-4 border-red-500" seed="FireGuard" imageSrc="/unifi-assets/card-4.webp" imageAlt="FireGuard">
+                  <Card className="border-t-4 border-red-500" seed="FireGuard" imageSrc="/unifi-assets/corporate/photo-1541746972996-4e0b0f43e02a.webp" imageAlt="FireGuard">
                     <Text as="h3" variant="h3" className="mb-2">FireGuard</Text>
                     <Text variant="body" className="mb-4">Complete fire safety ecosystem combining detection, prevention, and emergency response capabilities</Text>
                     <ButtonLink href="/solutions/fireguard" variant="outline">Learn More</ButtonLink>
                   </Card>
-                  <Card className="border-t-4 border-blue-500" seed="InsureLink" imageSrc="/unifi-assets/card-6.webp" imageAlt="InsureLink">
+                  <Card className="border-t-4 border-blue-500" seed="InsureLink" imageSrc="/unifi-assets/corporate/photo-1542744173-8e7e53415bb0.webp" imageAlt="InsureLink">
                     <Text as="h3" variant="h3" className="mb-2">InsureLink</Text>
                     <Text variant="body" className="mb-4">Insurance-integrated platform that reduces premiums through demonstrated risk management</Text>
                     <ButtonLink href="/solutions/insurelink" variant="outline">Learn More</ButtonLink>
@@ -409,7 +409,7 @@ export default function PlatformOverviewClient() {
               </div>
 
               <div className="grid md:grid-cols-3 gap-8">
-                <Card seed="Per-Building" imageAlt="Per-Building">
+                <Card imageSrc="/unifi-assets/corporate/photo-1551434678-e076c223a692.webp" seed="Per-Building" imageAlt="Per-Building">
                   <div className="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
                     <Building2 className="h-8 w-8 text-blue-600" />
                   </div>
@@ -424,7 +424,7 @@ export default function PlatformOverviewClient() {
                   <div className="text-blue-600 font-semibold mb-6">Starting from £500/month</div>
                   <ButtonLink href="/contact" variant="outline" className="w-full">Discuss Options</ButtonLink>
                 </Card>
-                <Card className="border-2 border-primary relative" seed="Enterprise" imageAlt="Enterprise">
+                <Card imageSrc="/unifi-assets/corporate/photo-1551836022-d5d88e9218df.webp" className="border-2 border-primary relative" seed="Enterprise" imageAlt="Enterprise">
                   <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-sm font-semibold px-4 py-1 rounded-full">Most Popular</span>
                   <div className="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center mb-6 mt-2">
                     <Network className="h-8 w-8 text-green-600" />
@@ -440,7 +440,7 @@ export default function PlatformOverviewClient() {
                   <div className="text-green-600 font-semibold mb-6">Contact for pricing</div>
                   <ButtonLink href="/contact" variant="primary" className="w-full">Discuss Licensing</ButtonLink>
                 </Card>
-                <Card seed="Outcome-Based" imageAlt="Outcome-Based">
+                <Card imageSrc="/unifi-assets/corporate/photo-1553028826-f4804a6dba3b.webp" seed="Outcome-Based" imageAlt="Outcome-Based">
                   <div className="w-14 h-14 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
                     <Target className="h-8 w-8 text-purple-600" />
                   </div>

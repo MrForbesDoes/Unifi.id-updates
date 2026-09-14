@@ -106,7 +106,7 @@ export default function SolutionsFireguardClient() {
               <div className="absolute -inset-4 bg-gray-100 rounded-3xl -rotate-2"></div>
               <div className="relative aspect-[4/3] rounded-2xl shadow-xl overflow-hidden">
                 <Image
-                  src={withBasePath('/unifi-assets/canary/photo-1694902304056-b4ba1412d7b7.webp')}
+                  src={withBasePath('/unifi-assets/canary/photo-1695503076688-1fcf812f2a31.webp')}
                   alt="Fire safety monitoring"
                   fill
                   className="object-cover"

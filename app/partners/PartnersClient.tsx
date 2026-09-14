@@ -138,7 +138,7 @@ function PartnerCardComponent({ partner }: { partner: PartnerCard }) {
   const Icon = partner.icon;
 
   return (
-    <Card
+    <Card imageSrc="/unifi-assets/corporate/photo-1531538606174-0f90ff5dce83.webp"
       className="overflow-hidden"
       seed={partner.title}
       imageAspectClassName="aspect-[21/9]"

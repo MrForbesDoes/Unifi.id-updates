@@ -61,7 +61,7 @@ export default function SectorsHubClient() {
       <Section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src={withBasePath('/unifi-assets/corporate/photo-1600880292203-757bb62b4baf.webp')}
+            src={withBasePath('/unifi-assets/corporate/photo-1486312338219-ce68d2c6f44d.webp')}
             alt="Sectors hero background"
             fill
             priority

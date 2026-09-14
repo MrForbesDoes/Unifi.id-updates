@@ -118,7 +118,7 @@ export default function EnergyFundingOptionsClient() {
           <Body className="mb-8 text-gray-600">
             Let our financing specialists identify the best funding route for your specific requirements.
           </Body>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4">
             <ButtonLink href="/energy/survey">Book Free Survey</ButtonLink>
             <ButtonLink href="/energy/hub" variant="secondary">Back to Energy Hub</ButtonLink>
           </div>

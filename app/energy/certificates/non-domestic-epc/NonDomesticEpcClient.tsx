@@ -158,7 +158,7 @@ export default function NonDomesticEpcClient() {
 
             <Card
               className="border-unifi-blue/10"
-              imageSrc="/unifi-assets/corporate/photo-1504384308090-c894fdcc538d.webp"
+              imageSrc="/unifi-assets/canary/photo-1694979822204-ec3713409a36.webp"
               imageAlt="Property and estates team reviewing building documents around a table"
               imageAspectClassName="aspect-[16/10]"
               seed="non-domestic-epc-triggers"
@@ -376,7 +376,7 @@ export default function NonDomesticEpcClient() {
 
             <Card
               className="border-unifi-blue/10"
-              imageSrc="/unifi-assets/corporate/photo-1590650046871-92c887180603.webp"
+              imageSrc="/unifi-assets/corporate/photo-1517502884422-41eaead166d4.webp"
               imageAlt="Estates manager reviewing portfolio energy data on a laptop"
               imageAspectClassName="aspect-[4/3]"
               seed="non-domestic-epc-portfolio"

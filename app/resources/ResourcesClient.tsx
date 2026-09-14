@@ -16,7 +16,7 @@ const resources = [
     title: 'Data-Driven Security That Works Smarter',
     excerpt:
       'Traditional access control focuses on the door. Modern security requires presence intelligence - real-time awareness of who is actually somewhere.',
-    image: '/unifi-assets/card-1.webp',
+    image: '/unifi-assets/corporate/photo-1554902748-feaf536fc594.webp',
     link: '/news/data-driven-security',
     category: 'occupancy' as const,
     type: 'Article',
@@ -27,7 +27,7 @@ const resources = [
     title: 'Transforming Fire Safety with Real-Time Evacuation Intelligence',
     excerpt:
       'Fire drills and evacuation protocols are often treated as tick-box exercises. In reality, emergencies demand live data and instant insight.',
-    image: '/unifi-assets/card-2.webp',
+    image: '/unifi-assets/corporate/photo-1559523182-a284c3fb7cff.webp',
     link: '/news/transforming-fire-safety',
     category: 'fire-safety' as const,
     type: 'Article',
@@ -38,7 +38,7 @@ const resources = [
     title: 'Beyond Capacity: Using Occupancy Data to Keep Venues Safe & Compliant',
     excerpt:
       "Managing a venue's capacity isn't just about guest experience - it's a legal obligation and the foundation of your operating license.",
-    image: '/unifi-assets/card-3.webp',
+    image: '/unifi-assets/corporate/photo-1563986768609-322da13575f3.webp',
     link: '/news/beyond-capacity',
     category: 'occupancy' as const,
     type: 'Article',
@@ -49,7 +49,7 @@ const resources = [
     title: 'The Future of Smart Buildings: A 2025 Outlook',
     excerpt:
       'Discover the key trends shaping the future of building management, from AI-driven energy savings to enhanced security protocols.',
-    image: '/unifi-assets/card-4.webp',
+    image: '/unifi-assets/corporate/photo-1568992687947-868a62a9f521.webp',
     link: '/news/future-of-smart-buildings',
     category: 'strategy' as const,
     type: 'Article',
@@ -60,7 +60,7 @@ const resources = [
     title: 'Beyond the Certificate: Living Fire System Intelligence, 24/7',
     excerpt:
       'Most commercial buildings pass their annual fire safety inspection. But what happens in the 364 days between one certificate and the next?',
-    image: '/unifi-assets/card-5.webp',
+    image: '/unifi-assets/corporate/photo-1573164574397-dd250bc8a598.webp',
     link: '/news/fireguard-post',
     category: 'fire-safety' as const,
     type: 'Article',
@@ -71,7 +71,7 @@ const resources = [
     title: 'Unifi.id & FireGuard: A New Era in Fire Safety',
     excerpt:
       'Learn how our integrated FireGuard solution is revolutionising fire safety compliance and response times in complex environments.',
-    image: '/unifi-assets/card-6.webp',
+    image: '/unifi-assets/corporate/photo-1573164574472-797cdf4a583a.webp',
     link: '/news/fireguard-new-era',
     category: 'fire-safety' as const,
     type: 'Article',
@@ -82,7 +82,7 @@ const resources = [
     title: 'The Power of LiveView – Total Building Awareness in One Place',
     excerpt:
       "Most buildings are a mess of disconnected systems. Unifi.id's unified command centre transforms fragmented data into actionable building intelligence.",
-    image: '/unifi-assets/card-7.webp',
+    image: '/unifi-assets/corporate/photo-1573164574511-73c773193279.webp',
     link: '/news/live-view-post',
     category: 'analytics' as const,
     type: 'Article',
@@ -93,7 +93,7 @@ const resources = [
     title: 'Data-Driven Partnerships - How Unifi.id Makes Other Systems Better',
     excerpt:
       'Our platform was designed to make your existing infrastructure smarter - not obsolete. We turn legacy systems into intelligent systems.',
-    image: '/unifi-assets/card-8.webp',
+    image: '/unifi-assets/corporate/photo-1577962917302-cd874c4e31d2.webp',
     link: '/news/data-driven-partnerships',
     category: 'strategy' as const,
     type: 'Article',
@@ -104,7 +104,7 @@ const resources = [
     title: 'Decarbonisation: Why Waiting Costs More Than Acting',
     excerpt:
       'For estates managers, finance teams, and boardroom leaders, decarbonisation is no longer a distant ambition - it is a commercial and regulatory reality.',
-    image: '/unifi-assets/card-9.webp',
+    image: '/unifi-assets/corporate/photo-1579389083046-e3df9c2b3325.webp',
     link: '/news/decarbonisation-funding-post',
     category: 'sustainability' as const,
     type: 'Article',
@@ -115,7 +115,7 @@ const resources = [
     title: 'Decarbonisation Deep Dive: The ROI of Green Tech',
     excerpt:
       'We break down the long-term financial benefits of investing in decarbonisation technologies for your property portfolio.',
-    image: '/unifi-assets/card-10.webp',
+    image: '/unifi-assets/corporate/photo-1583916438680-f047ee7a5aad.webp',
     link: '/news/3',
     category: 'sustainability' as const,
     type: 'Deep Dive',
@@ -126,7 +126,7 @@ const resources = [
     title: 'Case Study: How a University Saved 30% on Energy Costs',
     excerpt:
       'Explore our recent partnership with a leading educational institution and see how Cortex delivered verifiable energy savings.',
-    image: '/unifi-assets/card-11.webp',
+    image: '/unifi-assets/corporate/photo-1594732832278-abd644401426.webp',
     link: '/news/4',
     category: 'sustainability' as const,
     type: 'Case Study',

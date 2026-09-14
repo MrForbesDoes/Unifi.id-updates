@@ -10,7 +10,7 @@ const blogPosts = [
   {
     title: "Data-Driven Security That Works Smarter",
     excerpt: "Traditional access control focuses on the door. Modern security requires presence intelligence - real-time awareness of who is actually somewhere.",
-    image: "/unifi-assets/card-1.webp",
+    image: "/unifi-assets/corporate/photo-1488751045188-3c55bbf9a3fa.webp",
     link: "/news/data-driven-security",
   },
   {
@@ -22,7 +22,7 @@ const blogPosts = [
   {
     title: "Beyond Capacity: Using Occupancy Data to Keep Venues Safe & Compliant",
     excerpt: "Managing a venue's capacity isn't just about guest experience - it's a legal obligation and the foundation of your operating license.",
-    image: "/unifi-assets/card-3.webp",
+    image: "/unifi-assets/corporate/photo-1488998527040-85054a85150e.webp",
     link: "/news/beyond-capacity",
   },
   {
@@ -34,13 +34,13 @@ const blogPosts = [
   {
     title: "Beyond the Certificate: Living Fire System Intelligence, 24/7",
     excerpt: "Most commercial buildings pass their annual fire safety inspection. But what happens in the 364 days between one certificate and the next?",
-    image: "/unifi-assets/card-5.webp",
+    image: "/unifi-assets/corporate/photo-1497032628192-86f99bcd76bc.webp",
     link: "/news/fireguard-post",
   },
   {
     title: "Unifi.id & FireGuard: A New Era in Fire Safety",
     excerpt: "Learn how our integrated FireGuard solution is revolutionizing fire safety compliance and response times in complex environments.",
-    image: "/unifi-assets/card-6.webp",
+    image: "/unifi-assets/corporate/photo-1497215728101-856f4ea42174.webp",
     link: "/news/fireguard-new-era",
   },
   {
@@ -58,19 +58,19 @@ const blogPosts = [
   {
     title: "Decarbonisation: Why Waiting Costs More Than Acting",
     excerpt: "For estates managers, finance teams, and boardroom leaders, decarbonisation is no longer a distant ambition - it's a commercial and regulatory reality.",
-    image: "/unifi-assets/card-9.webp",
+    image: "/unifi-assets/corporate/photo-1498049860654-af1a5c566876.webp",
     link: "/news/decarbonisation-funding-post",
   },
   {
     title: "Decarbonisation Deep Dive: The ROI of Green Tech",
     excerpt: "We break down the long-term financial benefits of investing in decarbonisation technologies for your property portfolio.",
-    image: "/unifi-assets/card-10.webp",
+    image: "/unifi-assets/corporate/photo-1498409785966-ab341407de6e.webp",
     link: "/news/3",
   },
   {
     title: "Case Study: How a University Saved 30% on Energy Costs",
     excerpt: "Explore our recent partnership with a leading educational institution and see how Cortex delivered verifiable energy savings.",
-    image: "/unifi-assets/card-11.webp",
+    image: "/unifi-assets/corporate/photo-1499914485622-a88fac536970.webp",
     link: "/news/4",
   },
 ];

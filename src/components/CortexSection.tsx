@@ -6,7 +6,7 @@ import Text from './Text';
 
 export default function CortexSection() {
   return (
-    <Section backgroundColor="gray">
+    <Section backgroundColor="white">
       <div className="max-w-7xl mx-auto px-6">
         <Text as="h2" variant="h2" className="mb-6">
           {homeContent.cortex.title}

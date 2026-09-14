@@ -9,6 +9,9 @@ const config: Config = {
     '!./app/**/page 2.tsx',
   ],
   theme: {
+    container: {
+      center: true,
+    },
     extend: {
       fontFamily: {
         sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],

@@ -218,7 +218,7 @@ export default function EnergyTechnologyClient() {
             <Body className="text-unifi-gray-dark mb-8">
               Start with a free survey. We'll identify the highest-impact opportunities and structure a programme that is low-disruption, evidence-led, and aligned to your governance requirements.
             </Body>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4">
               <ButtonLink href="/energy/contact" variant="primary">Book a Free Energy Survey</ButtonLink>
               <ButtonLink href="/energy/hub" variant="secondary">Back to Energy Hub</ButtonLink>
             </div>

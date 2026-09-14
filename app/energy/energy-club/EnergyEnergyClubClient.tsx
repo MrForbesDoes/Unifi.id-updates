@@ -112,7 +112,7 @@ export default function EnergyEnergyClubClient() {
           <Body className="mb-8 text-gray-600">
             If you want a simpler way to buy energy, strengthen carbon reporting, or start shaping a carbon action plan, this is a low-friction place to begin.
           </Body>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4">
             <ButtonLink href="/energy/contact">Join Free</ButtonLink>
             <ButtonLink href="/energy/hub" variant="secondary">Back to Energy Hub</ButtonLink>
           </div>

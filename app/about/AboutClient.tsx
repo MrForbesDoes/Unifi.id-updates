@@ -128,7 +128,7 @@ export default function AboutClient() {
             </div>
             <div className="rounded-3xl aspect-video relative overflow-hidden shadow-sm">
               <Image
-                src={withBasePath('/unifi-assets/corporate/photo-1521737711867-e3b97375f902.webp')}
+                src={withBasePath('/unifi-assets/corporate/photo-1564069114553-7215e1ff1890.webp')}
                 alt="Unifi.id team collaborating"
                 fill
                 className="object-cover"

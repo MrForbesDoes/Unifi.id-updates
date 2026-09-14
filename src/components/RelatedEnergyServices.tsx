@@ -28,8 +28,10 @@ export default function RelatedEnergyServices({
   heading = 'Where this leads next',
   intro,
   links,
-  backgroundColor = 'gray',
+  backgroundColor = 'white',
 }: Props) {
+  const cardFill = backgroundColor === 'gray' ? 'bg-white' : 'bg-unifi-light';
+
   return (
     <Section backgroundColor={backgroundColor}>
       <div className="max-w-7xl mx-auto px-6">
@@ -43,7 +45,7 @@ export default function RelatedEnergyServices({
             <li key={href}>
               <a
                 href={href}
-                className="group flex h-full items-start gap-4 rounded-sm border border-gray-200 bg-white p-6 transition-all hover:border-unifi-blue/40 hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-unifi-blue/30"
+                className={`group flex h-full items-start gap-4 rounded-sm border border-gray-200 ${cardFill} p-6 transition-all hover:border-unifi-blue/40 hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-unifi-blue/30`}
                 data-track-event="energy_crosslink"
                 data-track-service={service}
                 data-track-cta={label}
