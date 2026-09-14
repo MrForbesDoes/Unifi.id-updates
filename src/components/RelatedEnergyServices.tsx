@@ -1,6 +1,7 @@
 'use client';
 
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 import { Section } from './Section';
 import { Body, H2 } from './Typography';
 
@@ -43,7 +44,7 @@ export default function RelatedEnergyServices({
         <ul className="grid gap-4 md:grid-cols-2">
           {links.map(({ href, label, description, service }) => (
             <li key={href}>
-              <a
+              <Link
                 href={href}
                 className={`group flex h-full items-start gap-4 rounded-sm border border-gray-200 ${cardFill} p-6 transition-all hover:border-unifi-blue/40 hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-unifi-blue/30`}
                 data-track-event="energy_crosslink"
@@ -58,7 +59,7 @@ export default function RelatedEnergyServices({
                   <span className="block font-semibold text-unifi-dark">{label}</span>
                   <span className="mt-1 block text-sm text-gray-600">{description}</span>
                 </span>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

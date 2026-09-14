@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { Activity, BarChart3, CheckCircle, Gauge, Plug, Zap } from 'lucide-react';
 
 import Card from '@/src/components/Card';
@@ -165,12 +166,12 @@ export default function EnergyClampMetersClient() {
               {relatedLinks.map(({ href, label }) => (
                 <li key={href} className="flex items-start gap-3">
                   <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-unifi-blue" />
-                  <a
+                  <Link
                     href={href}
                     className="text-unifi-blue underline underline-offset-4 hover:text-unifi-dark"
                   >
                     {label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

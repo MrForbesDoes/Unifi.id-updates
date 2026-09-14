@@ -61,10 +61,11 @@ export const metadata: Metadata = {
     description: siteDescription,
     images: ['/unifi-assets/unifid-logo.png'],
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  // A base path means a preview deployment (e.g. the GitHub project-page demo), which
+  // must stay out of search results so it can't compete with unifi.id itself.
+  robots: process.env.NEXT_PUBLIC_BASE_PATH
+    ? { index: false, follow: false }
+    : { index: true, follow: true },
 };
 
 

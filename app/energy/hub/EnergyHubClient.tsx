@@ -1,6 +1,7 @@
 
 'use client';
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Zap, Building, TrendingUp, Shield, DollarSign, AlertTriangle, CheckCircle, Target, GraduationCap, School, Award, Users, ArrowRight, Lightbulb, Thermometer, Sun, Plug, Gauge, FileText, BarChart3, Wrench } from 'lucide-react';
 import { H1, H2, H3, Body, Lead } from '@/src/components/Typography';
@@ -2888,12 +2889,12 @@ function RelevantEnergyServices({ contentKey }: { contentKey: string | null }) {
         {content.links.map((link) => (
           <li key={link.label} className="flex items-center gap-2 text-sm font-bold text-unifi-blue">
             <ArrowRight className="w-3 h-3 flex-shrink-0" />
-            <a
+            <Link
               href={link.href}
               className="underline underline-offset-4 hover:text-unifi-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-unifi-blue/30 focus-visible:ring-offset-2"
             >
               {link.label}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

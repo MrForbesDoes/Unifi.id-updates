@@ -1,5 +1,6 @@
 'use client';
 import { useRef, useState, useMemo } from 'react';
+import Link from 'next/link';
 import { ButtonLink } from '@/src/components/ButtonLink';
 import Card from '@/src/components/Card';
 import PageActions from '@/src/components/PageActions';
@@ -284,7 +285,7 @@ export default function ResourcesClient() {
                       <span className="px-2 py-0.5 bg-gray-100 rounded text-xs font-medium capitalize">{resource.category.replace('-', ' ')}</span>
                     </div>
                     <Text as="h3" variant="h3" className="mb-2">
-                      <a href={resource.link} className="hover:text-primary transition-colors">{resource.title}</a>
+                      <Link href={resource.link} className="hover:text-primary transition-colors">{resource.title}</Link>
                     </Text>
                     <Text variant="body" className="mb-4">{resource.excerpt}</Text>
                     <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
@@ -312,7 +313,7 @@ export default function ResourcesClient() {
                     <span className="px-2 py-0.5 bg-gray-100 rounded text-xs font-medium capitalize">{resource.category.replace('-', ' ')}</span>
                   </div>
                   <Text as="h3" variant="h3" className="mb-2 line-clamp-2">
-                    <a href={resource.link} className="hover:text-primary transition-colors">{resource.title}</a>
+                    <Link href={resource.link} className="hover:text-primary transition-colors">{resource.title}</Link>
                   </Text>
                   <Text variant="body" className="mb-4 line-clamp-3 text-gray-600">{resource.excerpt}</Text>
                   <div className="flex items-center justify-between text-sm text-gray-500 mb-4">

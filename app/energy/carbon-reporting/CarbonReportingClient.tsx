@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import {
   BadgeCheck,
@@ -30,7 +31,7 @@ import { buildFaqSchema } from '@/src/lib/schema';
 import { trackEvent } from '@/src/lib/analytics';
 import { trackZeroUrl } from '@/src/content/partners';
 import { Body, H1, H2, H3, Lead } from '@/src/components/Typography';
-import { pickUnifiPlaceholder } from '@/src/content/unifiAssets';
+import { pickUnifiPlaceholder, withBasePath } from '@/src/content/unifiAssets';
 import { submitLeadForm } from '@/src/lib/leadForms';
 
 type SchoolTab = {
@@ -698,7 +699,7 @@ export default function CarbonReportingClient() {
                 ].map(({ href, label }) => (
                   <li key={href} className="flex items-start gap-3">
                     <BadgeCheck className="mt-0.5 h-5 w-5 flex-shrink-0 text-unifi-blue" />
-                    <a
+                    <Link
                       href={href}
                       className="text-unifi-blue underline underline-offset-4 hover:text-unifi-dark"
                       data-track-event="energy_crosslink"
@@ -706,7 +707,7 @@ export default function CarbonReportingClient() {
                       data-track-cta={label}
                     >
                       {label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -883,7 +884,7 @@ function LogoChip({ name, logo }: { name: string; logo: string }) {
   return (
     <div className="flex items-center justify-center px-8 py-5">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={logo} alt={name} className="h-[60px] w-auto max-w-[270px] object-contain" />
+      <img src={withBasePath(logo)} alt={name} className="h-[60px] w-auto max-w-[270px] object-contain" />
     </div>
   );
 }

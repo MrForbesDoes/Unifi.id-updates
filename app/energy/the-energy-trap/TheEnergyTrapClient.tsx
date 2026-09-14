@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Body, H1, H2, H3 } from '@/src/components/Typography';
 import { ButtonLink } from '@/src/components/ButtonLink';
 import { Section } from '@/src/components/Section';
-import { pickUnifiPlaceholder } from '@/src/content/unifiAssets';
+import { pickUnifiPlaceholder, withBasePath } from '@/src/content/unifiAssets';
 import RelatedEnergyServices from '@/src/components/RelatedEnergyServices';
 
 const paperCoverage = [
@@ -74,7 +74,7 @@ export default function TheEnergyTrapClient() {
             </Body>
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <a
-                href="/papers/The_Energy_Trap.pdf"
+                href={withBasePath('/papers/The_Energy_Trap.pdf')}
                 className="inline-flex items-center gap-2 rounded-sm bg-white px-8 py-4 text-lg font-medium text-unifi-dark transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:bg-unifi-light hover:shadow-lg"
               >
                 <ArrowDownToLine className="w-5 h-5" />
@@ -171,7 +171,7 @@ export default function TheEnergyTrapClient() {
 
           <div className="pt-2 flex flex-col sm:flex-row gap-4">
             <a
-              href="/papers/The_Energy_Trap.pdf"
+              href={withBasePath('/papers/The_Energy_Trap.pdf')}
               className="inline-flex items-center gap-2 rounded-sm bg-unifi-dark px-8 py-4 text-lg font-medium text-white transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:bg-black hover:shadow-lg"
             >
               <ArrowDownToLine className="w-5 h-5" />

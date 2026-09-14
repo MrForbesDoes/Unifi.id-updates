@@ -37,8 +37,15 @@ jobs:
         # local diagnostic tool only — safe to drop here.
         run: rm -rf app/admin
 
+      - name: Detect Pages base path
+        # Empty for the live site on its custom domain (unifi.id); "/Unifi.id-updates" when the
+        # same code deploys to the demo repo as a project page. Lets both repos share this file.
+        id: pages
+        uses: actions/configure-pages@v5
+
       - name: Build (static export)
-        # Custom domain at the root (unifi.id) — no base path.
+        env:
+          NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
         run: npm run build
 
       - name: Upload artifact
