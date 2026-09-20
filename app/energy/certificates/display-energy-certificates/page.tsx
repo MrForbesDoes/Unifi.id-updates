@@ -3,17 +3,17 @@ import DisplayEnergyCertificatesClient from './DisplayEnergyCertificatesClient';
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'Display Energy Certificates | unifi.id',
+    absolute: 'Display Energy Certificates for Schools and Public Buildings | unifi.id',
   },
   description:
-    'Display Energy Certificates show how a public building actually uses energy. Understand who qualifies, how long a DEC lasts, and how to turn operational evidence into measurable improvement.',
+    'Arrange Display Energy Certificates through an accredited assessor, coordinate renewals across public estates and turn operational energy evidence into action.',
   alternates: {
     canonical: 'https://unifi.id/energy/certificates/display-energy-certificates',
   },
   openGraph: {
-    title: 'Display Energy Certificates | unifi.id',
+    title: 'Display Energy Certificates for Schools and Public Buildings | unifi.id',
     description:
-      'Display Energy Certificates show how a public building actually uses energy. Understand who qualifies, how long a DEC lasts, and how to turn operational evidence into measurable improvement.',
+      'Arrange Display Energy Certificates through an accredited assessor, coordinate renewals across public estates and turn operational energy evidence into action.',
     url: 'https://unifi.id/energy/certificates/display-energy-certificates',
     images: ['/unifi-assets/unifid-logo.png'],
   },

@@ -2,14 +2,13 @@
 
 import Image from 'next/image';
 import {
-  Activity,
   BadgeCheck,
+  Building2,
   CalendarClock,
   CheckCircle,
   ClipboardList,
   Eye,
   Gauge,
-  Landmark,
   Layers,
   Ruler,
   School,
@@ -21,47 +20,64 @@ import { Section } from '@/src/components/Section';
 import { ButtonLink } from '@/src/components/ButtonLink';
 import { H1, H2, H3, Body, Lead } from '@/src/components/Typography';
 import { pickUnifiPlaceholder } from '@/src/content/unifiAssets';
+import RelatedEnergyServices from '@/src/components/RelatedEnergyServices';
 
-const qualifyingConditions = [
+const conditions = [
   {
+    icon: Building2,
     title: 'Occupied by a public authority',
-    body:
-      'The building is occupied, in whole or in part, by a public authority. That covers a wide range of organisations, from councils and NHS bodies to schools and academy trusts.',
-    icon: Landmark,
+    body: 'The building is occupied in whole or in part by a public authority.',
   },
   {
-    title: 'Frequently visited by the public',
-    body:
-      'The building is frequently visited by members of the public. It is the pattern of public visiting that matters, not whether the building is formally described as public-facing.',
     icon: Users,
+    title: 'Frequently visited by the public',
+    body: 'Members of the public visit the building frequently as part of its normal operation.',
   },
   {
-    title: 'Over 250 square metres of useful floor area',
-    body:
-      'The building has a total useful floor area of more than 250 square metres. Floor area is assessed for the building, which is why larger sites made up of several blocks need to be looked at carefully.',
     icon: Ruler,
+    title: 'Over 250 square metres',
+    body: 'The building has a total useful floor area greater than 250 square metres.',
   },
 ];
 
-const advisoryReportContents = [
-  'Recommended measures for improving the operational energy performance of the building',
-  'An indication of the relative effort or investment each measure is likely to involve',
-  'A practical starting point for discussion between estates, finance and facilities teams',
-  'A reference document the assessor produces alongside the certificate itself',
+const certificateComparison = [
+  {
+    icon: Gauge,
+    title: 'Display Energy Certificate',
+    body: 'Uses actual metered energy consumption over the relevant 12-month period to show operational performance.',
+  },
+  {
+    icon: ClipboardList,
+    title: 'Energy Performance Certificate',
+    body: 'Uses a standardised model of the building fabric and installed services to show calculated asset performance.',
+  },
 ];
 
-const monitoringLinkedBenefits = [
-  'Annual energy figures stop being a once-a-year data-gathering exercise',
-  'Out-of-hours and holiday consumption becomes visible, which is often where the easiest savings sit',
-  'Changes made during the year can be checked against the meter rather than assumed',
-  'The following year’s certificate is supported by evidence you have already been watching',
+const validityPeriods = [
+  {
+    title: 'Buildings over 1,000 square metres',
+    body: 'The DEC is valid for 12 months. The accompanying advisory report is valid for 7 years.',
+  },
+  {
+    title: 'Buildings over 250 and up to 1,000 square metres',
+    body: 'The DEC and advisory report are both valid for 10 years.',
+  },
+];
+
+const monitoringConnections = [
+  'Bring annual energy records together before the assessment is due.',
+  'Use Energy Clamp Meters to understand selected circuits and fixed loads.',
+  'Use Smart Sockets to see and control plug-in equipment where appropriate.',
+  'Use TrackZero to connect operational data, actions and progress across the wider estate.',
+  'Use continued monitoring to assess whether an intervention changed consumption.',
 ];
 
 const estateCoordination = [
-  'A single register of which buildings hold a current certificate and when each one expires',
-  'Renewals scheduled ahead of time rather than chased after the date has passed',
-  'Assessments coordinated through accredited assessors across many sites at once',
-  'Advisory report findings compared across the estate, so recurring issues can be tackled as a programme',
+  'Maintain a single view of certificate and advisory-report status.',
+  'Schedule renewals before certificates expire.',
+  'Coordinate assessments and information gathering across multiple sites.',
+  'Compare advisory reports to identify recurring issues and estate-wide opportunities.',
+  'Prioritise monitoring and investment where the evidence indicates the greatest need.',
 ];
 
 export default function DisplayEnergyCertificatesClient() {
@@ -69,11 +85,11 @@ export default function DisplayEnergyCertificatesClient() {
 
   return (
     <>
-      <Section className="relative overflow-hidden min-h-[72vh] flex items-center">
+      <Section className="relative overflow-hidden min-h-[70vh] flex items-center">
         <div className="absolute inset-0 z-0">
           <Image
             src={heroImage}
-            alt="Entrance of a public building of the kind that requires a Display Energy Certificate"
+            alt="Public building entrance"
             fill
             priority
             className="object-cover"
@@ -83,11 +99,11 @@ export default function DisplayEnergyCertificatesClient() {
         </div>
 
         <div className="relative z-10 w-full">
-          <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-7xl mx-auto px-6 w-full">
             <div className="max-w-4xl pt-16">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-white/90">
-                <Eye className="h-4 w-4" />
-                Energy certificates · Display Energy Certificates
+              <div className="flex items-center gap-2 text-sm font-medium uppercase tracking-[0.18em] text-white/75">
+                <Eye className="h-4 w-4" aria-hidden="true" />
+                <span>Energy Certificates · Display Energy Certificates</span>
               </div>
 
               <H1 className="mt-6 mb-6 text-white">
@@ -95,13 +111,22 @@ export default function DisplayEnergyCertificatesClient() {
               </H1>
 
               <Lead className="max-w-3xl text-white/85">
-                We do not simply arrange a DEC. We help public-sector estates stay compliant, manage
-                renewals and turn operational energy evidence into a programme of measurable
-                improvement.
+                A Display Energy Certificate uses metered consumption to show how a public building
+                has performed in operation. Unifi.id coordinates the assessment through an accredited
+                assessor, helps estates manage renewals and connects the advisory report to a
+                programme of measurable improvement.
               </Lead>
 
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                <ButtonLink href="#dec-enquiry">Enquire about a Display Energy Certificate</ButtonLink>
+                <ButtonLink
+                  href="/energy/contact"
+                  variant="primary"
+                  data-track-event="energy_service_cta"
+                  data-track-service="dec"
+                  data-track-cta="Enquire About a Display Energy Certificate"
+                >
+                  Enquire About a Display Energy Certificate
+                </ButtonLink>
                 <ButtonLink
                   href="/energy/monitoring"
                   variant="outline"
@@ -117,407 +142,306 @@ export default function DisplayEnergyCertificatesClient() {
 
       <Section backgroundColor="white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-4xl mb-10">
-            <H2 className="mb-4">The three conditions that make a DEC apply</H2>
+          <div className="mb-10 max-w-4xl rounded-2xl border border-unifi-blue/15 bg-unifi-blue/5 p-6">
             <Body>
-              In England and Wales, the Display Energy Certificate requirement is built on three
-              conditions. All three need to apply to the same building before a certificate is
-              required, which is why two neighbouring sites can be treated differently.
+              We do not simply arrange a DEC. We help public-sector estates stay compliant, manage
+              renewals and turn operational energy evidence into a programme of measurable
+              improvement.
+            </Body>
+          </div>
+
+          <div className="mb-10 max-w-4xl">
+            <H2 className="mb-5">The Three Conditions That Make a DEC Apply</H2>
+            <Body>
+              In England and Wales, a Display Energy Certificate and advisory report are required when
+              all three of the following conditions apply to the building:
             </Body>
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
-            {qualifyingConditions.map((condition) => (
-              <div key={condition.title} className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
+            {conditions.map(({ icon: Icon, title, body }) => (
+              <Card key={title} withImage={false} className="border-unifi-blue/10">
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-unifi-blue/10 text-unifi-blue">
-                  <condition.icon className="h-6 w-6" aria-hidden="true" />
+                  <Icon className="h-6 w-6" aria-hidden="true" />
                 </div>
-                <H3 className="mb-3 text-xl">{condition.title}</H3>
-                <Body>{condition.body}</Body>
-              </div>
+                <H3 className="text-xl">{title}</H3>
+                <Body>{body}</Body>
+              </Card>
             ))}
           </div>
 
-          <Body className="mt-8 max-w-4xl">
-            Where a building sits close to one of those thresholds, or where a site is made up of
-            several connected buildings, the position is worth establishing properly rather than
-            assumed either way.
-          </Body>
+          <div className="mt-10 max-w-4xl rounded-2xl border border-unifi-blue/10 bg-unifi-light p-6">
+            <Body>
+              Buildings close to the threshold, mixed-use premises and sites made up of several blocks
+              should be considered individually. The requirement follows the building, its occupier and
+              its use.
+            </Body>
+          </div>
         </div>
       </Section>
 
       <Section backgroundColor="gray">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-            <div className="max-w-3xl">
-              <H2 className="mb-4">Most schools and academies are included</H2>
-              <Body className="mb-6">
-                Schools are one of the clearest examples of all three conditions applying at once.
-                They are occupied by a public authority, they are frequently visited by parents,
-                carers, governors and the wider community, and most school buildings comfortably
-                exceed the floor area threshold.
-              </Body>
-              <Body className="mb-6">
-                That applies to maintained schools and to academies and academy trusts alike. The
-                governance arrangement differs, but the certificate requirement follows the building
-                and its use, not the funding route. For a multi-academy trust, the practical effect is
-                that the obligation repeats across every qualifying site in the trust, each with its
-                own renewal date.
-              </Body>
-              <Body>
-                Colleges, sixth forms and other education settings should be assessed on the same
-                three conditions rather than by assuming a category applies.
-              </Body>
+          <div className="max-w-4xl">
+            <div className="mb-5 flex items-center gap-3">
+              <School className="h-6 w-6 text-unifi-blue" aria-hidden="true" />
+              <H2>Most Schools and Academies Are Included</H2>
             </div>
+            <Body>
+              Department for Education guidance confirms that the requirement includes most schools and
+              academies. For local authorities and academy trusts, the practical challenge is not one
+              certificate. It is maintaining the right certificate and advisory report across every
+              qualifying building, each with its own floor area, data and renewal date.
+            </Body>
+          </div>
+        </div>
+      </Section>
 
-            <Card
-              className="border-unifi-blue/10"
-              imageSrc="/unifi-assets/corporate/photo-1531973576160-7125cd663d86.webp"
-              imageAlt="School business manager reviewing building energy information on a laptop"
-              imageAspectClassName="aspect-[4/3]"
-              seed="dec-schools"
-            >
-              <div className="flex items-center gap-3">
-                <School className="h-6 w-6 text-unifi-blue" aria-hidden="true" />
-                <H3 className="text-xl">One requirement, many sites</H3>
+      <Section backgroundColor="white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="mb-10 max-w-4xl">
+            <H2 className="mb-5">Actual Energy Use, Not Calculated Asset Performance</H2>
+            <Body>A DEC and an EPC answer different questions about a building.</Body>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {certificateComparison.map(({ icon: Icon, title, body }) => (
+              <Card key={title} withImage={false} className="border-unifi-blue/10">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-unifi-blue/10 text-unifi-blue">
+                  <Icon className="h-6 w-6" aria-hidden="true" />
+                </div>
+                <H3 className="text-xl">{title}</H3>
+                <Body>{body}</Body>
+              </Card>
+            ))}
+          </div>
+
+          <div className="mt-10 max-w-4xl">
+            <Body>
+              The operational view responds to how the building is occupied and managed. It can reveal
+              the effect of heating schedules, out-of-hours use, changing occupancy and practical
+              operating decisions.
+            </Body>
+          </div>
+        </div>
+      </Section>
+
+      <Section backgroundColor="gray">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-4xl">
+            <H2 className="mb-5">An A to G Rating That Must Be Displayed</H2>
+            <Body className="mb-4">
+              The DEC shows operational energy performance on a scale from A to G, with A representing
+              the best performance and G the worst. It also includes the operational rating figure used
+              to benchmark the building against typical performance for its type.
+            </Body>
+            <Body className="mb-4">
+              A valid certificate must be displayed at all times in a prominent place that is clearly
+              visible to members of the public, such as a reception area, entrance or foyer. The
+              occupier must also have a valid advisory report in its possession or control.
+            </Body>
+            <Body>
+              Failing to display a valid certificate, or to hold a valid advisory report, carries fixed
+              penalties of £500 and £1,000 respectively. Once renewals are managed centrally, staying
+              compliant is straightforward.
+            </Body>
+          </div>
+        </div>
+      </Section>
+
+      <Section backgroundColor="white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-4xl">
+            <H2 className="mb-5">The Advisory Report Is the Starting Point for Action</H2>
+            <Body className="mb-4">
+              The certificate shows where the building currently sits. The advisory report identifies
+              measures that may improve its energy performance, including operational changes, upgrades
+              to building services and longer-term technology options.
+            </Body>
+            <Body>
+              The recommendations should be treated as a starting point for investigation. Before
+              investment is approved, they should be tested against the building&apos;s actual
+              operating pattern, technical constraints and measured consumption.
+            </Body>
+          </div>
+        </div>
+      </Section>
+
+      <Section backgroundColor="gray">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="mb-10 max-w-4xl">
+            <div className="flex items-center gap-3">
+              <CalendarClock className="h-6 w-6 text-unifi-blue" aria-hidden="true" />
+              <H2>Current Validity Periods</H2>
+            </div>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {validityPeriods.map(({ title, body }) => (
+              <Card key={title} withImage={false} className="border-unifi-blue/10 bg-white">
+                <H3 className="text-xl">{title}</H3>
+                <Body>{body}</Body>
+              </Card>
+            ))}
+          </div>
+
+          <div className="mt-10 max-w-4xl">
+            <Body>
+              A mixed estate may therefore contain annual and 10-year renewal cycles at the same time.
+              Coordinating those dates centrally reduces the risk of certificates being overlooked. The
+              government has said it will respond later in 2026 to consultation questions on when DECs
+              are required and how long they last; the periods above apply until any change is made.
+            </Body>
+          </div>
+        </div>
+      </Section>
+
+      <Section backgroundColor="white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="mb-10 max-w-4xl">
+            <H2 className="mb-5">Delivered Through an Accredited DEC Assessor</H2>
+            <Body className="mb-4">
+              Only an accredited and appropriately qualified energy assessor can produce and lodge a
+              Display Energy Certificate and advisory report. The completed documents are lodged on the
+              official register.
+            </Body>
+            <Body>
+              Unifi.id is not an accredited DEC assessor and does not issue certificates. We arrange
+              and coordinate the assessment through an accredited assessor, help organise site
+              information and energy records, manage the process across one or many buildings, track
+              renewal dates and connect the findings to the wider energy programme.
+            </Body>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            <Card withImage={false} className="border-unifi-blue/10">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-unifi-blue/10 text-unifi-blue">
+                <Building2 className="h-6 w-6" aria-hidden="true" />
               </div>
+              <H3 className="text-xl">Unifi.id</H3>
               <Body>
-                For trusts and local authorities, the difficulty is rarely understanding the
-                requirement. It is keeping track of dozens of buildings, each with its own
-                certificate, its own expiry date and its own energy data to gather.
+                Coordinates the process, data gathering, renewal programme and improvement
+                follow-through.
+              </Body>
+            </Card>
+            <Card withImage={false} className="border-unifi-blue/10">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-unifi-blue/10 text-unifi-blue">
+                <BadgeCheck className="h-6 w-6" aria-hidden="true" />
+              </div>
+              <H3 className="text-xl">Accredited DEC assessor</H3>
+              <Body>
+                Reviews the building and energy information, produces the DEC and advisory report, and
+                lodges the documents.
               </Body>
             </Card>
           </div>
         </div>
       </Section>
 
-      <Section backgroundColor="white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-4xl mb-10">
-            <H2 className="mb-4">Actual energy use, not calculated performance</H2>
-            <Body>
-              This is the difference that matters most, and the one most often missed. A Display
-              Energy Certificate and an EPC answer two different questions about the same building.
-            </Body>
-          </div>
-
-          <div className="grid gap-6 lg:grid-cols-2">
-            <div className="rounded-3xl border border-unifi-blue/10 bg-unifi-blue/5 p-8">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-unifi-blue/10 text-unifi-blue">
-                <Activity className="h-6 w-6" aria-hidden="true" />
-              </div>
-              <H3 className="mb-3 text-xl">A DEC measures operational energy use</H3>
-              <Body>
-                The rating is based on the energy the building has actually consumed over the previous
-                twelve months, taken from meter readings and fuel records. It reflects how the
-                building is really run: occupancy patterns, heating schedules, equipment left on
-                overnight, and the decisions made day to day.
-              </Body>
-            </div>
-
-            <div className="rounded-3xl border border-gray-200 bg-unifi-light p-8">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-unifi-blue/10 text-unifi-blue">
-                <Gauge className="h-6 w-6" aria-hidden="true" />
-              </div>
-              <H3 className="mb-3 text-xl">An EPC models asset performance</H3>
-              <Body>
-                An EPC rating is calculated from the building fabric and installed services under
-                standardised assumptions. It describes the building as designed rather than as
-                operated, which is why a well-specified building can still consume far more energy
-                than its asset rating suggests.
-              </Body>
-            </div>
-          </div>
-
-          <Body className="mt-8 max-w-4xl">
-            Both have a place. The operational view is the one that changes when you change how the
-            building is run, which is what makes it useful as a management tool rather than only a
-            compliance document.
-          </Body>
-        </div>
-      </Section>
-
       <Section backgroundColor="gray">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-            <div className="max-w-3xl">
-              <H2 className="mb-4">The A to G rating and the duty to display it</H2>
-              <Body className="mb-6">
-                A Display Energy Certificate reports the building&rsquo;s operational energy
-                performance on a scale from A to G, with A representing the best performance and G the
-                worst. The letter band is accompanied by an operational rating figure, benchmarked
-                against typical performance for that type of building, so the band is always shown
-                with the number behind it rather than on its own.
-              </Body>
-              <Body className="mb-6">
-                The certificate is not a document to be filed. It must be displayed in a place that is
-                prominently visible to the public who visit the building, which in practice usually
-                means a reception area, main entrance or foyer.
-              </Body>
-              <Body>
-                That public display is the point of the scheme. It puts the same information in front
-                of staff, visitors, parents and elected members, and it tends to prompt questions that
-                a filed certificate never would.
-              </Body>
-            </div>
-
-            <div className="rounded-3xl border border-unifi-blue/10 bg-white p-8 shadow-sm">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-unifi-blue/10 text-unifi-blue">
-                <Eye className="h-6 w-6" aria-hidden="true" />
-              </div>
-              <H3 className="mb-3 text-xl">Displayed, and readable</H3>
-              <Body>
-                Worth checking alongside the requirement itself: that the certificate on the wall is
-                the current one, that it is at a height where it can actually be read, and that the
-                band and rating figure are both legible rather than obscured by other notices.
-              </Body>
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      <Section backgroundColor="white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-            <Card
-              className="border-unifi-blue/10"
-              imageSrc="/unifi-assets/canary/photo-1695104214684-2de407363bff.webp"
-              imageAlt="Facilities and estates colleagues reviewing an advisory report together"
-              imageAspectClassName="aspect-[16/10]"
-              seed="dec-advisory-report"
-            >
-              <div className="flex items-center gap-3">
-                <ClipboardList className="h-6 w-6 text-unifi-blue" aria-hidden="true" />
-                <H3 className="text-xl">The half that gets forgotten</H3>
-              </div>
-              <Body>
-                The certificate goes on the wall and the advisory report goes in a drawer. Reversing
-                that habit is the single cheapest improvement most estates can make to how they use
-                the process.
-              </Body>
-            </Card>
-
-            <div className="max-w-3xl">
-              <H2 className="mb-4">The advisory report</H2>
-              <Body className="mb-6">
-                A Display Energy Certificate is issued together with an advisory report. The
-                certificate tells you where the building currently sits. The advisory report is the
-                part that talks about what could change.
-              </Body>
-              <ul className="space-y-4">
-                {advisoryReportContents.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-unifi-blue" aria-hidden="true" />
-                    <Body>{item}</Body>
-                  </li>
-                ))}
-              </ul>
-              <Body className="mt-6">
-                Because the recommendations are generated from a standard methodology, they should be
-                read as a prompt rather than a specification. Which measures are worth pursuing
-                depends on how your building is actually used, and that is a question for your
-                consumption data.
-              </Body>
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      <Section backgroundColor="gray">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-4xl mb-10">
-            <H2 className="mb-4">How long a certificate and advisory report last</H2>
-            <Body>
-              Validity depends on the size of the building, and the certificate and the advisory
-              report do not always expire together. These are the current periods in England and
-              Wales.
+          <div className="max-w-4xl">
+            <H2 className="mb-5">Connect the Certificate to Monitoring and Improvement</H2>
+            <Body className="mb-8">
+              A DEC is built from metered consumption. Better energy information therefore supports
+              both the certificate process and the decisions that follow it.
             </Body>
+
+            <ul className="space-y-4">
+              {monitoringConnections.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-unifi-blue" aria-hidden="true" />
+                  <Body>{item}</Body>
+                </li>
+              ))}
+            </ul>
           </div>
-
-          <div className="grid gap-6 lg:grid-cols-2">
-            <div className="rounded-3xl border border-unifi-blue/10 bg-white p-8 shadow-sm">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-unifi-blue/10 text-unifi-blue">
-                <CalendarClock className="h-6 w-6" aria-hidden="true" />
-              </div>
-              <H3 className="mb-3 text-xl">Buildings over 1,000 square metres</H3>
-              <Body>
-                The Display Energy Certificate is valid for twelve months and needs to be renewed
-                annually. The accompanying advisory report is valid for seven years, so it carries
-                across several certificate cycles.
-              </Body>
-            </div>
-
-            <div className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-unifi-blue/10 text-unifi-blue">
-                <CalendarClock className="h-6 w-6" aria-hidden="true" />
-              </div>
-              <H3 className="mb-3 text-xl">Buildings between 250 and 1,000 square metres</H3>
-              <Body>
-                Both the Display Energy Certificate and the advisory report are valid for ten years,
-                so the renewal cycle is far less frequent than for larger buildings.
-              </Body>
-            </div>
-          </div>
-
-          <Body className="mt-8 max-w-4xl">
-            For a mixed estate, this is where the administrative burden comes from. A larger building
-            needs attention every year while a smaller one does not come round again for a decade,
-            and the two cycles rarely line up neatly.
-          </Body>
         </div>
       </Section>
 
       <Section backgroundColor="white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-            <div className="max-w-3xl">
-              <H2 className="mb-4">Certificates must come from an accredited assessor</H2>
-              <Body className="mb-6">
-                A Display Energy Certificate and its advisory report must be produced by an energy
-                assessor who is accredited for this type of assessment, and the certificate is lodged
-                on the official register for England and Wales.
-              </Body>
-              <Body>
-                Unifi.id is not an accredited DEC assessor and does not issue certificates. We arrange
-                the assessment and coordinate it through an accredited assessor. What we add is
-                everything around that: collating the twelve months of energy data the assessment
-                needs, keeping renewal dates under control across an estate, and making sure the
-                advisory report feeds into a plan rather than a drawer.
-              </Body>
+          <div className="max-w-4xl">
+            <div className="mb-5 flex items-center gap-3">
+              <Layers className="h-6 w-6 text-unifi-blue" aria-hidden="true" />
+              <H2>Coordinate a Multi-Site Estate</H2>
             </div>
-
-            <div className="rounded-3xl border border-unifi-blue/10 bg-unifi-blue/5 p-8">
-              <H3 className="mb-5 text-xl">How the work divides</H3>
-              <ul className="space-y-4">
-                {[
-                  'We arrange the assessment and coordinate site access and information',
-                  'We gather and check the twelve months of consumption data the assessment relies on',
-                  'An accredited assessor carries out the assessment and lodges the certificate',
-                  'We track expiry dates and manage renewals across your buildings',
-                  'We help you act on the advisory report and measure whether it worked',
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <BadgeCheck className="mt-0.5 h-5 w-5 flex-shrink-0 text-unifi-blue" aria-hidden="true" />
-                    <Body>{item}</Body>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      <Section backgroundColor="gray">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-4xl mb-10">
-            <H2 className="mb-4">Connecting the certificate to monitoring and improvement</H2>
-            <Body>
-              Because a Display Energy Certificate is based on metered consumption, anything that
-              improves the quality and frequency of your energy data improves the certificate process
-              too. It also turns an annual obligation into something you can manage continuously.
+            <Body className="mb-8">
+              A council, NHS body or academy trust may be managing the same requirement across dozens
+              or hundreds of qualifying buildings. Unifi.id can help turn separate certificates and
+              expiry dates into one coordinated programme.
             </Body>
-          </div>
 
-          <div className="grid gap-6 lg:grid-cols-2">
-            <div className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
-              <H3 className="mb-4 text-xl">What better data changes</H3>
-              <ul className="space-y-4">
-                {monitoringLinkedBenefits.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-unifi-blue" aria-hidden="true" />
-                    <Body>{item}</Body>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="rounded-3xl border border-unifi-blue/10 bg-white p-8 shadow-sm">
-              <H3 className="mb-4 text-xl">Where to go next</H3>
-              <Body className="mb-6">
-                Each of these pages covers one part of the route from an annual certificate to a
-                programme of improvement you can evidence.
-              </Body>
-              <div className="flex flex-col gap-3">
-                <ButtonLink href="/energy/monitoring" variant="secondary" size="sm">
-                  See how Energy Monitoring supports annual reporting
-                </ButtonLink>
-                <ButtonLink href="/energy/monitoring/energy-clamp-meters/" variant="secondary" size="sm">
-                  Read about Energy Clamp Meters for circuit-level data
-                </ButtonLink>
-                <ButtonLink href="/energy/carbon-reporting" variant="secondary" size="sm">
-                  Explore TrackZero carbon reporting for public-sector estates
-                </ButtonLink>
-                <ButtonLink href="/energy/technology" variant="secondary" size="sm">
-                  Review the Technology options behind the improvements
-                </ButtonLink>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      <Section backgroundColor="white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-            <div className="max-w-3xl">
-              <H2 className="mb-4">Coordinating a multi-site estate</H2>
-              <Body className="mb-6">
-                A single Display Energy Certificate is straightforward. A county council, an NHS trust
-                or a multi-academy trust is managing the same task many times over, with different
-                buildings, different floor areas, different validity periods and different people
-                responsible at each site.
-              </Body>
-              <ul className="space-y-4">
-                {estateCoordination.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-unifi-blue" aria-hidden="true" />
-                    <Body>{item}</Body>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <Card
-              withImage={false}
-              className="border-unifi-blue/10 h-full bg-unifi-light"
-            >
-              <div className="flex items-center gap-3">
-                <Layers className="h-6 w-6 text-unifi-blue" aria-hidden="true" />
-                <H3 className="text-xl">From scattered dates to one programme</H3>
-              </div>
-              <Body>
-                Once the whole estate sits in one view, renewals stop being reactive and the advisory
-                reports can be read together. Recurring findings across many buildings are usually a
-                stronger business case than any single site would make on its own.
-              </Body>
-            </Card>
+            <ul className="space-y-4">
+              {estateCoordination.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-unifi-blue" aria-hidden="true" />
+                  <Body>{item}</Body>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </Section>
 
       <Section backgroundColor="gray" className="scroll-mt-28">
-        <div className="max-w-4xl mx-auto px-6" id="dec-enquiry">
-          <H2 className="mb-4">Enquire about a Display Energy Certificate</H2>
+        <div className="max-w-4xl mx-auto px-6" id="display-energy-certificate-enquiry">
+          <H2 className="mb-5">Arrange a Display Energy Certificate</H2>
           <Body className="mb-8">
-            Tell us how many buildings are involved, roughly how large they are, and whether you are
-            arranging a first certificate, managing renewals, or looking to act on advisory report
-            findings. We will come back with what the assessment would involve and how the
-            operational data behind it can support a longer improvement programme.
+            Tell us how many buildings are involved, their approximate floor areas and whether you need
+            a first certificate, a renewal programme or support acting on advisory-report findings. We
+            will explain the assessment route and how the operational evidence can support a wider
+            programme of improvement.
           </Body>
+
           <div className="flex flex-col gap-4 sm:flex-row">
-            <ButtonLink href="/energy/contact" data-track-event="energy_service_cta" data-track-service="dec" data-track-cta="Contact the Unifi.id energy team">Contact the Unifi.id energy team</ButtonLink>
-            <ButtonLink href="/energy/carbon-reporting" variant="secondary">
-              Explore TrackZero carbon reporting
+            <ButtonLink
+              href="/energy/contact"
+              data-track-event="energy_service_cta"
+              data-track-service="dec"
+              data-track-cta="Enquire About a Display Energy Certificate"
+            >
+              Enquire About a Display Energy Certificate
+            </ButtonLink>
+            <ButtonLink href="/energy/monitoring" variant="secondary">
+              Explore Energy Monitoring
             </ButtonLink>
           </div>
 
           <p className="mt-12 border-t border-gray-200 pt-6 text-sm leading-relaxed text-unifi-gray">
             This page provides general information about Display Energy Certificate requirements in
             England and Wales and is not legal advice. Requirements should be confirmed for the
-            individual building. Different arrangements apply elsewhere in the UK.
+            individual building. Different arrangements apply elsewhere in the UK. Requirements are
+            under review and are expected to change during 2026. This page was last reviewed on 16
+            September 2026.
           </p>
         </div>
       </Section>
+
+      <RelatedEnergyServices
+        backgroundColor="white"
+        heading="Where this leads next"
+        links={[
+          {
+            href: '/energy/monitoring/energy-clamp-meters',
+            label: 'Energy Clamp Meters',
+            description: 'Circuit-level visibility across lighting, HVAC, compressors and fixed plant.',
+            service: 'clamp-meters',
+          },
+          {
+            href: '/energy/carbon-reporting',
+            label: 'TrackZero Carbon Reporting',
+            description: 'Connect operational data, actions and progress across the wider estate.',
+            service: 'trackzero',
+          },
+          {
+            href: '/energy/technology',
+            label: 'Technology Options',
+            description: 'LED, heating, solar and the upgrades an advisory report often points to.',
+            service: 'technology',
+          },
+        ]}
+      />
     </>
   );
 }

@@ -3,17 +3,17 @@ import NonDomesticEpcClient from './NonDomesticEpcClient';
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'Non-Domestic EPC | unifi.id',
+    absolute: 'Non-Domestic EPC Assessment | unifi.id',
   },
   description:
-    'Understand when a Non-Domestic EPC is required, what the assessment provides, and how to turn the recommendation report into a costed improvement programme.',
+    'Arrange a Non-Domestic EPC through an accredited assessor, manage certificates across your portfolio and turn recommendations into a practical energy improvement plan.',
   alternates: {
     canonical: 'https://unifi.id/energy/certificates/non-domestic-epc',
   },
   openGraph: {
-    title: 'Non-Domestic EPC | unifi.id',
+    title: 'Non-Domestic EPC Assessment | unifi.id',
     description:
-      'Understand when a Non-Domestic EPC is required, what the assessment provides, and how to turn the recommendation report into a costed improvement programme.',
+      'Arrange a Non-Domestic EPC through an accredited assessor, manage certificates across your portfolio and turn recommendations into a practical energy improvement plan.',
     url: 'https://unifi.id/energy/certificates/non-domestic-epc',
     images: ['/unifi-assets/unifid-logo.png'],
   },

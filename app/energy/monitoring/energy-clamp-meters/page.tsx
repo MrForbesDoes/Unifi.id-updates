@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import EnergyClampMetersClient from './EnergyClampMetersClient';
 
 const description =
-  'Energy Clamp Meters provide circuit-level energy monitoring across lighting, HVAC, compressors and other fixed loads, giving energy, cost and emissions data to support operational and investment decisions.';
+  'See where fixed electrical loads are using energy. Unifi.id Energy Clamp Meters provide circuit-level energy, cost and emissions data for non-domestic estates.';
 
 export const metadata: Metadata = {
   title: {
