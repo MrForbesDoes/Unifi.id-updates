@@ -131,6 +131,9 @@ export default function DisplayEnergyCertificatesClient() {
                   href="/energy/monitoring"
                   variant="outline"
                   className="border-white text-white hover:bg-white hover:text-black"
+                  data-track-event="energy_crosslink"
+                  data-track-service="dec"
+                  data-track-cta="Explore Energy Monitoring"
                 >
                   Explore Energy Monitoring
                 </ButtonLink>
@@ -403,7 +406,13 @@ export default function DisplayEnergyCertificatesClient() {
             >
               Enquire About a Display Energy Certificate
             </ButtonLink>
-            <ButtonLink href="/energy/monitoring" variant="secondary">
+            <ButtonLink
+              href="/energy/monitoring"
+              variant="secondary"
+              data-track-event="energy_crosslink"
+              data-track-service="dec"
+              data-track-cta="Explore Energy Monitoring"
+            >
               Explore Energy Monitoring
             </ButtonLink>
           </div>

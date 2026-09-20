@@ -138,6 +138,9 @@ export default function NonDomesticEpcClient() {
                   href="/energy/monitoring"
                   variant="outline"
                   className="border-white text-white hover:bg-white hover:text-black"
+                  data-track-event="energy_crosslink"
+                  data-track-service="non-domestic-epc"
+                  data-track-cta="Explore Energy Monitoring"
                 >
                   Explore Energy Monitoring
                 </ButtonLink>
@@ -388,7 +391,13 @@ export default function NonDomesticEpcClient() {
             >
               Enquire About a Non-Domestic EPC
             </ButtonLink>
-            <ButtonLink href="/energy/monitoring" variant="secondary">
+            <ButtonLink
+              href="/energy/monitoring"
+              variant="secondary"
+              data-track-event="energy_crosslink"
+              data-track-service="non-domestic-epc"
+              data-track-cta="Explore Energy Monitoring"
+            >
               Explore Energy Monitoring
             </ButtonLink>
           </div>

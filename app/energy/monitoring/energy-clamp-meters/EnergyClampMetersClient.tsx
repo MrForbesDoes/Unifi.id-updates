@@ -164,6 +164,9 @@ export default function EnergyClampMetersClient() {
                   href="/energy/monitoring"
                   variant="outline"
                   className="border-white text-white hover:bg-white hover:text-black"
+                  data-track-event="energy_crosslink"
+                  data-track-service="clamp-meters"
+                  data-track-cta="Explore Energy Monitoring"
                 >
                   Explore Energy Monitoring
                 </ButtonLink>
@@ -377,7 +380,13 @@ export default function EnergyClampMetersClient() {
               >
                 Request an Energy Clamp Meter Review
               </ButtonLink>
-              <ButtonLink href="/energy/monitoring" variant="secondary">
+              <ButtonLink
+                href="/energy/monitoring"
+                variant="secondary"
+                data-track-event="energy_crosslink"
+                data-track-service="clamp-meters"
+                data-track-cta="Explore Energy Monitoring"
+              >
                 Explore Energy Monitoring
               </ButtonLink>
             </div>
