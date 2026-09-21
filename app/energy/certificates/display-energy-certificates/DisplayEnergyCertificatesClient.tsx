@@ -20,6 +20,8 @@ import { Section } from '@/src/components/Section';
 import { ButtonLink } from '@/src/components/ButtonLink';
 import { H1, H2, H3, Body, Lead } from '@/src/components/Typography';
 import { pickUnifiPlaceholder } from '@/src/content/unifiAssets';
+import SectionImage from '@/src/components/SectionImage';
+import UnifiMark from '@/src/components/UnifiMark';
 import RelatedEnergyServices from '@/src/components/RelatedEnergyServices';
 
 const conditions = [
@@ -231,7 +233,8 @@ export default function DisplayEnergyCertificatesClient() {
 
       <Section backgroundColor="gray">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-4xl">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.2fr_1fr]">
+            <div>
             <H2 className="mb-5">An A to G Rating That Must Be Displayed</H2>
             <Body className="mb-4">
               The DEC shows operational energy performance on a scale from A to G, with A representing
@@ -248,6 +251,8 @@ export default function DisplayEnergyCertificatesClient() {
               penalties of £500 and £1,000 respectively. Once renewals are managed centrally, staying
               compliant is straightforward.
             </Body>
+          </div>
+            <SectionImage src="/unifi-assets/public-building-reception.webp" alt="Public building reception, where a Display Energy Certificate must be clearly displayed" className="" />
           </div>
         </div>
       </Section>
@@ -301,7 +306,8 @@ export default function DisplayEnergyCertificatesClient() {
 
       <Section backgroundColor="white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="mb-10 max-w-4xl">
+          <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.2fr] mb-10">
+            <div>
             <H2 className="mb-5">Delivered Through an Accredited DEC Assessor</H2>
             <Body className="mb-4">
               Only an accredited and appropriately qualified energy assessor can produce and lodge a
@@ -315,11 +321,13 @@ export default function DisplayEnergyCertificatesClient() {
               renewal dates and connect the findings to the wider energy programme.
             </Body>
           </div>
+            <SectionImage src="/unifi-assets/corporate/photo-1551836022-d5d88e9218df.webp" alt="Gathering site information and energy records for a DEC assessment" className=" lg:order-first" />
+          </div>
 
           <div className="grid gap-6 md:grid-cols-2">
             <Card withImage={false} className="border-unifi-blue/10">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-unifi-blue/10 text-unifi-blue">
-                <Building2 className="h-6 w-6" aria-hidden="true" />
+              <div className="mb-4 flex h-12 items-center">
+                <UnifiMark className="h-6" />
               </div>
               <H3 className="text-xl">Unifi.id</H3>
               <Body>
@@ -343,7 +351,8 @@ export default function DisplayEnergyCertificatesClient() {
 
       <Section backgroundColor="gray">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-4xl">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.2fr_1fr]">
+            <div>
             <H2 className="mb-5">Connect the Certificate to Monitoring and Improvement</H2>
             <Body className="mb-8">
               A DEC is built from metered consumption. Better energy information therefore supports
@@ -359,12 +368,15 @@ export default function DisplayEnergyCertificatesClient() {
               ))}
             </ul>
           </div>
+            <SectionImage src="/unifi-assets/hero-1b.webp" alt="Energy-efficient public building with planted facades" className="" />
+          </div>
         </div>
       </Section>
 
       <Section backgroundColor="white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-4xl">
+          <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.2fr]">
+            <div>
             <div className="mb-5 flex items-center gap-3">
               <Layers className="h-6 w-6 text-unifi-blue" aria-hidden="true" />
               <H2>Coordinate a Multi-Site Estate</H2>
@@ -383,6 +395,8 @@ export default function DisplayEnergyCertificatesClient() {
                 </li>
               ))}
             </ul>
+          </div>
+            <SectionImage src="/unifi-assets/hero-8.webp" alt="Estates team reviewing certificate renewals across a multi-site estate" className=" lg:order-first" />
           </div>
         </div>
       </Section>

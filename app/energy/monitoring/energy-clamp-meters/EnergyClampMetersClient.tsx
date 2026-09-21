@@ -8,6 +8,8 @@ import { ButtonLink } from '@/src/components/ButtonLink';
 import { Section } from '@/src/components/Section';
 import { Body, H1, H2, H3, Lead } from '@/src/components/Typography';
 import { pickUnifiPlaceholder } from '@/src/content/unifiAssets';
+import SectionImage from '@/src/components/SectionImage';
+import UnifiMark from '@/src/components/UnifiMark';
 import RelatedEnergyServices from '@/src/components/RelatedEnergyServices';
 
 const whatItDoes = [
@@ -178,7 +180,8 @@ export default function EnergyClampMetersClient() {
 
       <Section backgroundColor="white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="mb-10 max-w-4xl">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.2fr_1fr] mb-10">
+            <div>
             <H2 className="mb-5">See What Each Circuit Is Costing You</H2>
             <Body className="mb-4">
               Energy Clamp Meters are installed at the distribution board to measure the electricity
@@ -190,6 +193,8 @@ export default function EnergyClampMetersClient() {
               The result is a more useful view of where electricity is being consumed, when demand
               rises and where operating patterns may be creating avoidable cost.
             </Body>
+          </div>
+            <SectionImage src="/unifi-assets/canary/photo-1694967222180-9967d4899c80.webp" alt="Grid of ceiling lighting circuits in a commercial building" className="" />
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
@@ -228,7 +233,8 @@ export default function EnergyClampMetersClient() {
             ))}
           </div>
 
-          <div className="mt-10 max-w-4xl rounded-2xl border border-unifi-blue/10 bg-white p-6">
+          <div className="mt-10 grid items-stretch gap-6 lg:grid-cols-[1.4fr_1fr]">
+            <div className="rounded-2xl border border-unifi-blue/10 bg-white p-6">
             <H3 className="mb-3 text-lg">Technical qualification</H3>
             <Body>
               Single-phase and three-phase supplies can be monitored. The required meter and
@@ -237,13 +243,16 @@ export default function EnergyClampMetersClient() {
               specific site. The monitoring hardware reports to the dashboard over the site&apos;s
               network, and connectivity requirements are confirmed during survey.
             </Body>
+            </div>
+            <SectionImage src="/unifi-assets/corporate/photo-1531973576160-7125cd663d86.webp" alt="Exposed ventilation ductwork and lighting runs in an open-plan office" aspectClassName="aspect-[16/10] lg:aspect-auto lg:h-full" />
           </div>
         </div>
       </Section>
 
       <Section backgroundColor="white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-4xl">
+          <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.2fr]">
+            <div>
             <H2 className="mb-5">Energy, Cost and Emissions in One Dashboard</H2>
             <Body className="mb-8">
               The meter data feeds into a dashboard where consumption can be viewed over time and
@@ -259,6 +268,8 @@ export default function EnergyClampMetersClient() {
                 </li>
               ))}
             </ul>
+          </div>
+            <SectionImage src="/unifi-assets/corporate/photo-1486312338219-ce68d2c6f44d.webp" alt="Reviewing circuit-level energy, cost and emissions data on a laptop" className=" lg:order-first" />
           </div>
         </div>
       </Section>
@@ -280,13 +291,16 @@ export default function EnergyClampMetersClient() {
 
       <Section backgroundColor="white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="mb-10 max-w-4xl">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.2fr_1fr] mb-10">
+            <div>
             <H2 className="mb-5">Measure Before, Verify After</H2>
             <Body>
               Energy Clamp Meters can be used before, during and after an improvement project. A
               baseline shows how the circuit currently performs. Continued monitoring then shows
               whether the intervention changed consumption in the way the business case expected.
             </Body>
+          </div>
+            <SectionImage src="/unifi-assets/corporate/photo-1504384308090-c894fdcc538d.webp" alt="Occupied open-plan office where lighting and equipment loads are monitored" className="" />
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">

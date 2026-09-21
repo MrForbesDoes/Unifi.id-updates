@@ -20,6 +20,8 @@ import { Section } from '@/src/components/Section';
 import { ButtonLink } from '@/src/components/ButtonLink';
 import { H1, H2, H3, Body, Lead } from '@/src/components/Typography';
 import { pickUnifiPlaceholder } from '@/src/content/unifiAssets';
+import SectionImage from '@/src/components/SectionImage';
+import UnifiMark from '@/src/components/UnifiMark';
 import RelatedEnergyServices from '@/src/components/RelatedEnergyServices';
 
 const triggerPoints = [
@@ -152,7 +154,8 @@ export default function NonDomesticEpcClient() {
 
       <Section backgroundColor="white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-4xl">
+          <div className="grid items-start gap-10 lg:grid-cols-[1.2fr_1fr]">
+            <div>
             <H2 className="mb-5">When a Non-Domestic EPC Is Generally Required</H2>
             <Body className="mb-8">
               In England and Wales, a Non-Domestic EPC is generally required when a qualifying
@@ -179,12 +182,15 @@ export default function NonDomesticEpcClient() {
               should always be checked against the circumstances of the individual property.
             </Body>
           </div>
+            <SectionImage src="/unifi-assets/canary/photo-1694979822204-ec3713409a36.webp" alt="Commercial office buildings that need a Non-Domestic EPC when sold or let" className="" />
+          </div>
         </div>
       </Section>
 
       <Section backgroundColor="gray">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-4xl">
+          <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.2fr]">
+            <div>
             <H2 className="mb-5">Minimum Standards Also Apply to Let Property</H2>
             <Body className="mb-4">
               Under the Minimum Energy Efficiency Standards, a landlord in England and Wales cannot
@@ -198,6 +204,8 @@ export default function NonDomesticEpcClient() {
               the starting point, avoids a transaction or a lease event forcing the work at short
               notice.
             </Body>
+          </div>
+            <SectionImage src="/unifi-assets/corporate/photo-1517502884422-41eaead166d4.webp" alt="Let office space subject to the Minimum Energy Efficiency Standards" className=" lg:order-first" />
           </div>
         </div>
       </Section>
@@ -245,8 +253,8 @@ export default function NonDomesticEpcClient() {
 
           <div className="grid gap-6 md:grid-cols-2">
             <Card withImage={false} className="border-unifi-blue/10 bg-white">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-unifi-blue/10 text-unifi-blue">
-                <Building2 className="h-6 w-6" aria-hidden="true" />
+              <div className="mb-4 flex h-12 items-center">
+                <UnifiMark className="h-6" />
               </div>
               <H3 className="text-xl">Unifi.id</H3>
               <Body>Coordinates the process, site information and next-stage improvement planning.</Body>
@@ -325,13 +333,16 @@ export default function NonDomesticEpcClient() {
 
       <Section backgroundColor="white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="mb-10 max-w-4xl">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.2fr_1fr] mb-10">
+            <div>
             <H2 className="mb-5">Turn Recommendations into an Improvement Business Case</H2>
             <Body>
               The recommendation report is generated from a standardised model. It identifies
               potential measures, but it does not know how the building is operated, which loads are
               driving cost or which intervention best fits the capital plan.
             </Body>
+          </div>
+            <SectionImage src="/unifi-assets/hero-4.webp" alt="Reviewing an energy improvement business case from an EPC recommendation report" className="" />
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
@@ -350,7 +361,8 @@ export default function NonDomesticEpcClient() {
 
       <Section backgroundColor="gray">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-4xl">
+          <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.2fr]">
+            <div>
             <div className="mb-5 flex items-center gap-3">
               <Layers className="h-6 w-6 text-unifi-blue" aria-hidden="true" />
               <H2>Support Across a Portfolio</H2>
@@ -369,6 +381,8 @@ export default function NonDomesticEpcClient() {
                 </li>
               ))}
             </ul>
+          </div>
+            <SectionImage src="/unifi-assets/hero-1d.webp" alt="Multi-building commercial property portfolio" className=" lg:order-first" />
           </div>
         </div>
       </Section>
